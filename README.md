@@ -28,14 +28,8 @@ Do not attach a custom domain yet. `funreview.app` is only a candidate and has n
 
 No environment variables are required. Progress is stored in the browser, so there is no database.
 
-### Optional analytics
+### Analytics
 
-Leave this unset to send nothing. The parent switch in Settings stays off until someone turns it on, and the measurement script is not in the HTML.
+Visits and lesson events are sent automatically to GA4 property `G-RLTWHLBZGW`. No names are sent. Set `VITE_GA_MEASUREMENT_ID` on the Railway service before a build only if you need to point at a different property. Vite reads it at build time.
 
-To allow that switch to work later, set this on the Railway service **before** the next build (Vite reads it at build time):
-
-```
-VITE_GA_MEASUREMENT_ID=
-```
-
-Events, if a parent opts in, are only: lesson opened, activity completed, quiz score band, and badge earned. No names are sent.
+Events are: page view, lesson opened, activity completed, quiz score band, and badge earned.

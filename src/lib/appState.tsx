@@ -8,7 +8,7 @@ import {
   useState,
   type ReactNode,
 } from "react"
-import { scoreBand, track, writeAnalyticsOptIn, readAnalyticsOptIn, loadAnalytics } from "./analytics.ts"
+import { scoreBand, track } from "./analytics.ts"
 import { emptySave, loadSave, writeSave } from "./save.ts"
 import { readMuted, writeMuted } from "./sounds.ts"
 import type { ActivityId, QuizScore, SaveFile } from "../content/types.ts"
@@ -17,8 +17,6 @@ type AppState = {
   save: SaveFile
   muted: boolean
   toggleMuted: () => void
-  analyticsOptIn: boolean
-  setAnalyticsOptIn: (on: boolean) => void
   isDone: (key: string, activity: ActivityId) => boolean
   isCurrent: (key: string, activity: ActivityId, order: ActivityId[]) => boolean
   completeActivity: (
@@ -40,16 +38,11 @@ function firstOpen(done: ActivityId[], order: ActivityId[]) {
 export function AppStateProvider({ children }: { children: ReactNode }) {
   const [save, setSave] = useState<SaveFile>(() => loadSave())
   const [muted, setMuted] = useState(() => readMuted())
-  const [analyticsOptIn, setOptIn] = useState(() => readAnalyticsOptIn())
   const saveRef = useRef(save)
 
   useEffect(() => {
     saveRef.current = save
   }, [save])
-
-  useEffect(() => {
-    if (analyticsOptIn) loadAnalytics()
-  }, [analyticsOptIn])
 
   const commit = useCallback((next: SaveFile) => {
     saveRef.current = next
@@ -66,11 +59,6 @@ export function AppStateProvider({ children }: { children: ReactNode }) {
           writeMuted(!current)
           return !current
         })
-      },
-      analyticsOptIn,
-      setAnalyticsOptIn: (on: boolean) => {
-        writeAnalyticsOptIn(on)
-        setOptIn(on)
       },
       isDone: (key, activity) =>
         save.weeks[key]?.completedActivities.includes(activity) ?? false,
@@ -109,7 +97,7 @@ export function AppStateProvider({ children }: { children: ReactNode }) {
       resetProgress: () => commit(emptySave()),
       replaceSave: (next) => commit(next),
     }
-  }, [analyticsOptIn, commit, muted, save])
+  }, [commit, muted, save])
 
   return <Context.Provider value={value}>{children}</Context.Provider>
 }

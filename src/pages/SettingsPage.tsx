@@ -3,7 +3,6 @@ import { Link } from "react-router-dom"
 import { Button } from "../components/Button.tsx"
 import { PageEnter } from "../components/PageEnter.tsx"
 import { ParentGate } from "../components/ParentGate.tsx"
-import { measurementId } from "../lib/analytics.ts"
 import { useAppState } from "../lib/appState.tsx"
 import { paths } from "../lib/routes.ts"
 import { encodeBackup, parseBackup, prettySave } from "../lib/save.ts"
@@ -17,7 +16,7 @@ export function SettingsPage() {
 }
 
 function SettingsPanel() {
-  const { save, resetProgress, replaceSave, analyticsOptIn, setAnalyticsOptIn } = useAppState()
+  const { save, resetProgress, replaceSave } = useAppState()
   const [confirmReset, setConfirmReset] = useState(false)
   const [showCode, setShowCode] = useState(false)
   const [importText, setImportText] = useState("")
@@ -118,25 +117,6 @@ function SettingsPanel() {
             Put progress back
           </Button>
         </div>
-      </section>
-
-      <section className="panel">
-        <h2>Visits</h2>
-        <p>
-          This stays off until a parent agrees. No name is sent. It only counts
-          which lessons were opened, which activities were finished, the score band, and badges.
-        </p>
-        {measurementId() ? null : (
-          <p className="form-note">Nothing is counted yet.</p>
-        )}
-        <button
-          type="button"
-          className={`switch${analyticsOptIn ? " is-on" : ""}`}
-          aria-pressed={analyticsOptIn}
-          onClick={() => setAnalyticsOptIn(!analyticsOptIn)}
-        >
-          {analyticsOptIn ? "Counting visits is on" : "Counting visits is off"}
-        </button>
       </section>
       {note ? <p className="form-note">{note}</p> : null}
     </PageEnter>

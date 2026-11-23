@@ -1,4 +1,3 @@
-const OPT_IN_KEY = "funreview-analytics-opt-in"
 const openedLessons = new Set<string>()
 
 type AnalyticsEvent =
@@ -17,23 +16,15 @@ declare global {
 const DEFAULT_MEASUREMENT_ID = "G-RLTWHLBZGW"
 
 export function measurementId() {
-  return (import.meta.env.VITE_GA_MEASUREMENT_ID ?? DEFAULT_MEASUREMENT_ID).trim()
-}
-
-export function readAnalyticsOptIn() {
-  return localStorage.getItem(OPT_IN_KEY) === "1"
-}
-
-export function writeAnalyticsOptIn(on: boolean) {
-  localStorage.setItem(OPT_IN_KEY, on ? "1" : "0")
-  if (on) loadAnalytics()
+  const fromEnv = (import.meta.env.VITE_GA_MEASUREMENT_ID ?? "").trim()
+  return fromEnv || DEFAULT_MEASUREMENT_ID
 }
 
 let started = false
 
 export function loadAnalytics() {
   const id = measurementId()
-  if (!id || started || !readAnalyticsOptIn()) return
+  if (!id || started) return
   started = true
   window.dataLayer = window.dataLayer ?? []
   window.gtag = (...args: unknown[]) => {
@@ -52,6 +43,16 @@ export function loadAnalytics() {
   document.head.appendChild(script)
 }
 
+export function trackPageView(path: string) {
+  loadAnalytics()
+  if (!measurementId() || !window.gtag) return
+  window.gtag("event", "page_view", {
+    page_path: path,
+    page_location: window.location.href,
+    page_title: document.title,
+  })
+}
+
 export function scoreBand(correct: number) {
   if (correct >= 8) return "8-10"
   if (correct >= 5) return "5-7"
@@ -59,7 +60,6 @@ export function scoreBand(correct: number) {
 }
 
 export function track(event: AnalyticsEvent, params: Record<string, string>) {
-  if (!readAnalyticsOptIn()) return
   loadAnalytics()
   if (!measurementId() || !window.gtag) return
   window.gtag("event", event, params)
