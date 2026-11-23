@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { Link, useNavigate, useParams } from "react-router-dom"
 import { Button } from "../components/Button.tsx"
 import { PageEnter } from "../components/PageEnter.tsx"
@@ -98,34 +98,96 @@ export function WeekPage() {
         </li>
       </ol>
       {pending && pendingMeta ? (
-        <div className="dialog-back" role="presentation" onClick={() => setPending(null)}>
-          <div
-            className="dialog"
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby="practice-title"
-            onClick={(event) => event.stopPropagation()}
-          >
-            <h2 id="practice-title">Do the blue one first</h2>
-            <p>
-              You can practice {pendingMeta.label} now. It will not get a check until you finish the earlier ones.
-            </p>
-            <div className="stack">
-              <Button
-                block
-                onClick={() => {
-                  navigate(paths.activity(quarter.id, subject.id, week.id, pending))
-                }}
-              >
-                Practice anyway
-              </Button>
-              <Button variant="ghost" block onClick={() => setPending(null)}>
-                Not now
-              </Button>
-            </div>
-          </div>
-        </div>
+        <PracticeDialog
+          label={pendingMeta.label}
+          onPractice={() => {
+            navigate(paths.activity(quarter.id, subject.id, week.id, pending))
+          }}
+          onClose={() => setPending(null)}
+        />
       ) : null}
     </PageEnter>
+  )
+}
+
+function PracticeDialog({
+  label,
+  onPractice,
+  onClose,
+}: {
+  label: string
+  onPractice: () => void
+  onClose: () => void
+}) {
+  const ref = useRef<HTMLDialogElement>(null)
+
+  useEffect(() => {
+    const dialog = ref.current
+    if (!dialog) return
+    const scrollY = window.scrollY
+    const body = document.body
+    const previous = {
+      position: body.style.position,
+      top: body.style.top,
+      left: body.style.left,
+      right: body.style.right,
+      width: body.style.width,
+    }
+    body.style.position = "fixed"
+    body.style.top = `-${scrollY}px`
+    body.style.left = "0"
+    body.style.right = "0"
+    body.style.width = "100%"
+    dialog.showModal()
+    return () => {
+      body.style.position = previous.position
+      body.style.top = previous.top
+      body.style.left = previous.left
+      body.style.right = previous.right
+      body.style.width = previous.width
+      window.scrollTo(0, scrollY)
+      if (!dialog.open) return
+      dialog.addEventListener("close", (event) => event.stopPropagation(), {
+        capture: true,
+        once: true,
+      })
+      dialog.close()
+    }
+  }, [])
+
+  function requestClose() {
+    ref.current?.close()
+  }
+
+  return (
+    <dialog
+      ref={ref}
+      className="dialog"
+      aria-labelledby="practice-title"
+      aria-describedby="practice-text"
+      onClose={onClose}
+      onClick={(event) => {
+        const box = event.currentTarget.getBoundingClientRect()
+        const inside =
+          event.clientX >= box.left &&
+          event.clientX <= box.right &&
+          event.clientY >= box.top &&
+          event.clientY <= box.bottom
+        if (!inside) requestClose()
+      }}
+    >
+      <h2 id="practice-title">Do the blue one first</h2>
+      <p id="practice-text">
+        You can practice {label} now. It will not get a check until you finish the earlier ones.
+      </p>
+      <div className="stack">
+        <Button block onClick={onPractice}>
+          Practice anyway
+        </Button>
+        <Button variant="ghost" block onClick={requestClose}>
+          Not now
+        </Button>
+      </div>
+    </dialog>
   )
 }
