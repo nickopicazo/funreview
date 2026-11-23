@@ -34,7 +34,7 @@ export function Riddles({
   return (
     <div className="stack">
       <p className="step">
-        Riddle {index + 1} / {items.length}
+        Riddle {index + 1} of {items.length}
       </p>
       <h2 className="prompt">{item.prompt}</h2>
       <Choices

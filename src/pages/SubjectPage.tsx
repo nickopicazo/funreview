@@ -20,7 +20,7 @@ export function SubjectPage() {
     return (
       <PageEnter>
         <Link className="back" to={paths.quarter(quarter.id)}>
-          Back
+          ← {quarter.title}
         </Link>
         <h1>{subject.title}</h1>
         <p className="pill">Coming soon!</p>
@@ -31,10 +31,12 @@ export function SubjectPage() {
   return (
     <PageEnter>
       <Link className="back" to={paths.quarter(quarter.id)}>
-        Back
+        ← {quarter.title}
       </Link>
-      <h1>{subject.title}</h1>
-      <p className="lede">{quarter.title}</p>
+      <div className="title-block">
+        <h1>{subject.title}</h1>
+        <p className="lede">{quarter.title}</p>
+      </div>
       <div className="stack">
         {weeks.map((week) => {
           const key = weekKey(quarter.id, subject.id, week.id)
@@ -46,7 +48,7 @@ export function SubjectPage() {
               <p className="kicker">Week {week.id.slice(1)}</p>
               <h2>{week.title}</h2>
               <p>
-                {done} of {total} done
+                {done} of {total} finished
                 {badge ? ` · Badge: ${week.badgeName}` : ""}
               </p>
             </Link>

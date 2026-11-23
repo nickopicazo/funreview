@@ -55,47 +55,41 @@ export function Matching({
 
   return (
     <div className="stack">
-      <p className="hint">Tap the left side, then its match on the right.</p>
+      <p className="hint">Tap one on the left. Then tap the one that goes with it.</p>
       <div className="match-grid">
-        <div className="stack">
-          {pairs.map((pair, index) => {
-            const done = matched.includes(index)
-            return (
+        {pairs.map((pair, index) => {
+          const done = matched.includes(index)
+          const rightIndex = rightOrder[index]
+          const rightPair = rightIndex === undefined ? undefined : pairs[rightIndex]
+          const rightDone = rightIndex !== undefined && matched.includes(rightIndex)
+          return [
+            <button
+              key={`left-${pair.left}`}
+              type="button"
+              className={`choice${done ? " ok" : ""}${leftPick === index ? " picked" : ""}`}
+              disabled={done}
+              onClick={() => {
+                setLeftPick(index)
+                setWrong(false)
+              }}
+            >
+              {pair.left}
+            </button>,
+            rightPair ? (
               <button
-                key={pair.left}
+                key={`right-${rightPair.right}`}
                 type="button"
-                className={`choice${done ? " ok" : ""}${leftPick === index ? " picked" : ""}`}
-                disabled={done}
-                onClick={() => {
-                  setLeftPick(index)
-                  setWrong(false)
-                }}
-              >
-                {pair.left}
-              </button>
-            )
-          })}
-        </div>
-        <div className="stack">
-          {rightOrder.map((pairIndex, index) => {
-            const pair = pairs[pairIndex]
-            const done = matched.includes(pairIndex)
-            if (!pair) return null
-            return (
-              <button
-                key={pair.right}
-                type="button"
-                className={`choice${done ? " ok" : ""}`}
-                disabled={done || leftPick === null}
+                className={`choice${rightDone ? " ok" : ""}`}
+                disabled={rightDone || leftPick === null}
                 onClick={() => pickRight(index)}
               >
-                {pair.right}
+                {rightPair.right}
               </button>
-            )
-          })}
-        </div>
+            ) : null,
+          ]
+        })}
       </div>
-      {wrong ? <Feedback tone="retry" title="Try again" text="That isn't the pair." /> : null}
+      {wrong ? <Feedback tone="retry" title="Try again" text="Those don't go together." /> : null}
       <Button block disabled={!ready} onClick={onFinish}>
         Done!
       </Button>

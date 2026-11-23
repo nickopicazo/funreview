@@ -21,7 +21,7 @@ export function ParentGate({ onPass }: { onPass: () => void }) {
     <PageEnter>
       <SpeechBubble
         speaker="ben"
-        text="This is for a parent. Answer a new addition problem to continue."
+        text="Grown-ups only. What is the answer?"
       />
       <form
         className="gate"
@@ -44,9 +44,9 @@ export function ParentGate({ onPass }: { onPass: () => void }) {
             setWrong(false)
           }}
         />
-        {wrong ? <p className="form-note">That isn't the answer. Try again.</p> : null}
+        {wrong ? <p className="form-note">Not quite. Try again.</p> : null}
         <Button type="submit" block>
-          Continue
+          Check
         </Button>
       </form>
     </PageEnter>

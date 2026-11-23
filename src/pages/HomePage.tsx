@@ -9,9 +9,11 @@ export function HomePage() {
   useTitle("FunReview")
   return (
     <PageEnter>
-      <p className="kicker">For Grade 3</p>
-      <h1>FunReview</h1>
-      <p className="lede">Review and have fun!</p>
+      <div className="title-block">
+        <p className="kicker">For Grade 3</p>
+        <h1>FunReview</h1>
+        <p className="lede">Review and have fun!</p>
+      </div>
       <SpeechBubble speaker="ana" text="Ready? Pick a quarter." />
       <div className="card-grid">
         {quarters.map((quarter) => {
@@ -29,7 +31,7 @@ export function HomePage() {
             <Link key={quarter.id} className="card" to={paths.quarter(quarter.id)}>
               <span className="card-order">{quarter.order}</span>
               <h2>{quarter.title}</h2>
-              <span className="pill pill-open">Open</span>
+              <span className="pill pill-open">Let's go</span>
             </Link>
           )
         })}

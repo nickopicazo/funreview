@@ -18,7 +18,7 @@ export function Recap({
   return (
     <div className="stack">
       <p className="step">
-        {index + 1} / {slides.length}
+        Page {index + 1} of {slides.length}
       </p>
       <SpeechBubble speaker={slide.speaker} text={slide.text} />
       <div className="dots" aria-hidden="true">
@@ -29,7 +29,7 @@ export function Recap({
       <div className="row">
         {index > 0 ? (
           <Button variant="ghost" onClick={() => setIndex((value) => value - 1)}>
-            Back
+            ← Back
           </Button>
         ) : null}
         <Button

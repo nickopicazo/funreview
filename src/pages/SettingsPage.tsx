@@ -33,7 +33,7 @@ function SettingsPanel() {
     link.download = "funreview-backup.json"
     link.click()
     URL.revokeObjectURL(url)
-    setNote("Backup downloaded.")
+    setNote("A copy was downloaded.")
   }
 
   async function copyCode() {
@@ -49,18 +49,18 @@ function SettingsPanel() {
   function importBackup() {
     const next = parseBackup(importText)
     if (!next) {
-      setNote("That backup isn't valid. It needs version 1.")
+      setNote("That copy doesn't work. Try the file or code from this app.")
       return
     }
     replaceSave(next)
     setImportText("")
-    setNote("Progress restored.")
+    setNote("Progress is back.")
   }
 
   return (
     <PageEnter>
       <Link className="back" to={paths.home}>
-        Back
+        ← Home
       </Link>
       <h1>Settings</h1>
       <p>For a parent. Progress stays on this device only.</p>
@@ -72,6 +72,7 @@ function SettingsPanel() {
             <p>This will erase progress on this device. Are you sure?</p>
             <Button
               variant="coral"
+              block
               onClick={() => {
                 resetProgress()
                 setConfirmReset(false)
@@ -80,12 +81,12 @@ function SettingsPanel() {
             >
               Yes, reset
             </Button>
-            <Button variant="ghost" onClick={() => setConfirmReset(false)}>
+            <Button variant="ghost" block onClick={() => setConfirmReset(false)}>
               Never mind
             </Button>
           </div>
         ) : (
-          <Button variant="coral" onClick={() => setConfirmReset(true)}>
+          <Button variant="coral" block onClick={() => setConfirmReset(true)}>
             Reset progress
           </Button>
         )}
@@ -93,18 +94,18 @@ function SettingsPanel() {
 
       <section className="panel">
         <h2>Backup</h2>
-        <p>Download the JSON, or copy the code for another device.</p>
+        <p>Download a copy, or copy a code for another device.</p>
         <div className="stack">
-          <Button onClick={download}>Download JSON</Button>
-          <Button variant="blue" onClick={() => void copyCode()}>
-            {copied ? "Copied!" : "Copy the code"}
+          <Button block onClick={download}>Download a copy</Button>
+          <Button variant="blue" block onClick={() => void copyCode()}>
+            {copied ? "Copied!" : "Copy a code"}
           </Button>
-          <Button variant="ghost" onClick={() => setShowCode((value) => !value)}>
+          <Button variant="ghost" block onClick={() => setShowCode((value) => !value)}>
             {showCode ? "Hide the code" : "Show the code"}
           </Button>
           {showCode ? <textarea className="field" readOnly rows={5} value={backup} /> : null}
           <label className="field-label" htmlFor="backup-import">
-            Paste the JSON or code
+            Paste a copy here
           </label>
           <textarea
             id="backup-import"
@@ -113,20 +114,20 @@ function SettingsPanel() {
             value={importText}
             onChange={(event) => setImportText(event.target.value)}
           />
-          <Button variant="green" onClick={importBackup}>
-            Restore backup
+          <Button variant="green" block onClick={importBackup}>
+            Put progress back
           </Button>
         </div>
       </section>
 
       <section className="panel">
-        <h2>Analytics</h2>
+        <h2>Visits</h2>
         <p>
-          This stays off until a parent agrees. No name or personal data is sent.
-          Only app events: lesson opened, activity finished, score band, and badge.
+          This stays off until a parent agrees. No name is sent. It only counts
+          which lessons were opened, which activities were finished, the score band, and badges.
         </p>
         {measurementId() ? null : (
-          <p className="form-note">No measurement is connected yet, so nothing will be sent.</p>
+          <p className="form-note">Nothing is counted yet.</p>
         )}
         <button
           type="button"
@@ -134,7 +135,7 @@ function SettingsPanel() {
           aria-pressed={analyticsOptIn}
           onClick={() => setAnalyticsOptIn(!analyticsOptIn)}
         >
-          {analyticsOptIn ? "Consent is on" : "Consent is off"}
+          {analyticsOptIn ? "Counting visits is on" : "Counting visits is off"}
         </button>
       </section>
       {note ? <p className="form-note">{note}</p> : null}

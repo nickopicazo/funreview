@@ -17,7 +17,7 @@ export function AppShell() {
             Map
           </Link>
           <Link className="icon-btn" to={paths.settings}>
-            Settings
+            Grown-ups
           </Link>
           <MuteButton />
         </div>

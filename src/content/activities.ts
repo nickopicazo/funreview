@@ -5,34 +5,34 @@ export const ACTIVITY_META: Record<
   { label: string; emoji: string; hint: string }
 > = {
   recap: {
-    label: "Recap",
+    label: "Story",
     emoji: "📖",
-    hint: "A short story with Ana and Ben",
+    hint: "Read with Ana and Ben",
   },
   riddles: {
     label: "Who Am I?",
     emoji: "❓",
-    hint: "Pick the right answer",
+    hint: "Pick the answer",
   },
   flashcards: {
-    label: "Cards",
+    label: "Flip cards",
     emoji: "🃏",
     hint: "Tap to flip",
   },
   matching: {
-    label: "Matching",
+    label: "Match up",
     emoji: "🤝",
-    hint: "Tap the pair",
+    hint: "Tap a pair",
   },
   wordSearch: {
     label: "Word Search",
     emoji: "🔤",
-    hint: "Tap the first and last letter",
+    hint: "First letter, then last",
   },
   quiz: {
     label: "Quiz",
     emoji: "⭐",
-    hint: "Ten questions",
+    hint: "10 questions",
   },
 }
 

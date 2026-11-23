@@ -36,11 +36,13 @@ export function WeekPage() {
   return (
     <PageEnter>
       <Link className="back" to={paths.subject(quarter.id, subject.id)}>
-        Back
+        ← {subject.title}
       </Link>
-      <p className="kicker">Week {week.id.slice(1)}</p>
-      <h1>{week.title}</h1>
-      <SpeechBubble speaker="ben" text="Follow the path. You can do this!" />
+      <div className="title-block">
+        <p className="kicker">Week {week.id.slice(1)}</p>
+        <h1>{week.title}</h1>
+      </div>
+      <SpeechBubble speaker="ben" text="Do these in order. You've got this!" />
       <ol className="path">
         {order.map((activity) => {
           const meta = ACTIVITY_META[activity]
@@ -62,9 +64,9 @@ export function WeekPage() {
                 <span className="node-icon" aria-hidden="true">
                   {done ? "✓" : meta.emoji}
                 </span>
-                <span>
+                <span className="node-copy">
                   <strong>{meta.label}</strong>
-                  <small>{locked ? "Try anyway" : meta.hint}</small>
+                  <small>{locked ? "Do the blue one first." : meta.hint}</small>
                 </span>
               </button>
             </li>
@@ -73,12 +75,12 @@ export function WeekPage() {
         <li>
           <div className={`node node-badge${progress?.badgeEarned ? " done" : " locked"}`}>
             <span className="node-icon" aria-hidden="true">🏅</span>
-            <span>
+            <span className="node-copy">
               <strong>{progress?.badgeEarned ? week.badgeName : "Badge"}</strong>
               <small>
                 {progress?.badgeEarned
                   ? "You got it!"
-                  : "You'll earn this when you finish the quiz."}
+                  : "Finish the quiz to earn this."}
               </small>
             </span>
           </div>
@@ -93,9 +95,9 @@ export function WeekPage() {
             aria-labelledby="practice-title"
             onClick={(event) => event.stopPropagation()}
           >
-            <h2 id="practice-title">This isn't next yet</h2>
+            <h2 id="practice-title">Do the blue one first</h2>
             <p>
-              You can try {pendingMeta.label}, but it won't count on the path yet.
+              You can practice {pendingMeta.label} now. It will not get a check until you finish the earlier ones.
             </p>
             <div className="stack">
               <Button
@@ -104,10 +106,10 @@ export function WeekPage() {
                   navigate(paths.activity(quarter.id, subject.id, week.id, pending))
                 }}
               >
-                Try anyway
+                Practice anyway
               </Button>
               <Button variant="ghost" block onClick={() => setPending(null)}>
-                Back
+                Not now
               </Button>
             </div>
           </div>

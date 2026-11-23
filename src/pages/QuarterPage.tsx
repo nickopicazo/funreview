@@ -14,7 +14,7 @@ export function QuarterPage() {
   return (
     <PageEnter>
       <Link className="back" to={paths.home}>
-        Back
+        ← Home
       </Link>
       <h1>{quarter.title}</h1>
       <div className="stack">
@@ -37,7 +37,7 @@ export function QuarterPage() {
                 <span aria-hidden="true">{subject.emoji} </span>
                 {subject.title}
               </h2>
-              <span className="pill pill-open">Open</span>
+              <span className="pill pill-open">Let's go</span>
             </Link>
           )
         })}

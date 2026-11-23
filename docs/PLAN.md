@@ -151,7 +151,7 @@ The path is sequential. Later nodes are softly locked and can be opened with **�
 **Borrow**
 - A guided **path** per week: nodes per activity that the week actually includes; done = gold, current = pulsing, later = softly locked with “Try anyway”.
 - **Ana and Ben** as recurring guides who cheer her on (never sad or guilt-tripping).
-- **Bite-sized** sessions (2–5 min) ending with "Done!" and "One more?" / "Back to the path".
+- **Bite-sized** sessions (2–5 min) ending with "Done!" and "Next: Flip cards" / "← This week".
 - **Instant feedback**: "Correct!" + ding + green pulse; wrong = soft tone, show answer, "Try again".
 - **Celebrations** at lesson/week end: confetti, progress bar fill, badge.
 - **Chunky buttons**: big tap targets (≥48px), rounded, 3D press shadow.

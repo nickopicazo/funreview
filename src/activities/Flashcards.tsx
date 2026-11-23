@@ -21,7 +21,7 @@ export function Flashcards({
   return (
     <div className="stack">
       <p className="step">
-        {seen.length} / {cards.length} flipped
+        {seen.length} of {cards.length} cards flipped
       </p>
       <p className="hint">Tap a card to see the back.</p>
       <div className="card-grid">

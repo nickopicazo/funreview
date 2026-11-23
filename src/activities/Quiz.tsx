@@ -54,7 +54,7 @@ export function Quiz({
   return (
     <div className="stack">
       <p className="step">
-        Question {index + 1} / {items.length} · ⭐ {stars}
+        Question {index + 1} of {items.length} · {stars} {stars === 1 ? "star" : "stars"}
       </p>
       <h2 className="prompt">{item.prompt}</h2>
       <Choices
@@ -69,9 +69,10 @@ export function Quiz({
         <Feedback tone="retry" title="Try again" text={item.explanation} />
       ) : null}
       {phase === "wrong" ? (
-        <div className="row">
+        <div className="stack">
           <Button
             variant="blue"
+            block
             onClick={() => {
               setPicked(null)
               setPhase("open")
@@ -79,14 +80,14 @@ export function Quiz({
           >
             Try again
           </Button>
-          <Button variant="ghost" onClick={() => advance(false)}>
-            Next
+          <Button variant="ghost" block onClick={() => advance(false)}>
+            Skip
           </Button>
         </div>
       ) : null}
       {phase === "right" ? (
         <Button block onClick={() => advance(true)}>
-          {last ? "Submit quiz" : "Next"}
+          {last ? "See my stars" : "Next"}
         </Button>
       ) : null}
     </div>

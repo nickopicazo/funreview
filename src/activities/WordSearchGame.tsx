@@ -61,7 +61,7 @@ export function WordSearchGame({
 
   return (
     <div className="stack">
-      <p className="hint">Tap the first letter, then the last letter in a straight line.</p>
+      <p className="hint">Tap the first letter, then the last letter, in a straight line.</p>
       <ul className="word-list">
         {words.map((word) => {
           const clean = normalizeWord(word)
@@ -75,7 +75,7 @@ export function WordSearchGame({
       <div className="letter-wrap">
         <div
           className="letter-grid"
-          style={{ gridTemplateColumns: `repeat(${puzzle.grid.length}, minmax(44px, 1fr))` }}
+          style={{ gridTemplateColumns: `repeat(${puzzle.grid.length}, minmax(48px, 1fr))` }}
         >
           {puzzle.grid.map((line, row) =>
             line.map((letter, col) => {
@@ -96,10 +96,10 @@ export function WordSearchGame({
           )}
         </div>
       </div>
-      {miss ? <Feedback tone="retry" title="Try again" text="That word isn't in the list." /> : null}
+      {miss ? <Feedback tone="retry" title="Try again" text="That's not one of the words." /> : null}
       <div className="row">
-        <Button variant="ghost" onClick={() => setAnchor(null)}>
-          Clear
+        <Button variant="ghost" disabled={!anchor} onClick={() => setAnchor(null)}>
+          Unpick
         </Button>
         <Button block disabled={!ready} onClick={onFinish}>
           Done!

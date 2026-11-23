@@ -11,7 +11,7 @@ export function SpeechBubble({
       <div className="avatar" aria-hidden="true">
         {speaker === "ana" ? "👧" : "👦"}
       </div>
-      <div>
+      <div className="bubble-copy">
         <p className="bubble-name">{name}</p>
         <p>{text}</p>
       </div>

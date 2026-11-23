@@ -24,12 +24,12 @@ export function MapPage() {
   return (
     <PageEnter>
       <Link className="back" to={paths.home}>
-        Back
+        ← Home
       </Link>
       <h1>A trip around the Philippines</h1>
       <SpeechBubble
         speaker="ana"
-        text="Let's visit Luzon, Visayas, and Mindanao. A place opens when you earn that week's badge."
+        text="Finish a week and earn its badge. Then you can visit that place."
       />
       <div className="map-frame">
         <svg className="map-svg" viewBox="0 0 320 560" role="img" aria-label="Map of the Philippines">
@@ -68,7 +68,7 @@ export function MapPage() {
           text={
             selectedOpen
               ? `${selected.name}, ${selected.place}. ${selected.fact}`
-              : `${selected.name} is coming soon. Finish this week to open it.`
+              : `${selected.name}. Finish this week first. Then you can visit.`
           }
         />
       ) : null}

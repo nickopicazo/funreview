@@ -10,7 +10,7 @@ export function MuteButton() {
       onClick={toggleMuted}
     >
       <span aria-hidden="true">{muted ? "🔇" : "🔊"}</span>
-      {muted ? "Muted" : "Sound"}
+      {muted ? "Sound off" : "Sound on"}
     </button>
   )
 }

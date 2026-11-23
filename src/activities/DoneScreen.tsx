@@ -11,6 +11,7 @@ export function DoneScreen({
   awardedBadge,
   quiz,
   nextTo,
+  nextLabel,
   backTo,
 }: {
   practice: boolean
@@ -19,10 +20,11 @@ export function DoneScreen({
   awardedBadge: boolean
   quiz: QuizScore | null
   nextTo: string | null
+  nextLabel: string | null
   backTo: string
 }) {
   const cheer = practice
-    ? "Nice practice! This won't count on the path yet."
+    ? "Nice practice! No check for this one yet."
     : review
       ? "You already did this. Great job coming back!"
       : "Done! I'm proud of you."
@@ -38,24 +40,24 @@ export function DoneScreen({
             {quiz.correct} of {quiz.total}
           </p>
           {quiz.gintongBituin ? <p className="gold-label">Golden Star!</p> : (
-            <p>Golden Star is 8 or more. You can still continue.</p>
+            <p>8 or more earns a Golden Star. You can keep going.</p>
           )}
         </section>
       ) : null}
       {awardedBadge ? (
         <section className="medal">
           <p className="badge-emoji" aria-hidden="true">🏅</p>
-          <p className="gold-label">Badge: {badgeName}</p>
+          <p className="gold-label">You earned: {badgeName}</p>
         </section>
       ) : null}
       <div className="stack">
-        {nextTo && !practice ? (
+        {nextTo && nextLabel && !practice ? (
           <Button to={nextTo} block>
-            One more?
+            Next: {nextLabel}
           </Button>
         ) : null}
         <Button to={backTo} variant="blue" block>
-          Back to the path
+          ← This week
         </Button>
       </div>
     </PageEnter>

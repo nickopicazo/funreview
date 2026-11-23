@@ -78,6 +78,7 @@ function ActivitySession({
         awardedBadge={awarded}
         quiz={quiz}
         nextTo={next ? paths.activity(quarterId, subjectId, week.id, next) : null}
+        nextLabel={next ? ACTIVITY_META[next].label : null}
         backTo={backTo}
       />
     )
@@ -86,12 +87,14 @@ function ActivitySession({
   return (
     <PageEnter>
       <Link className="back" to={backTo}>
-        Back to the path
+        ← This week
       </Link>
-      <p className="kicker">{meta.emoji} {meta.label}</p>
-      <h1>{week.title}</h1>
+      <div className="title-block">
+        <p className="kicker">{meta.emoji} {meta.label}</p>
+        <h1>{week.title}</h1>
+      </div>
       {practice ? (
-        <p className="banner">Practice — this won't count on the path yet.</p>
+        <p className="banner">Practice only. No check yet.</p>
       ) : null}
       {activity === "recap" && week.recap ? (
         <Recap slides={week.recap} onFinish={() => finish()} />
