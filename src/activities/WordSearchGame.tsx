@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react"
+import { useMemo, useState, type CSSProperties } from "react"
 import { Button } from "../components/Button.tsx"
 import { Feedback } from "../components/Feedback.tsx"
 import { playCorrect, playWrong } from "../lib/sounds.ts"
@@ -61,12 +61,12 @@ export function WordSearchGame({
 
   return (
     <div className="stack">
-      <p className="hint">Tap the first letter, then the last letter, in a straight line.</p>
+      <p className="hint">Tap the first letter, then the last letter. Words go right or down.</p>
       <ul className="word-list">
         {words.map((word) => {
           const clean = normalizeWord(word)
           return (
-            <li key={word} className={found.includes(clean) ? "found" : ""}>
+            <li key={word} lang="fil" className={found.includes(clean) ? "found" : ""}>
               {word}
             </li>
           )
@@ -75,7 +75,7 @@ export function WordSearchGame({
       <div className="letter-wrap">
         <div
           className="letter-grid"
-          style={{ gridTemplateColumns: `repeat(${puzzle.grid.length}, minmax(48px, 1fr))` }}
+          style={{ "--cols": puzzle.grid.length } as CSSProperties}
         >
           {puzzle.grid.map((line, row) =>
             line.map((letter, col) => {

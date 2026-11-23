@@ -33,7 +33,7 @@ export function loadAnalytics() {
   }
   window.gtag("js", new Date())
   window.gtag("config", id, {
-    anonymize_ip: true,
+    // GA4 does not store IP addresses.
     allow_google_signals: false,
     allow_ad_personalization_signals: false,
     send_page_view: false,
@@ -44,9 +44,14 @@ export function loadAnalytics() {
   document.head.appendChild(script)
 }
 
+let lastPageView = ""
+
 export function trackPageView(path: string) {
   loadAnalytics()
   if (!measurementId() || !window.gtag) return
+  const key = `${path}\n${document.title}`
+  if (lastPageView === key) return
+  lastPageView = key
   window.gtag("event", "page_view", {
     page_path: path,
     page_location: window.location.href,

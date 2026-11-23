@@ -1,21 +1,28 @@
-import { useState } from "react"
+import { useMemo, useState } from "react"
 import { Button } from "../components/Button.tsx"
 import { Choices } from "../components/Choices.tsx"
 import { Feedback } from "../components/Feedback.tsx"
 import type { PromptItem } from "../content/types.ts"
+import { choiceSeed, shuffleChoices } from "../lib/shuffle.ts"
 import { playCorrect, playWrong } from "../lib/sounds.ts"
 
 export function Riddles({
   items,
+  seedKey,
   onFinish,
 }: {
   items: PromptItem[]
+  seedKey: string
   onFinish: () => void
 }) {
   const [index, setIndex] = useState(0)
   const [picked, setPicked] = useState<string | null>(null)
   const [phase, setPhase] = useState<"open" | "wrong" | "right">("open")
   const item = items[index]
+  const choices = useMemo(
+    () => (item ? shuffleChoices(item.choices, choiceSeed(seedKey, "riddles", index)) : []),
+    [item, seedKey, index],
+  )
   if (!item) return null
   const last = index === items.length - 1
 
@@ -36,17 +43,17 @@ export function Riddles({
       <p className="step">
         Riddle {index + 1} of {items.length}
       </p>
-      <h2 className="prompt">{item.prompt}</h2>
+      <h2 className="prompt" lang="fil">{item.prompt}</h2>
       <Choices
-        choices={item.choices}
+        choices={choices}
         pickedId={picked}
         correctId={item.correctId}
         revealed={phase !== "open"}
         onPick={pick}
       />
-      {phase === "right" ? <Feedback tone="ok" title="Correct!" text={item.explanation} /> : null}
+      {phase === "right" ? <Feedback tone="ok" title="Correct!" text={item.explanation} textLang="fil" /> : null}
       {phase === "wrong" ? (
-        <Feedback tone="retry" title="Try again" text={item.explanation} />
+        <Feedback tone="retry" title="Try again" text={item.explanation} textLang="fil" />
       ) : null}
       {phase === "wrong" ? (
         <Button

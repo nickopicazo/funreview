@@ -11,7 +11,7 @@ export function Missing({
   title?: string
   body?: string
 }) {
-  useTitle(SITE_TITLE, { description: "This page isn't here." })
+  useTitle(SITE_TITLE, { description: "This page isn't here.", noindex: true })
   return (
     <PageEnter>
       <h1>{title}</h1>

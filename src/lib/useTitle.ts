@@ -1,4 +1,6 @@
 import { useEffect } from "react"
+import { useLocation } from "react-router-dom"
+import { trackPageView } from "./analytics.ts"
 import { SITE_DESCRIPTION, SITE_TITLE } from "./seo.ts"
 
 type TitleOptions = {
@@ -39,14 +41,16 @@ function apply(title: string, description: string, robots: string, url: string) 
 }
 
 export function useTitle(title: string, options?: TitleOptions) {
+  const { pathname } = useLocation()
   const description = options?.description ?? SITE_DESCRIPTION
   const noindex = options?.noindex === true
 
   useEffect(() => {
-    const url = `${location.origin}${location.pathname}`
+    const url = `${location.origin}${pathname}`
     apply(title, description, noindex ? "noindex" : "index, follow", url)
+    trackPageView(pathname)
     return () => {
       apply(SITE_TITLE, SITE_DESCRIPTION, "index, follow", `${location.origin}/`)
     }
-  }, [title, description, noindex])
+  }, [title, description, noindex, pathname])
 }

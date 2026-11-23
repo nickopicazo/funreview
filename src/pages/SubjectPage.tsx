@@ -2,7 +2,7 @@ import { Link, useParams } from "react-router-dom"
 import { PageEnter } from "../components/PageEnter.tsx"
 import { activitiesIn } from "../content/activities.ts"
 import { getQuarter, getSubject, getWeeks } from "../content/catalog.ts"
-import { useAppState } from "../lib/appState.tsx"
+import { useAppState } from "../lib/useAppState.ts"
 import { SITE_TITLE } from "../lib/seo.ts"
 import { paths, weekKey } from "../lib/routes.ts"
 import { useTitle } from "../lib/useTitle.ts"
@@ -52,10 +52,17 @@ export function SubjectPage() {
           return (
             <Link key={week.id} className="card" to={paths.week(quarter.id, subject.id, week.id)}>
               <p className="kicker">Week {week.id.slice(1)}</p>
-              <h2>{week.title}</h2>
+              <h2 lang="fil">{week.title}</h2>
               <p>
                 {done} of {total} finished
-                {badge ? ` · Badge: ${week.badgeName}` : ""}
+                {badge ? (
+                  <>
+                    {" "}
+                    · Badge: <span lang="fil">{week.badgeName}</span>
+                  </>
+                ) : (
+                  ""
+                )}
               </p>
             </Link>
           )

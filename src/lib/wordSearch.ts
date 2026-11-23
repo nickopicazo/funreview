@@ -2,12 +2,6 @@ const ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 const DIRECTIONS = [
   [0, 1],
   [1, 0],
-  [1, 1],
-  [1, -1],
-  [0, -1],
-  [-1, 0],
-  [-1, 1],
-  [-1, -1],
 ] as const
 
 export type WordSearchPuzzle = {
@@ -27,7 +21,7 @@ export function seedFromText(text: string) {
   return [...text].reduce((sum, char) => (Math.imul(sum, 33) + char.charCodeAt(0)) >>> 0, 5381)
 }
 
-function mulberry32(seed: number) {
+export function mulberry32(seed: number) {
   let state = seed >>> 0
   return () => {
     state = (state + 0x6d2b79f5) >>> 0
@@ -62,16 +56,26 @@ function place(
   random: () => number,
 ) {
   const size = grid.length
-  for (let attempt = 0; attempt < 200; attempt += 1) {
-    const direction = DIRECTIONS[Math.floor(random() * DIRECTIONS.length)] ?? DIRECTIONS[0]
-    const row = Math.floor(random() * size)
-    const col = Math.floor(random() * size)
-    if (!canPlace(grid, word, row, col, direction[0], direction[1])) continue
+  const spots: Array<{ row: number; col: number; dRow: number; dCol: number }> = []
+  for (const [dRow, dCol] of DIRECTIONS) {
+    for (let row = 0; row < size; row += 1) {
+      for (let col = 0; col < size; col += 1) {
+        spots.push({ row, col, dRow, dCol })
+      }
+    }
+  }
+  for (let index = spots.length - 1; index > 0; index -= 1) {
+    const swap = Math.floor(random() * (index + 1))
+    const current = spots[index]
+    spots[index] = spots[swap] ?? current
+    spots[swap] = current
+  }
+  for (const spot of spots) {
+    if (!spot) continue
+    if (!canPlace(grid, word, spot.row, spot.col, spot.dRow, spot.dCol)) continue
     for (let index = 0; index < word.length; index += 1) {
-      const nextRow = row + direction[0] * index
-      const nextCol = col + direction[1] * index
-      const line = grid[nextRow]
-      if (line) line[nextCol] = word[index] ?? ""
+      const line = grid[spot.row + spot.dRow * index]
+      if (line) line[spot.col + spot.dCol * index] = word[index] ?? ""
     }
     return true
   }
@@ -99,7 +103,7 @@ export function createWordSearch(rawWords: string[], seed: number): WordSearchPu
     return { grid, words }
   }
 
-  throw new Error("Hindi magawa ang hanap-salita.")
+  throw new Error("Could not build the word search.")
 }
 
 export function lineBetween(
@@ -110,7 +114,7 @@ export function lineBetween(
   const colStep = Math.sign(end.col - start.col)
   const rowDistance = Math.abs(end.row - start.row)
   const colDistance = Math.abs(end.col - start.col)
-  if (rowDistance !== 0 && colDistance !== 0 && rowDistance !== colDistance) return null
+  if (rowDistance !== 0 && colDistance !== 0) return null
   const steps = Math.max(rowDistance, colDistance)
   const cells: Array<{ row: number; col: number }> = []
   for (let index = 0; index <= steps; index += 1) {

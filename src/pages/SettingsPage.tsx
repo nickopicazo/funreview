@@ -3,9 +3,8 @@ import { Link } from "react-router-dom"
 import { Button } from "../components/Button.tsx"
 import { PageEnter } from "../components/PageEnter.tsx"
 import { ParentGate } from "../components/ParentGate.tsx"
-import { useAppState } from "../lib/appState.tsx"
+import { useAppState } from "../lib/useAppState.ts"
 import { paths } from "../lib/routes.ts"
-import { encodeBackup, parseBackup, prettySave } from "../lib/save.ts"
 import { useTitle } from "../lib/useTitle.ts"
 
 export function SettingsPage() {
@@ -19,45 +18,9 @@ export function SettingsPage() {
 }
 
 function SettingsPanel() {
-  const { save, resetProgress, replaceSave } = useAppState()
+  const { resetProgress } = useAppState()
   const [confirmReset, setConfirmReset] = useState(false)
-  const [showCode, setShowCode] = useState(false)
-  const [importText, setImportText] = useState("")
   const [note, setNote] = useState("")
-  const [copied, setCopied] = useState(false)
-  const backup = encodeBackup(save)
-
-  function download() {
-    const blob = new Blob([prettySave(save)], { type: "application/json" })
-    const url = URL.createObjectURL(blob)
-    const link = document.createElement("a")
-    link.href = url
-    link.download = "funreview-backup.json"
-    link.click()
-    URL.revokeObjectURL(url)
-    setNote("A copy was downloaded.")
-  }
-
-  async function copyCode() {
-    try {
-      await navigator.clipboard.writeText(backup)
-      setCopied(true)
-    } catch {
-      setCopied(false)
-      setShowCode(true)
-    }
-  }
-
-  function importBackup() {
-    const next = parseBackup(importText)
-    if (!next) {
-      setNote("That copy doesn't work. Try the file or code from this app.")
-      return
-    }
-    replaceSave(next)
-    setImportText("")
-    setNote("Progress is back.")
-  }
 
   return (
     <PageEnter>
@@ -92,34 +55,6 @@ function SettingsPanel() {
             Reset progress
           </Button>
         )}
-      </section>
-
-      <section className="panel">
-        <h2>Backup</h2>
-        <p>Download a copy, or copy a code for another device.</p>
-        <div className="stack">
-          <Button block onClick={download}>Download a copy</Button>
-          <Button variant="blue" block onClick={() => void copyCode()}>
-            {copied ? "Copied!" : "Copy a code"}
-          </Button>
-          <Button variant="ghost" block onClick={() => setShowCode((value) => !value)}>
-            {showCode ? "Hide the code" : "Show the code"}
-          </Button>
-          {showCode ? <textarea className="field" readOnly rows={5} value={backup} /> : null}
-          <label className="field-label" htmlFor="backup-import">
-            Paste a copy here
-          </label>
-          <textarea
-            id="backup-import"
-            className="field"
-            rows={5}
-            value={importText}
-            onChange={(event) => setImportText(event.target.value)}
-          />
-          <Button variant="green" block onClick={importBackup}>
-            Put progress back
-          </Button>
-        </div>
       </section>
       {note ? <p className="form-note">{note}</p> : null}
     </PageEnter>

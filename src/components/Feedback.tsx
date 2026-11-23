@@ -4,10 +4,12 @@ export function Feedback({
   tone,
   title,
   text,
+  textLang,
 }: {
   tone: "ok" | "retry"
   title: string
   text?: string
+  textLang?: "fil"
 }) {
   const reduce = useReducedMotion()
   return (
@@ -19,7 +21,7 @@ export function Feedback({
       transition={{ duration: 0.2 }}
     >
       <p className="feedback-title">{title}</p>
-      {text ? <p>{text}</p> : null}
+      {text ? <p lang={textLang}>{text}</p> : null}
     </motion.div>
   )
 }

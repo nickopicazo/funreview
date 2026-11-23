@@ -1,4 +1,4 @@
-import { useAppState } from "../lib/appState.tsx"
+import { useAppState } from "../lib/useAppState.ts"
 
 export function MuteButton() {
   const { muted, toggleMuted } = useAppState()

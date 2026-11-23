@@ -1,15 +1,18 @@
-import { useState } from "react"
+import { useMemo, useState } from "react"
 import { Button } from "../components/Button.tsx"
 import { Choices } from "../components/Choices.tsx"
 import { Feedback } from "../components/Feedback.tsx"
 import type { PromptItem, QuizScore } from "../content/types.ts"
+import { choiceSeed, shuffleChoices } from "../lib/shuffle.ts"
 import { playCorrect, playWrong } from "../lib/sounds.ts"
 
 export function Quiz({
   items,
+  seedKey,
   onFinish,
 }: {
   items: PromptItem[]
+  seedKey: string
   onFinish: (score: QuizScore) => void
 }) {
   const [index, setIndex] = useState(0)
@@ -17,6 +20,10 @@ export function Quiz({
   const [phase, setPhase] = useState<"open" | "wrong" | "right">("open")
   const [results, setResults] = useState<boolean[]>(() => items.map(() => false))
   const item = items[index]
+  const choices = useMemo(
+    () => (item ? shuffleChoices(item.choices, choiceSeed(seedKey, "quiz", index)) : []),
+    [item, seedKey, index],
+  )
   if (!item) return null
   const stars = results.filter(Boolean).length
   const last = index === items.length - 1
@@ -56,34 +63,22 @@ export function Quiz({
       <p className="step">
         Question {index + 1} of {items.length} · {stars} {stars === 1 ? "star" : "stars"}
       </p>
-      <h2 className="prompt">{item.prompt}</h2>
+      <h2 className="prompt" lang="fil">{item.prompt}</h2>
       <Choices
-        choices={item.choices}
+        choices={choices}
         pickedId={picked}
         correctId={item.correctId}
         revealed={phase !== "open"}
         onPick={pick}
       />
-      {phase === "right" ? <Feedback tone="ok" title="Correct!" text={item.explanation} /> : null}
+      {phase === "right" ? <Feedback tone="ok" title="Correct!" text={item.explanation} textLang="fil" /> : null}
       {phase === "wrong" ? (
-        <Feedback tone="retry" title="Try again" text={item.explanation} />
+        <Feedback tone="retry" title="Not quite" text={item.explanation} textLang="fil" />
       ) : null}
       {phase === "wrong" ? (
-        <div className="stack">
-          <Button
-            variant="blue"
-            block
-            onClick={() => {
-              setPicked(null)
-              setPhase("open")
-            }}
-          >
-            Try again
-          </Button>
-          <Button variant="ghost" block onClick={() => advance(false)}>
-            Skip
-          </Button>
-        </div>
+        <Button block onClick={() => advance(false)}>
+          {last ? "See my stars" : "Next"}
+        </Button>
       ) : null}
       {phase === "right" ? (
         <Button block onClick={() => advance(true)}>

@@ -67,6 +67,7 @@ export function Matching({
               key={`left-${pair.left}`}
               type="button"
               className={`choice${done ? " ok" : ""}${leftPick === index ? " picked" : ""}`}
+              lang="fil"
               disabled={done}
               onClick={() => {
                 setLeftPick(index)
@@ -80,6 +81,7 @@ export function Matching({
                 key={`right-${rightPair.right}`}
                 type="button"
                 className={`choice${rightDone ? " ok" : ""}`}
+                lang="fil"
                 disabled={rightDone || leftPick === null}
                 onClick={() => pickRight(index)}
               >

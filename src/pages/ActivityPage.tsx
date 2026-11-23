@@ -11,7 +11,7 @@ import { PageEnter } from "../components/PageEnter.tsx"
 import { ACTIVITY_IDS, type ActivityId, type QuizScore, type WeekContent } from "../content/types.ts"
 import { ACTIVITY_META, activitiesIn } from "../content/activities.ts"
 import { findWeek } from "../content/catalog.ts"
-import { useAppState } from "../lib/appState.tsx"
+import { useAppState } from "../lib/useAppState.ts"
 import { paths, weekKey } from "../lib/routes.ts"
 import { playDone } from "../lib/sounds.ts"
 import { useTitle } from "../lib/useTitle.ts"
@@ -46,13 +46,14 @@ function ActivitySession({
 }) {
   const key = weekKey(quarterId, subjectId, week.id)
   const order = activitiesIn(week)
-  const { isDone, isCurrent, completeActivity } = useAppState()
+  const { isDone, isCurrent, completeActivity, recordQuizScore } = useAppState()
   const done = isDone(key, activity)
   const current = isCurrent(key, activity, order)
   const practice = !current && !done
   const meta = ACTIVITY_META[activity]
   const [finished, setFinished] = useState(false)
   const [awarded, setAwarded] = useState(false)
+  const [newBest, setNewBest] = useState(false)
   const [mode, setMode] = useState<"fresh" | "practice" | "review">("fresh")
   const [quiz, setQuiz] = useState<QuizScore | null>(null)
   useTitle(`FunReview — ${meta.label}`, {
@@ -64,7 +65,10 @@ function ActivitySession({
 
   function finish(score?: QuizScore) {
     const counted = completeActivity(key, activity, order, score)
+    const improved =
+      activity === "quiz" && score && !practice ? recordQuizScore(key, score) : false
     setAwarded(counted && activity === "quiz")
+    setNewBest(improved)
     setMode(counted ? "fresh" : practice ? "practice" : "review")
     setQuiz(score ?? null)
     setFinished(true)
@@ -79,6 +83,7 @@ function ActivitySession({
         badgeName={week.badgeName}
         awardedBadge={awarded}
         quiz={quiz}
+        newBest={newBest}
         nextTo={next ? paths.activity(quarterId, subjectId, week.id, next) : null}
         nextLabel={next ? ACTIVITY_META[next].label : null}
         backTo={backTo}
@@ -93,7 +98,7 @@ function ActivitySession({
       </Link>
       <div className="title-block">
         <p className="kicker">{meta.emoji} {meta.label}</p>
-        <h1>{week.title}</h1>
+        <h1 lang="fil">{week.title}</h1>
       </div>
       {practice ? (
         <p className="banner">Practice only. No check yet.</p>
@@ -102,7 +107,7 @@ function ActivitySession({
         <Recap slides={week.recap} onFinish={() => finish()} />
       ) : null}
       {activity === "riddles" && week.riddles ? (
-        <Riddles items={week.riddles} onFinish={() => finish()} />
+        <Riddles items={week.riddles} seedKey={key} onFinish={() => finish()} />
       ) : null}
       {activity === "flashcards" && week.flashcards ? (
         <Flashcards cards={week.flashcards} onFinish={() => finish()} />
@@ -114,7 +119,7 @@ function ActivitySession({
         <WordSearchGame words={week.wordSearch.words} seedKey={key} onFinish={() => finish()} />
       ) : null}
       {activity === "quiz" && week.quiz ? (
-        <Quiz items={week.quiz} onFinish={(score) => finish(score)} />
+        <Quiz items={week.quiz} seedKey={key} onFinish={(score) => finish(score)} />
       ) : null}
     </PageEnter>
   )

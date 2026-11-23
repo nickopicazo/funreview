@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 import { PageEnter } from "../components/PageEnter.tsx"
 import { SpeechBubble } from "../components/SpeechBubble.tsx"
 import { landmarks, type Landmark } from "../content/map.ts"
-import { useAppState } from "../lib/appState.tsx"
+import { useAppState } from "../lib/useAppState.ts"
 import { paths } from "../lib/routes.ts"
 import { useTitle } from "../lib/useTitle.ts"
 
@@ -70,8 +70,9 @@ export function MapPage() {
           text={
             selectedOpen
               ? `${selected.name}, ${selected.place}. ${selected.fact}`
-              : `${selected.name}. Finish this week first. Then you can visit.`
+              : `Finish Week ${selected.weekId.slice(1)} first.`
           }
+          lang={selectedOpen ? "fil" : undefined}
         />
       ) : null}
       {(["Luzon", "Visayas", "Mindanao"] as const).map((region) => (
@@ -88,8 +89,14 @@ export function MapPage() {
                   className="card place-btn"
                   onClick={() => setOpenId(place.id)}
                 >
-                  <strong>{place.name}</strong>
-                  <span>{open ? place.place : "Coming soon!"}</span>
+                  <strong lang="fil">{place.name}</strong>
+                  <span>
+                    {open ? (
+                      <span lang="fil">{place.place}</span>
+                    ) : (
+                      `Finish Week ${place.weekId.slice(1)} first`
+                    )}
+                  </span>
                 </button>
               )
             })}

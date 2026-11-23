@@ -6,7 +6,7 @@ import { SpeechBubble } from "../components/SpeechBubble.tsx"
 import { ACTIVITY_META, activitiesIn } from "../content/activities.ts"
 import { findWeek, getQuarter, getSubject } from "../content/catalog.ts"
 import type { ActivityId } from "../content/types.ts"
-import { useAppState } from "../lib/appState.tsx"
+import { useAppState } from "../lib/useAppState.ts"
 import { trackLessonOpened } from "../lib/analytics.ts"
 import { SITE_TITLE } from "../lib/seo.ts"
 import { paths, weekKey } from "../lib/routes.ts"
@@ -51,7 +51,7 @@ export function WeekPage() {
       </Link>
       <div className="title-block">
         <p className="kicker">Week {week.id.slice(1)}</p>
-        <h1>{week.title}</h1>
+        <h1 lang="fil">{week.title}</h1>
       </div>
       <SpeechBubble speaker="ben" text="Do these in order. You've got this!" />
       <ol className="path">
@@ -77,7 +77,13 @@ export function WeekPage() {
                 </span>
                 <span className="node-copy">
                   <strong>{meta.label}</strong>
-                  <small>{locked ? "Do the blue one first." : meta.hint}</small>
+                  <small>
+                    {activity === "quiz" && done && progress?.quiz
+                      ? `${progress.quiz.correct} of ${progress.quiz.total}${progress.quiz.gintongBituin ? " · Golden Star" : ""}`
+                      : locked
+                        ? "Do the blue one first."
+                        : meta.hint}
+                  </small>
                 </span>
               </button>
             </li>
@@ -87,7 +93,9 @@ export function WeekPage() {
           <div className={`node node-badge${progress?.badgeEarned ? " done" : " locked"}`}>
             <span className="node-icon" aria-hidden="true">🏅</span>
             <span className="node-copy">
-              <strong>{progress?.badgeEarned ? week.badgeName : "Badge"}</strong>
+              <strong lang={progress?.badgeEarned ? "fil" : undefined}>
+                    {progress?.badgeEarned ? week.badgeName : "Badge"}
+                  </strong>
               <small>
                 {progress?.badgeEarned
                   ? "You got it!"

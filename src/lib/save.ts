@@ -1,4 +1,5 @@
 import { ACTIVITY_IDS, type ActivityId, type QuizScore, type SaveFile, type WeekSave } from "../content/types.ts"
+import { safeGet, safeSet } from "./storage.ts"
 
 export const SAVE_KEY = "funreview-save-v1"
 
@@ -63,7 +64,7 @@ export function sanitizeSave(value: unknown): SaveFile | null {
 
 export function loadSave(): SaveFile {
   try {
-    const raw = localStorage.getItem(SAVE_KEY)
+    const raw = safeGet(SAVE_KEY)
     if (!raw) return emptySave()
     return sanitizeSave(JSON.parse(raw)) ?? emptySave()
   } catch {
@@ -72,41 +73,5 @@ export function loadSave(): SaveFile {
 }
 
 export function writeSave(save: SaveFile) {
-  localStorage.setItem(SAVE_KEY, JSON.stringify(save))
-}
-
-export function prettySave(save: SaveFile) {
-  return JSON.stringify(save, null, 2)
-}
-
-export function encodeBackup(save: SaveFile) {
-  const json = prettySave(save)
-  const bytes = new TextEncoder().encode(json)
-  let binary = ""
-  bytes.forEach((byte) => {
-    binary += String.fromCharCode(byte)
-  })
-  return btoa(binary)
-}
-
-function decodeBase64(value: string) {
-  try {
-    const binary = atob(value.replace(/\s/g, ""))
-    const bytes = Uint8Array.from(binary, (char) => char.charCodeAt(0))
-    return new TextDecoder().decode(bytes)
-  } catch {
-    return null
-  }
-}
-
-export function parseBackup(input: string): SaveFile | null {
-  const trimmed = input.trim()
-  if (!trimmed) return null
-  const jsonText = trimmed.startsWith("{") ? trimmed : decodeBase64(trimmed)
-  if (!jsonText) return null
-  try {
-    return sanitizeSave(JSON.parse(jsonText))
-  } catch {
-    return null
-  }
+  return safeSet(SAVE_KEY, JSON.stringify(save))
 }

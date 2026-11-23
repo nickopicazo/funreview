@@ -2,11 +2,13 @@ import { Link } from "react-router-dom"
 import { PageEnter } from "../components/PageEnter.tsx"
 import { SpeechBubble } from "../components/SpeechBubble.tsx"
 import { quarterHasContent, quarters } from "../content/catalog.ts"
+import { useAppState } from "../lib/useAppState.ts"
 import { SITE_TITLE } from "../lib/seo.ts"
 import { paths } from "../lib/routes.ts"
 import { useTitle } from "../lib/useTitle.ts"
 
 export function HomePage() {
+  const { canSave } = useAppState()
   useTitle(SITE_TITLE)
   return (
     <PageEnter>
@@ -15,6 +17,9 @@ export function HomePage() {
         <h1>FunReview</h1>
         <p className="lede">Review and have fun!</p>
       </div>
+      {canSave ? null : (
+        <p className="form-note">Progress can't be saved on this browser.</p>
+      )}
       <SpeechBubble speaker="ana" text="Ready? Pick a quarter." />
       <div className="card-grid">
         {quarters.map((quarter) => {

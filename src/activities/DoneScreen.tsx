@@ -10,6 +10,7 @@ export function DoneScreen({
   badgeName,
   awardedBadge,
   quiz,
+  newBest = false,
   nextTo,
   nextLabel,
   backTo,
@@ -19,6 +20,7 @@ export function DoneScreen({
   badgeName: string
   awardedBadge: boolean
   quiz: QuizScore | null
+  newBest?: boolean
   nextTo: string | null
   nextLabel: string | null
   backTo: string
@@ -39,6 +41,7 @@ export function DoneScreen({
           <p className="medal-score">
             {quiz.correct} of {quiz.total}
           </p>
+          {newBest ? <p className="gold-label">New best!</p> : null}
           {quiz.gintongBituin ? <p className="gold-label">Golden Star!</p> : (
             <p>8 or more earns a Golden Star. You can keep going.</p>
           )}
@@ -47,7 +50,7 @@ export function DoneScreen({
       {awardedBadge ? (
         <section className="medal">
           <p className="badge-emoji" aria-hidden="true">🏅</p>
-          <p className="gold-label">You earned: {badgeName}</p>
+          <p className="gold-label">You earned: <span lang="fil">{badgeName}</span></p>
         </section>
       ) : null}
       <div className="stack">

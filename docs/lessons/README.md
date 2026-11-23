@@ -20,5 +20,7 @@ Each week folder has the original PDF plus `*.extracted.txt` (text/OCR pulled fr
 
 Notes: W14, W16, W18–W20 were image-based slides, so their text is OCR and may have small errors; check the PDF when unsure.
 
+The W19 teacher slide says Kalinga is in Gitnang Luzon. The app teaches Cordillera (Tabuk), which is the correction already in Week 18. A school test may still expect the slide's answer.
+
 ## Adding new lessons
 Put PDFs in `lessons/<quarter>/<subject>/w<NN>/w<NN>-<topic-in-kebab-case>.pdf` and add a row above.

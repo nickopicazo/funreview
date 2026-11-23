@@ -401,7 +401,7 @@ a.card:active, .place-btn:active { transform: translateY(4px); box-shadow: 0 1px
 
 html:has(dialog[open]) { overflow: hidden; }
 
-.dialog {
+.dialog[open] {
   border: 0;
   width: min(480px, calc(100% - 32px - env(safe-area-inset-left) - env(safe-area-inset-right)));
   max-height: calc(100svh - 32px - env(safe-area-inset-top) - env(safe-area-inset-bottom));
@@ -417,7 +417,7 @@ html:has(dialog[open]) { overflow: hidden; }
   gap: 16px;
 }
 
-.dialog::backdrop {
+.dialog[open]::backdrop {
   background: rgb(43 36 28 / 35%);
 }
 
@@ -455,22 +455,34 @@ html:has(dialog[open]) { overflow: hidden; }
 
 .word-list li.found { background: #d9f5e8; text-decoration: line-through; }
 
-.letter-wrap { overflow-x: auto; }
+.letter-wrap { overflow: visible; }
 
-.letter-grid { display: grid; gap: 6px; width: max-content; min-width: 100%; }
+.letter-grid {
+  --cols: 8;
+  display: grid;
+  gap: 4px;
+  width: min(100%, calc(var(--cols) * 48px + (var(--cols) - 1) * 4px));
+  grid-template-columns: repeat(var(--cols), minmax(0, 1fr));
+}
 
 .letter {
-  min-width: 48px;
-  min-height: 48px;
+  width: 100%;
+  aspect-ratio: 1;
+  min-width: 0;
+  min-height: 0;
   border-radius: 12px;
   background: white;
   color: var(--ink);
-  font-size: 1.05rem;
+  font-size: clamp(0.8rem, 2.8vw, 1.05rem);
   font-weight: 700;
   box-shadow: 0 3px 0 var(--line);
 }
 
-.letter.selected { background: #d7e8ff; }
+.letter.selected {
+  background: #d7e8ff;
+  outline: 3px solid var(--blue);
+  outline-offset: -3px;
+}
 
 .map-frame {
   position: relative;

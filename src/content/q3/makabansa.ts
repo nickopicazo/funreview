@@ -1,4 +1,6 @@
 import type { PromptItem, WeekContent } from "../types.ts"
+import { choiceSeed, correctPosition } from "../../lib/shuffle.ts"
+import { createWordSearch, seedFromText } from "../../lib/wordSearch.ts"
 
 function ask(
   prompt: string,
@@ -7,10 +9,10 @@ function ask(
   explanation: string,
 ): PromptItem {
   if (options.length < 2 || options.length > 4) {
-    throw new Error(`Hindi tamang bilang ng sagot: ${prompt}`)
+    throw new Error(`A question needs 2 to 4 choices: ${prompt}`)
   }
   if (correctIndex < 0 || correctIndex >= options.length) {
-    throw new Error(`Hindi tamang tamang sagot: ${prompt}`)
+    throw new Error(`The correct choice is missing: ${prompt}`)
   }
   const ids = ["a", "b", "c", "d"]
   return {
@@ -284,55 +286,55 @@ export const makabansaWeeks: WeekContent[] = [
     quiz: [
       ask(
         "Ano ang ibig sabihin ng paladasal?",
-        ["Ayaw magdasal", "Bahagi ng buhay ang pananampalataya", "Lasing sa salita"],
+        ["Ayaw magdasal", "Dasal araw-araw", "Laging naglalaro"],
         1,
         "Paladasal tayo, anuman ang relihiyon.",
       ),
       ask(
         "Alin ang pagiging magalang?",
-        ["Sigaw sa lolo", "Po, opo, at pagmamano", "Tawanan ang matanda"],
+        ["Sigaw sa lolo", "Po at pagmamano", "Tawanan ang matanda"],
         1,
         "Ang po, opo, at pagmamano ay paggalang.",
       ),
       ask(
         "Alin ang magalang na pantawag?",
-        ["Hoy", "Kuya o ate", "Ikaw"],
+        ["Hoy ka diyan", "Kuya o ate", "Ikaw lang ha"],
         1,
         "Kuya, ate, manong, manang, lolo, at lola ay magagalang na pantawag.",
       ),
       ask(
         "Ano ang bayanihan?",
-        ["Pagtutulungan ng magkakapitbahay", "Pag-aaway", "Pag-iisa"],
+        ["Pagtutulungan", "Away ng kapitbahay", "Pag-iisa sa bahay"],
         0,
         "Ang bayanihan ay pagtutulungan sa gawain.",
       ),
       ask(
         "Paano tinatanggap ang bisita?",
-        ["Pinapaalis agad", "Hindi binubuksan ang pinto", "Masaya at magiliw na pinapapasok"],
+        ["Pinapaalis agad ang bisita", "Hindi binubuksan ang pinto", "Masayang pinapapasok"],
         2,
         "Malugod nating pinapapasok ang bisita.",
       ),
       ask(
         "Alin ang pagsasama ng mag-anak?",
-        ["Sabay kumain at magdasal", "Hindi nag-uusap", "Laging magkahiwalay"],
+        ["Sabay kumain", "Hindi nag-uusap", "Laging magkahiwalay"],
         0,
         "Sama-sama ang pamilya sa pagkain, dasal, at gawain.",
       ),
       ask(
         "Alin ang pagiging maawain?",
-        ["Tawanan ang nahihirapan", "Tumulong at magbahagi ng pagkain", "Magtanim ng galit"],
+        ["Tawanan ang nahihirapan", "Tumulong at magbahagi", "Magtanim ng galit"],
         1,
         "Ang maawain ay tumutulong, nagbabahagi, at marunong magpatawad.",
       ),
       ask(
         "Alin ang pagmamahal sa bansa?",
-        ["Pag-awit ng pambansang awit", "Pagtapon sa watawat", "Pagtawag sa ibang bansa"],
+        ["Awit ng bayan", "Pagtapon sa watawat", "Pagtawag sa ibang bansa"],
         0,
         "Kasama sa pagmamahal sa bansa ang pag-awit ng Lupang Hinirang.",
       ),
       ask(
         "Ano ang ginagawa ng mapagmahal na pamilya sa bahay?",
-        ["Nagtutulungan sa gawain", "Nag-iiwan ng gulo", "Ayaw magtulungan"],
+        ["Nagtutulungan", "Nag-iiwan ng gulo", "Ayaw magtulungan"],
         0,
         "Nagtutulungan sila at masayang gumagawa sa tahanan.",
       ),
@@ -630,13 +632,13 @@ export const makabansaWeeks: WeekContent[] = [
       ),
       ask(
         "Ano ang sigaw sa Ati-atihan?",
-        ["Hala Bira", "Mabuhay cake", "Tutubi"],
+        ["Hala Bira", "Mabuhay", "Tutubi"],
         0,
         "Sumisigaw ng “Hala Bira” sa Kalibo.",
       ),
       ask(
         "Ano ang ginugunita ng Sinulog?",
-        ["Pagdating ng Kristiyanismo at ang Santo Niño", "Ani ng mansanas", "Ulan"],
+        ["Pagdating ng Kristiyanismo at ang Santo Niño", "Ani ng palay", "Ulan"],
         0,
         "Paggunita ito sa Santo Niño at sa pagdating ng Kristiyanismo, sa Cebu.",
       ),
@@ -890,10 +892,10 @@ export const makabansaWeeks: WeekContent[] = [
         "Ang mga Aklanon ay nasa Aklan. Sikat din ang piña at Boracay.",
       ),
       ask(
-        "Nasa Cordillera ako at Tabuk ang kabisera ko. Hindi ako taga-Gitnang Luzon. Sino kami?",
-        ["Kalinga", "Karay-a", "Ati"],
+        "Nasa Antique kami. Kinaray-a ang wika namin. Sino kami?",
+        ["Karay-a", "Maranao", "Ifugao"],
         0,
-        "Ang Kalinga ay nasa Cordillera, hindi sa Gitnang Luzon.",
+        "Ang mga Karay-a ay nasa Antique. Ang Kinaray-a ang wika nila.",
       ),
     ],
     flashcards: [
@@ -969,7 +971,7 @@ export const makabansaWeeks: WeekContent[] = [
         "Ang MassKara ay sa Bacolod tuwing Oktubre.",
       ),
       ask(
-        "Saan pangunahing nasa mga Waray?",
+        "Saan pangunahing naninirahan ang mga Waray?",
         ["Silangang Visayas", "Cordillera", "Sulu"],
         0,
         "Nasa Samar, Biliran, at Leyte sila.",
@@ -999,10 +1001,10 @@ export const makabansaWeeks: WeekContent[] = [
         "Ang mga Ati ay kabilang sa mga unang nanirahan sa Panay.",
       ),
       ask(
-        "Saan nga ba ang Kalinga?",
-        ["Cordillera, Tabuk", "Gitnang Luzon", "Gitnang Visayas"],
+        "Ano ang wika ng mga Karay-a?",
+        ["Kinaray-a", "Tausug", "Ilocano"],
         0,
-        "Nasa Cordillera ang Kalinga. Ang Tabuk ang kabisera.",
+        "Ang Kinaray-a ang wika ng mga Karay-a sa Antique.",
       ),
     ],
   },
@@ -1054,19 +1056,19 @@ export const makabansaWeeks: WeekContent[] = [
         "Ang Maranao ay nangangahulugang mga tao sa lawa.",
       ),
       ask(
-        "Sayaw kami ng mga Maranao, may kawayan. Ano ako?",
+        "Sayaw ako ng mga Maranao, may kawayan. Ano ako?",
         ["Singkil", "Sinulog", "Ati-atihan"],
         0,
         "Ang Singkil ang tanyag na sayaw ng mga Maranao.",
       ),
       ask(
-        "Set kami ng maliliit na gong ng mga Maguindanaon. Ano ako?",
+        "Set ako ng maliliit na gong ng mga Maguindanaon. Ano ako?",
         ["Kulintang", "Gitara", "Tambol"],
         0,
         "Ang kulintang ay hanay ng gong.",
       ),
       ask(
-        "Hinabi kami mula sa panaginip ng mga T'boli, gawa sa abaka. Ano ako?",
+        "Hinabi ako mula sa panaginip ng mga T'boli, gawa sa abaka. Ano ako?",
         ["T'nalak", "Inabel", "Piña"],
         0,
         "Ang T'nalak ay tela ng mga T'boli, mula sa disenyo ng panaginip.",
@@ -1134,7 +1136,7 @@ export const makabansaWeeks: WeekContent[] = [
       ),
       ask(
         "Alin ang sayaw ng mga Maranao?",
-        ["Singkil", "Tinikling lang ng ibang lugar", "Kuracha"],
+        ["Singkil", "Tinikling", "Kuracha"],
         0,
         "Ang Singkil ang pinakatanyag na sayaw nila.",
       ),
@@ -1145,7 +1147,7 @@ export const makabansaWeeks: WeekContent[] = [
         "Sikat ito sa mga Maguindanaon.",
       ),
       ask(
-        "Saan pangunahing nasa mga Tausug?",
+        "Saan pangunahing naninirahan ang mga Tausug?",
         ["Sulu", "Ilocos", "Bicol"],
         0,
         "Nasa Sulu sila at nagtatag ng Sultanate of Sulu.",
@@ -1169,7 +1171,7 @@ export const makabansaWeeks: WeekContent[] = [
         "Ang Manobo ay nangangahulugang tao. Ang datu ang pinuno.",
       ),
       ask(
-        "Saan ginagawa ang T'nalak?",
+        "Sino ang gumagawa ng T'nalak?",
         ["Mga T'boli sa Lawa ng Sebu", "Mga Ilocano", "Mga Waray"],
         0,
         "Gawa ito sa abaka, at ang disenyo ay pinaniniwalaang galing sa panaginip.",
@@ -1186,12 +1188,41 @@ export const makabansaWeeks: WeekContent[] = [
 
 for (const week of makabansaWeeks) {
   if (!week.quiz || week.quiz.length !== 10) {
-    throw new Error(`${week.id} ay dapat may 10 tanong sa pagsusulit.`)
+    throw new Error(`${week.id} needs 10 quiz questions.`)
   }
   const items = [...(week.riddles ?? []), ...week.quiz]
   for (const item of items) {
     if (!item.choices.some((choice) => choice.id === item.correctId)) {
-      throw new Error(`Nawawala ang tamang sagot: ${item.prompt}`)
+      throw new Error(`The correct choice is missing: ${item.prompt}`)
     }
+  }
+  const counts = new Map<number, number>()
+  const prompted = [
+    ...(week.riddles ?? []).map((item, index) => ({ item, activity: "riddles" as const, index })),
+    ...week.quiz.map((item, index) => ({ item, activity: "quiz" as const, index })),
+  ]
+  for (const { item, activity, index } of prompted) {
+    const position = correctPosition(
+      item.choices,
+      item.correctId,
+      choiceSeed(`q3/makabansa/${week.id}`, activity, index),
+    )
+    counts.set(position, (counts.get(position) ?? 0) + 1)
+  }
+  const top = Math.max(...counts.values())
+  if (top / prompted.length > 0.5) {
+    throw new Error(`${week.id} puts too many correct answers in one position.`)
+  }
+  if (week.id === "w15") {
+    let longest = 0
+    for (const item of week.quiz) {
+      const correct = item.choices.find((choice) => choice.id === item.correctId)
+      const max = Math.max(...item.choices.map((choice) => choice.label.length))
+      if (correct && correct.label.length === max) longest += 1
+    }
+    if (longest > 4) throw new Error("Week 15 correct answers are the longest too often.")
+  }
+  if (week.wordSearch) {
+    createWordSearch(week.wordSearch.words, seedFromText(`q3/makabansa/${week.id}`))
   }
 }

@@ -25,6 +25,7 @@ export function Choices({
             key={choice.id}
             type="button"
             className={`choice${tone}`}
+            lang="fil"
             onClick={() => onPick(choice.id)}
             disabled={revealed}
           >

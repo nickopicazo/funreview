@@ -1,13 +1,15 @@
+import { safeGet, safeSet } from "./storage.ts"
+
 const MUTE_KEY = "funreview-muted"
 
 let audio: AudioContext | null = null
 
 export function readMuted() {
-  return localStorage.getItem(MUTE_KEY) === "1"
+  return safeGet(MUTE_KEY) === "1"
 }
 
 export function writeMuted(muted: boolean) {
-  localStorage.setItem(MUTE_KEY, muted ? "1" : "0")
+  safeSet(MUTE_KEY, muted ? "1" : "0")
 }
 
 function context() {

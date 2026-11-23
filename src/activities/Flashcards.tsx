@@ -32,6 +32,7 @@ export function Flashcards({
               key={card.name}
               type="button"
               className={`flip${open ? " is-open" : ""}`}
+              lang="fil"
               aria-pressed={open}
               onClick={() => flip(index)}
             >

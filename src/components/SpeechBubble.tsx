@@ -1,9 +1,11 @@
 export function SpeechBubble({
   speaker,
   text,
+  lang,
 }: {
   speaker: "ana" | "ben"
   text: string
+  lang?: "fil"
 }) {
   const name = speaker === "ana" ? "Ana" : "Ben"
   return (
@@ -13,7 +15,7 @@ export function SpeechBubble({
       </div>
       <div className="bubble-copy">
         <p className="bubble-name">{name}</p>
-        <p>{text}</p>
+        <p lang={lang}>{text}</p>
       </div>
     </div>
   )

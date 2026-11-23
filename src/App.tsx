@@ -1,7 +1,7 @@
 import { useEffect } from "react"
 import { Route, Routes, useLocation } from "react-router-dom"
 import { AppShell } from "./components/AppShell.tsx"
-import { loadAnalytics, trackPageView } from "./lib/analytics.ts"
+import { loadAnalytics } from "./lib/analytics.ts"
 import { ActivityPage } from "./pages/ActivityPage.tsx"
 import { HomePage } from "./pages/HomePage.tsx"
 import { MapPage } from "./pages/MapPage.tsx"
@@ -15,7 +15,6 @@ function TrackVisits() {
   const location = useLocation()
   useEffect(() => {
     loadAnalytics()
-    trackPageView(location.pathname)
   }, [location.pathname])
   return null
 }

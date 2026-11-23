@@ -1,8 +1,8 @@
 # FunReview — Project Plan
 
-> Status: **Milestones 2–8 built** (23 Nov 2026). Analytics stays off until a parent opts in. No custom domain yet.
+> Status: **Milestones 2–8 built** (24 Nov 2026). GA4 loads on every visit. No personal data and no save data are sent. Google Signals and ad personalization stay off. No custom domain yet.
 >
-> **Next:** fixes from the 24 Nov 2026 review are planned in [`FIXES-PLAN.md`](./FIXES-PLAN.md) (analytics always on, backup removed, quiz scoring, and more). Where they differ, FIXES-PLAN.md wins until this file is updated.
+> **Next:** add the next subjects and quarters as lessons arrive.
 
 ## 1. What it is
 FunReview is a child-friendly, interactive reviewer web app for a Grade 3 student in the Philippines (DepEd curriculum). It replaces printed reviewers with short, game-like lessons she can open on a tablet, phone, or computer. The look and feel is inspired by Duolingo.
@@ -11,7 +11,7 @@ FunReview is a child-friendly, interactive reviewer web app for a Grade 3 studen
 - Make reviewing fun and self-guided for a Grade 3 learner (age 8–9).
 - Organize content by **Quarter → Subject → Week**, so new lessons can be added just by adding content files.
 - Keep hosting nearly free.
-- Save progress on her device, with a way to back it up.
+- Save progress on her device.
 
 ## 3. Tech decisions
 | Area | Decision | Why |
@@ -19,16 +19,16 @@ FunReview is a child-friendly, interactive reviewer web app for a Grade 3 studen
 | Framework | React + Vite + TypeScript, built as a **static site** | Cheapest to host; no server needed |
 | Routing | React Router (client-side) | Quarter / subject / week pages |
 | Hosting | Railway, serving the built `dist/` with a tiny static server (e.g. Caddy or `serve`) honoring `PORT` | ~30–50 MB RAM; fits Railway Free plan ($1/mo credit) or Hobby ($5/mo, always on) |
-| Progress | Versioned JSON in `localStorage` on her device only | Free, no backend, no login |
-| Backup | Same JSON as a pretty-printed file download, plus a copyable base64 string | Move to a new device or restore after the browser is cleared |
-| Analytics | Google Analytics 4, **milestone 7 only, off until a parent opts in** | Usage insight without loading a script during the shell |
+| Progress | Versioned JSON in `localStorage` on her device only. It stays on that device. There is no export and no import. | Free, no backend, no login |
+| Analytics | Google Analytics 4 loads on every visit | Usage insight without personal data or save data. Google Signals and ad personalization stay off |
 | Considered, not chosen | Next.js SSR, Remix/React Router framework mode | Need a running Node server; more RAM, more cost, not needed |
 
 ### Analytics rules (kid safety)
-- Do not add the GA4 script in milestones 2–6. When it lands, load it only after a parent opt-in in settings. Default is off.
-- Never send her name or any personal data.
+- GA4 loads on every visit. There is no separate switch in settings.
+- Never send her name, any personal data, or save data.
 - Turn off Google Signals and ad personalization features.
 - Track only app events: lesson opened, activity completed, quiz score band, badge earned.
+- GA4 does not store IP addresses. Do not send a legacy IP flag.
 
 ### Progress record
 No account and no server. One versioned save under `localStorage` key `funreview-save-v1`:
@@ -49,7 +49,7 @@ type SaveFile = {
 }
 ```
 
-Backup exports that object as pretty-printed JSON and as a base64 string of the same JSON. Import accepts either form and replaces the local save only when `version` is `1`.
+Progress stays on this device only. There is no export and no import.
 
 ## 4. Content structure
 ```
@@ -129,8 +129,8 @@ v1 has one set of activities. **Word search only** — a crossword is a later ga
 3. **Tap-to-flip flashcards** — picture/term on front; name, place, one fact on back.
 4. **Matching** — kasuotan ↔ pangkat, pista ↔ lugar, pangkat ↔ tatak (tap-to-select, no drag-only).
 5. **Word search** — key vocabulary (bayanihan, T'nalak, Singkil, kulintang, binagol).
-6. **Star quiz** — 10 items, 2–4 choices, 1 star each; 8+ = **Golden Star**; gentle feedback with explanations. The save field stays `gintongBituin`.
-7. **Week badge** — earned on finishing the quiz in order (Makabayan → Mindanao), including a score below 8.
+6. **Star quiz** — 10 items, 2–4 choices, 1 star each on the first tap; 8+ = **Golden Star**; gentle feedback with explanations. The save field stays `gintongBituin`. A later try keeps the higher score.
+7. **Week badge** — earned on finishing the quiz in order (Makabayan → Mindanao), including a score below 8. The badge and the Golden Star are separate.
 Bonus: **"A trip around the Philippines" map** for W17–W20 (Luzon, Visayas, Mindanao) with landmarks. This is milestone 6, not part of the week path. Landmark names and facts stay Filipino.
 
 ### Completion and scoring
@@ -143,7 +143,7 @@ A node on the current path is done when she finishes it:
 - Word search: the puzzle solved.
 - Quiz: the quiz submitted.
 
-Wrong answers show the explanation and **“Try again”**. There is no penalty and no lost star. A quiz star is awarded once that item is correct, including after a retry. **Golden Star** when `correct >= 8` of 10.
+On the quiz, the first tap decides the star. A right answer shows “Correct!” and Next. A wrong answer shows the correct choice and the explanation, then Next. There is no second try and no skip. **Golden Star** when `correct >= 8` of 10. Riddles still allow **“Try again”**. They have no score.
 
 The path is sequential. Later nodes are softly locked and can be opened with **“Try anyway”** (practice anyway). That play does not mark the node done and does not award the week badge. The badge is awarded only when the quiz is the current node (earlier nodes already done) and she submits it.
 
@@ -154,18 +154,18 @@ The path is sequential. Later nodes are softly locked and can be opened with **�
 - A guided **path** per week: nodes per activity that the week actually includes; done = gold, current = pulsing, later = softly locked with “Try anyway”.
 - **Ana and Ben** as recurring guides who cheer her on (never sad or guilt-tripping).
 - **Bite-sized** sessions (2–5 min) ending with "Done!" and "Next: Flip cards" / "← This week".
-- **Instant feedback**: "Correct!" + ding + green pulse; wrong = soft tone, show answer, "Try again".
+- **Instant feedback**: "Correct!" + ding + green pulse. On the quiz, a wrong tap shows the answer and moves on. Riddles still offer "Try again".
 - **Celebrations** at lesson/week end: confetti, progress bar fill, badge.
 - **Chunky buttons**: big tap targets (≥48px), rounded, 3D press shadow.
 - Always-visible mute for the short sound effects.
-- Parent settings (reset progress, backup) behind a parent gate.
+- Parent settings (reset progress) behind a parent gate.
 
 **v1 art and audio**
 - Ana and Ben are named speech bubbles with emoji or simple shapes until illustrations exist. No custom mascot art in v1.
 - Sound is a few short SFX via HTMLAudioElement / Web Audio (Howler only if needed), plus mute. No narration and no text-to-speech in v1. No tap-to-hear until there is audio to play.
 
 **Parent gate**
-- Reset and backup sit behind one regenerated addition problem (for example 7 + 5). A new problem is created each time the gate opens. No stored PIN.
+- Reset sits behind one regenerated multiplication problem: a two-digit number times a one-digit number, with an answer of at least 100, shown in digits and in words. A new problem is created each time the gate opens and after each wrong answer. After 3 wrong answers the gate waits 30 seconds. No stored PIN.
 
 **Avoid**
 - Hearts/lives that stop play after mistakes.
@@ -185,11 +185,11 @@ The path is sequential. Later nodes are softly locked and can be opened with **�
 ## 9. Milestones
 1. ✅ Init Vite + React + TS app (`/Users/nickopicazo/Apps/funreview`).
 2. ✅ Design system: colors, fonts, buttons, feedback components. English chrome. Ana and Ben as speech bubbles.
-3. ✅ App shell: home → quarter → subject → week path; routing; progress store + backup + parent gate. One sample week against `WeekContent`. No GA4 script.
+3. ✅ App shell: home → quarter → subject → week path; routing; progress store + parent gate. One sample week against `WeekContent`.
 4. ✅ Activity components: recap, riddles, flashcards, matching, word search, quiz, badge.
 5. ✅ Content: author Q3 Makabansa W14–W20 into the schema, using `docs/lessons` as the source of facts (do not paste the OCR).
 6. ✅ Map journey (W17–W20).
-7. ✅ Google Analytics, still off until a parent opts in.
+7. ✅ Google Analytics on every visit. No personal data and no save data. Google Signals and ad personalization stay off.
 8. ✅ Railway deploy config. Custom domain was not purchased; `funreview.app` is still only a candidate.
 9. ⬜ Add next subjects/quarters as lessons arrive.
 
@@ -205,5 +205,5 @@ These do not block milestones 2–5.
 - Riddles and quiz are tap-to-choose.
 - UI chrome is English. Makabansa lesson text stays Filipino. Catalog is Q1–Q4 and the six subjects above; only Q3 Makabansa opens.
 - Ana and Ben are emoji or simple shapes. No narration and no text-to-speech.
-- Parent gate is a regenerated addition problem. No PIN.
-- Analytics stays milestone 7 and defaults off.
+- Parent gate is a regenerated multiplication problem. No PIN.
+- Analytics loads on every visit. No personal data and no save data. Google Signals and ad personalization stay off.
