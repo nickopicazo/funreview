@@ -27,8 +27,9 @@ export function loadAnalytics() {
   if (!id || started) return
   started = true
   window.dataLayer = window.dataLayer ?? []
-  window.gtag = (...args: unknown[]) => {
-    window.dataLayer?.push(args)
+  // gtag.js only sends commands stored as an `arguments` object, not a normal array.
+  window.gtag = function gtag() {
+    window.dataLayer?.push(arguments)
   }
   window.gtag("js", new Date())
   window.gtag("config", id, {
