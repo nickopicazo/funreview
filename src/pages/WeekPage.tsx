@@ -8,6 +8,7 @@ import { findWeek, getQuarter, getSubject } from "../content/catalog.ts"
 import type { ActivityId } from "../content/types.ts"
 import { useAppState } from "../lib/appState.tsx"
 import { trackLessonOpened } from "../lib/analytics.ts"
+import { SITE_TITLE } from "../lib/seo.ts"
 import { paths, weekKey } from "../lib/routes.ts"
 import { useTitle } from "../lib/useTitle.ts"
 import { Missing } from "./Missing.tsx"
@@ -23,7 +24,17 @@ export function WeekPage() {
   const key = weekKey(quarterId, subjectId, weekId)
   const order = week ? activitiesIn(week) : []
   const progress = save.weeks[key]
-  useTitle(week ? `FunReview — Week ${week.id.slice(1)}` : "FunReview")
+  const weekNumber = week ? week.id.slice(1) : ""
+  useTitle(
+    week ? `FunReview — Week ${weekNumber}` : SITE_TITLE,
+    week
+      ? {
+          description: subject
+            ? `${subject.title}, Week ${weekNumber}: ${week.title}.`
+            : `Week ${weekNumber}: ${week.title}.`,
+        }
+      : undefined,
+  )
 
   useEffect(() => {
     if (week) trackLessonOpened(key)

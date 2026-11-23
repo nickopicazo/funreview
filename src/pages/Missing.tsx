@@ -1,6 +1,7 @@
 import { Button } from "../components/Button.tsx"
 import { PageEnter } from "../components/PageEnter.tsx"
 import { paths } from "../lib/routes.ts"
+import { SITE_TITLE } from "../lib/seo.ts"
 import { useTitle } from "../lib/useTitle.ts"
 
 export function Missing({
@@ -10,7 +11,7 @@ export function Missing({
   title?: string
   body?: string
 }) {
-  useTitle("FunReview")
+  useTitle(SITE_TITLE, { description: "This page isn't here." })
   return (
     <PageEnter>
       <h1>{title}</h1>

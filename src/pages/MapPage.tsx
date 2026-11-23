@@ -14,7 +14,9 @@ function unlocked(weekId: Landmark["weekId"], badges: Record<string, boolean>) {
 export function MapPage() {
   const { save } = useAppState()
   const [openId, setOpenId] = useState<string | null>(null)
-  useTitle("FunReview — Trip")
+  useTitle("FunReview — Trip", {
+    description: "A trip around the Philippines for Grade 3.",
+  })
   const badges = Object.fromEntries(
     Object.entries(save.weeks).map(([key, week]) => [key, week.badgeEarned]),
   )

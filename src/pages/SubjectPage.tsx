@@ -3,6 +3,7 @@ import { PageEnter } from "../components/PageEnter.tsx"
 import { activitiesIn } from "../content/activities.ts"
 import { getQuarter, getSubject, getWeeks } from "../content/catalog.ts"
 import { useAppState } from "../lib/appState.tsx"
+import { SITE_TITLE } from "../lib/seo.ts"
 import { paths, weekKey } from "../lib/routes.ts"
 import { useTitle } from "../lib/useTitle.ts"
 import { Missing } from "./Missing.tsx"
@@ -13,7 +14,12 @@ export function SubjectPage() {
   const subject = getSubject(subjectId)
   const weeks = quarter && subject ? getWeeks(quarter.id, subject.id) : null
   const { save } = useAppState()
-  useTitle(subject && quarter ? `FunReview — ${subject.title}` : "FunReview")
+  useTitle(
+    subject && quarter ? `FunReview — ${subject.title}` : SITE_TITLE,
+    subject && quarter
+      ? { description: `${subject.title} lessons in ${quarter.title}.` }
+      : undefined,
+  )
 
   if (!quarter || !subject) return <Missing />
   if (!weeks) {

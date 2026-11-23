@@ -1,6 +1,7 @@
 import { Link, useParams } from "react-router-dom"
 import { PageEnter } from "../components/PageEnter.tsx"
 import { getQuarter, getWeeks, subjects } from "../content/catalog.ts"
+import { SITE_TITLE } from "../lib/seo.ts"
 import { paths } from "../lib/routes.ts"
 import { useTitle } from "../lib/useTitle.ts"
 import { Missing } from "./Missing.tsx"
@@ -8,7 +9,10 @@ import { Missing } from "./Missing.tsx"
 export function QuarterPage() {
   const { quarterId = "" } = useParams()
   const quarter = getQuarter(quarterId)
-  useTitle(quarter ? `FunReview — ${quarter.title}` : "FunReview")
+  useTitle(
+    quarter ? `FunReview — ${quarter.title}` : SITE_TITLE,
+    quarter ? { description: `Grade 3 lessons in ${quarter.title}.` } : undefined,
+  )
   if (!quarter) return <Missing />
 
   return (

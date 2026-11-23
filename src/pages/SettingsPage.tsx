@@ -10,7 +10,10 @@ import { useTitle } from "../lib/useTitle.ts"
 
 export function SettingsPage() {
   const [open, setOpen] = useState(false)
-  useTitle("FunReview — Settings")
+  useTitle("FunReview — Settings", {
+    description: "Parent settings for FunReview.",
+    noindex: true,
+  })
   if (!open) return <ParentGate onPass={() => setOpen(true)} />
   return <SettingsPanel />
 }

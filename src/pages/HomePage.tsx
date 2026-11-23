@@ -2,11 +2,12 @@ import { Link } from "react-router-dom"
 import { PageEnter } from "../components/PageEnter.tsx"
 import { SpeechBubble } from "../components/SpeechBubble.tsx"
 import { quarterHasContent, quarters } from "../content/catalog.ts"
+import { SITE_TITLE } from "../lib/seo.ts"
 import { paths } from "../lib/routes.ts"
 import { useTitle } from "../lib/useTitle.ts"
 
 export function HomePage() {
-  useTitle("FunReview")
+  useTitle(SITE_TITLE)
   return (
     <PageEnter>
       <div className="title-block">

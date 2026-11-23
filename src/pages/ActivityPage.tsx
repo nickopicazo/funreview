@@ -55,7 +55,9 @@ function ActivitySession({
   const [awarded, setAwarded] = useState(false)
   const [mode, setMode] = useState<"fresh" | "practice" | "review">("fresh")
   const [quiz, setQuiz] = useState<QuizScore | null>(null)
-  useTitle(`FunReview — ${meta.label}`)
+  useTitle(`FunReview — ${meta.label}`, {
+    description: `${meta.label} for Week ${week.id.slice(1)}.`,
+  })
 
   const next = order[order.indexOf(activity) + 1]
   const backTo = paths.week(quarterId, subjectId, week.id)
