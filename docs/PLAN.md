@@ -1,6 +1,8 @@
 # FunReview — Project Plan
 
 > Status: **Milestones 2–8 built** (23 Nov 2026). Analytics stays off until a parent opts in. No custom domain yet.
+>
+> **Next:** fixes from the 24 Nov 2026 review are planned in [`FIXES-PLAN.md`](./FIXES-PLAN.md) (analytics always on, backup removed, quiz scoring, and more). Where they differ, FIXES-PLAN.md wins until this file is updated.
 
 ## 1. What it is
 FunReview is a child-friendly, interactive reviewer web app for a Grade 3 student in the Philippines (DepEd curriculum). It replaces printed reviewers with short, game-like lessons she can open on a tablet, phone, or computer. The look and feel is inspired by Duolingo.
