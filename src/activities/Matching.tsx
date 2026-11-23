@@ -55,7 +55,7 @@ export function Matching({
 
   return (
     <div className="stack">
-      <p className="hint">I-tap ang kaliwa, tapos ang pares nito sa kanan.</p>
+      <p className="hint">Tap the left side, then its match on the right.</p>
       <div className="match-grid">
         <div className="stack">
           {pairs.map((pair, index) => {
@@ -95,9 +95,9 @@ export function Matching({
           })}
         </div>
       </div>
-      {wrong ? <Feedback tone="retry" title="Subukan ulit" text="Hindi iyan ang pares." /> : null}
+      {wrong ? <Feedback tone="retry" title="Try again" text="That isn't the pair." /> : null}
       <Button block disabled={!ready} onClick={onFinish}>
-        Tapos na!
+        Done!
       </Button>
     </div>
   )

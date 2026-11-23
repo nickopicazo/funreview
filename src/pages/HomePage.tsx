@@ -9,10 +9,10 @@ export function HomePage() {
   useTitle("FunReview")
   return (
     <PageEnter>
-      <p className="kicker">Para sa Grade 3</p>
+      <p className="kicker">For Grade 3</p>
       <h1>FunReview</h1>
-      <p className="lede">Mag-review nang masaya!</p>
-      <SpeechBubble speaker="ana" text="Handa ka na ba? Piliin ang markahan." />
+      <p className="lede">Review and have fun!</p>
+      <SpeechBubble speaker="ana" text="Ready? Pick a quarter." />
       <div className="card-grid">
         {quarters.map((quarter) => {
           const open = quarterHasContent(quarter.id)
@@ -21,7 +21,7 @@ export function HomePage() {
               <article key={quarter.id} className="card is-locked">
                 <span className="card-order">{quarter.order}</span>
                 <h2>{quarter.title}</h2>
-                <span className="pill">Malapit na!</span>
+                <span className="pill">Coming soon!</span>
               </article>
             )
           }
@@ -29,7 +29,7 @@ export function HomePage() {
             <Link key={quarter.id} className="card" to={paths.quarter(quarter.id)}>
               <span className="card-order">{quarter.order}</span>
               <h2>{quarter.title}</h2>
-              <span className="pill pill-open">Bukas</span>
+              <span className="pill pill-open">Open</span>
             </Link>
           )
         })}

@@ -14,15 +14,15 @@ export default function App() {
     <Routes>
       <Route element={<AppShell />}>
         <Route index element={<HomePage />} />
-        <Route path="markahan/:quarterId" element={<QuarterPage />} />
-        <Route path="markahan/:quarterId/:subjectId" element={<SubjectPage />} />
-        <Route path="markahan/:quarterId/:subjectId/:weekId" element={<WeekPage />} />
+        <Route path="quarter/:quarterId" element={<QuarterPage />} />
+        <Route path="quarter/:quarterId/:subjectId" element={<SubjectPage />} />
+        <Route path="quarter/:quarterId/:subjectId/:weekId" element={<WeekPage />} />
         <Route
-          path="markahan/:quarterId/:subjectId/:weekId/:activityId"
+          path="quarter/:quarterId/:subjectId/:weekId/:activityId"
           element={<ActivityPage />}
         />
-        <Route path="mapa" element={<MapPage />} />
-        <Route path="mga-setting" element={<SettingsPage />} />
+        <Route path="map" element={<MapPage />} />
+        <Route path="settings" element={<SettingsPage />} />
         <Route path="*" element={<Missing />} />
       </Route>
     </Routes>

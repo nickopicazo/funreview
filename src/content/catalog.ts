@@ -14,10 +14,10 @@ export type SubjectInfo = {
 }
 
 export const quarters: QuarterInfo[] = [
-  { id: "q1", title: "Unang Markahan", order: "1" },
-  { id: "q2", title: "Ikalawang Markahan", order: "2" },
-  { id: "q3", title: "Ikatlong Markahan", order: "3" },
-  { id: "q4", title: "Ikaapat na Markahan", order: "4" },
+  { id: "q1", title: "Quarter 1", order: "1" },
+  { id: "q2", title: "Quarter 2", order: "2" },
+  { id: "q3", title: "Quarter 3", order: "3" },
+  { id: "q4", title: "Quarter 4", order: "4" },
 ]
 
 export const subjects: SubjectInfo[] = [

@@ -23,7 +23,7 @@ export function WeekPage() {
   const key = weekKey(quarterId, subjectId, weekId)
   const order = week ? activitiesIn(week) : []
   const progress = save.weeks[key]
-  useTitle(week ? `FunReview — Linggo ${week.id.slice(1)}` : "FunReview")
+  useTitle(week ? `FunReview — Week ${week.id.slice(1)}` : "FunReview")
 
   useEffect(() => {
     if (week) trackLessonOpened(key)
@@ -36,11 +36,11 @@ export function WeekPage() {
   return (
     <PageEnter>
       <Link className="back" to={paths.subject(quarter.id, subject.id)}>
-        Bumalik
+        Back
       </Link>
-      <p className="kicker">Linggo {week.id.slice(1)}</p>
+      <p className="kicker">Week {week.id.slice(1)}</p>
       <h1>{week.title}</h1>
-      <SpeechBubble speaker="ben" text="Sunod tayo sa landas. Kaya mo ito!" />
+      <SpeechBubble speaker="ben" text="Follow the path. You can do this!" />
       <ol className="path">
         {order.map((activity) => {
           const meta = ACTIVITY_META[activity]
@@ -64,7 +64,7 @@ export function WeekPage() {
                 </span>
                 <span>
                   <strong>{meta.label}</strong>
-                  <small>{locked ? "Subukan pa rin" : meta.hint}</small>
+                  <small>{locked ? "Try anyway" : meta.hint}</small>
                 </span>
               </button>
             </li>
@@ -77,8 +77,8 @@ export function WeekPage() {
               <strong>{progress?.badgeEarned ? week.badgeName : "Badge"}</strong>
               <small>
                 {progress?.badgeEarned
-                  ? "Nakuha mo na!"
-                  : "Matatapos kapag naipasa ang pagsusulit."}
+                  ? "You got it!"
+                  : "You'll earn this when you finish the quiz."}
               </small>
             </span>
           </div>
@@ -93,9 +93,9 @@ export function WeekPage() {
             aria-labelledby="practice-title"
             onClick={(event) => event.stopPropagation()}
           >
-            <h2 id="practice-title">Hindi pa ito ang sunod</h2>
+            <h2 id="practice-title">This isn't next yet</h2>
             <p>
-              Puwede mong subukan ang {pendingMeta.label}, pero hindi pa ito mabibilang sa landas.
+              You can try {pendingMeta.label}, but it won't count on the path yet.
             </p>
             <div className="stack">
               <Button
@@ -104,10 +104,10 @@ export function WeekPage() {
                   navigate(paths.activity(quarter.id, subject.id, week.id, pending))
                 }}
               >
-                Subukan pa rin
+                Try anyway
               </Button>
               <Button variant="ghost" block onClick={() => setPending(null)}>
-                Bumalik
+                Back
               </Button>
             </div>
           </div>

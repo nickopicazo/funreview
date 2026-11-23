@@ -86,12 +86,12 @@ function ActivitySession({
   return (
     <PageEnter>
       <Link className="back" to={backTo}>
-        Bumalik sa landas
+        Back to the path
       </Link>
       <p className="kicker">{meta.emoji} {meta.label}</p>
       <h1>{week.title}</h1>
       {practice ? (
-        <p className="banner">Pagsasanay — hindi pa ito bibilang sa landas.</p>
+        <p className="banner">Practice — this won't count on the path yet.</p>
       ) : null}
       {activity === "recap" && week.recap ? (
         <Recap slides={week.recap} onFinish={() => finish()} />

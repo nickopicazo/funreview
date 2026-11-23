@@ -14,7 +14,7 @@ function unlocked(weekId: Landmark["weekId"], badges: Record<string, boolean>) {
 export function MapPage() {
   const { save } = useAppState()
   const [openId, setOpenId] = useState<string | null>(null)
-  useTitle("FunReview — Paglalakbay")
+  useTitle("FunReview — Trip")
   const badges = Object.fromEntries(
     Object.entries(save.weeks).map(([key, week]) => [key, week.badgeEarned]),
   )
@@ -24,15 +24,15 @@ export function MapPage() {
   return (
     <PageEnter>
       <Link className="back" to={paths.home}>
-        Bumalik
+        Back
       </Link>
-      <h1>Paglalakbay sa Pilipinas</h1>
+      <h1>A trip around the Philippines</h1>
       <SpeechBubble
         speaker="ana"
-        text="Puntahan natin ang Luzon, Visayas, at Mindanao. Magbubukas ang lugar kapag nakuha mo ang badge ng linggo."
+        text="Let's visit Luzon, Visayas, and Mindanao. A place opens when you earn that week's badge."
       />
       <div className="map-frame">
-        <svg className="map-svg" viewBox="0 0 320 560" role="img" aria-label="Mapa ng Pilipinas">
+        <svg className="map-svg" viewBox="0 0 320 560" role="img" aria-label="Map of the Philippines">
           <path
             className="island"
             d="M168 28c28 8 52 28 58 58 18 10 28 36 18 58-6 28-28 42-36 62-16 8-40 4-52-12-22 6-46-8-52-30-16-8-28-36-16-58 8-28 28-48 52-62 8-10 18-18 28-16z"
@@ -68,7 +68,7 @@ export function MapPage() {
           text={
             selectedOpen
               ? `${selected.name}, ${selected.place}. ${selected.fact}`
-              : `${selected.name} ay malapit na! Tapusin muna ang linggo para mabuksan ito.`
+              : `${selected.name} is coming soon. Finish this week to open it.`
           }
         />
       ) : null}
@@ -87,7 +87,7 @@ export function MapPage() {
                   onClick={() => setOpenId(place.id)}
                 >
                   <strong>{place.name}</strong>
-                  <span>{open ? place.place : "Malapit na!"}</span>
+                  <span>{open ? place.place : "Coming soon!"}</span>
                 </button>
               )
             })}

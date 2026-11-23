@@ -4,8 +4,8 @@ import { paths } from "../lib/routes.ts"
 import { useTitle } from "../lib/useTitle.ts"
 
 export function Missing({
-  title = "Hindi mahanap",
-  body = "Wala ang pahinang iyan.",
+  title = "Page not found",
+  body = "That page isn't here.",
 }: {
   title?: string
   body?: string
@@ -16,7 +16,7 @@ export function Missing({
       <h1>{title}</h1>
       <p>{body}</p>
       <Button to={paths.home} block>
-        Bumalik sa simula
+        Back to the start
       </Button>
     </PageEnter>
   )

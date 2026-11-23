@@ -21,9 +21,9 @@ export function Flashcards({
   return (
     <div className="stack">
       <p className="step">
-        {seen.length} / {cards.length} ang nabaligtad
+        {seen.length} / {cards.length} flipped
       </p>
-      <p className="hint">I-tap ang kard para makita ang likod.</p>
+      <p className="hint">Tap a card to see the back.</p>
       <div className="card-grid">
         {cards.map((card, index) => {
           const open = flipped[index] === true
@@ -49,7 +49,7 @@ export function Flashcards({
         })}
       </div>
       <Button block disabled={!ready} onClick={onFinish}>
-        Tapos na!
+        Done!
       </Button>
     </div>
   )

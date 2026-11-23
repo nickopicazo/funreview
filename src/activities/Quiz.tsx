@@ -54,7 +54,7 @@ export function Quiz({
   return (
     <div className="stack">
       <p className="step">
-        Tanong {index + 1} / {items.length} · ⭐ {stars}
+        Question {index + 1} / {items.length} · ⭐ {stars}
       </p>
       <h2 className="prompt">{item.prompt}</h2>
       <Choices
@@ -64,9 +64,9 @@ export function Quiz({
         revealed={phase !== "open"}
         onPick={pick}
       />
-      {phase === "right" ? <Feedback tone="ok" title="Tama!" text={item.explanation} /> : null}
+      {phase === "right" ? <Feedback tone="ok" title="Correct!" text={item.explanation} /> : null}
       {phase === "wrong" ? (
-        <Feedback tone="retry" title="Subukan ulit" text={item.explanation} />
+        <Feedback tone="retry" title="Try again" text={item.explanation} />
       ) : null}
       {phase === "wrong" ? (
         <div className="row">
@@ -77,16 +77,16 @@ export function Quiz({
               setPhase("open")
             }}
           >
-            Subukan ulit
+            Try again
           </Button>
           <Button variant="ghost" onClick={() => advance(false)}>
-            Susunod
+            Next
           </Button>
         </div>
       ) : null}
       {phase === "right" ? (
         <Button block onClick={() => advance(true)}>
-          {last ? "Ipasa ang pagsusulit" : "Susunod"}
+          {last ? "Submit quiz" : "Next"}
         </Button>
       ) : null}
     </div>

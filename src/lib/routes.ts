@@ -1,18 +1,18 @@
 export const paths = {
   home: "/",
-  map: "/mapa",
-  settings: "/mga-setting",
-  quarter: (quarterId: string) => `/markahan/${quarterId}`,
+  map: "/map",
+  settings: "/settings",
+  quarter: (quarterId: string) => `/quarter/${quarterId}`,
   subject: (quarterId: string, subjectId: string) =>
-    `/markahan/${quarterId}/${subjectId}`,
+    `/quarter/${quarterId}/${subjectId}`,
   week: (quarterId: string, subjectId: string, weekId: string) =>
-    `/markahan/${quarterId}/${subjectId}/${weekId}`,
+    `/quarter/${quarterId}/${subjectId}/${weekId}`,
   activity: (
     quarterId: string,
     subjectId: string,
     weekId: string,
     activityId: string,
-  ) => `/markahan/${quarterId}/${subjectId}/${weekId}/${activityId}`,
+  ) => `/quarter/${quarterId}/${subjectId}/${weekId}/${activityId}`,
 }
 
 export function weekKey(quarterId: string, subjectId: string, weekId: string) {

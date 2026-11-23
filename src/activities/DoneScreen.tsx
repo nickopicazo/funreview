@@ -22,23 +22,23 @@ export function DoneScreen({
   backTo: string
 }) {
   const cheer = practice
-    ? "Magaling ang pagsasanay! Hindi pa ito bibilang sa landas."
+    ? "Nice practice! This won't count on the path yet."
     : review
-      ? "Nagawa mo na ito. Ang galing mong bumalik!"
-      : "Tapos na! Proud ako sa iyo."
+      ? "You already did this. Great job coming back!"
+      : "Done! I'm proud of you."
 
   return (
     <PageEnter>
       <ConfettiBurst />
-      <h1>Tapos na!</h1>
+      <h1>Done!</h1>
       <SpeechBubble speaker="ana" text={cheer} />
       {quiz ? (
         <section className="medal">
           <p className="medal-score">
-            {quiz.correct} sa {quiz.total}
+            {quiz.correct} of {quiz.total}
           </p>
-          {quiz.gintongBituin ? <p className="gold-label">Gintong Bituin!</p> : (
-            <p>Ang Gintong Bituin ay 8 pataas. Puwede ka pa ring magpatuloy.</p>
+          {quiz.gintongBituin ? <p className="gold-label">Golden Star!</p> : (
+            <p>Golden Star is 8 or more. You can still continue.</p>
           )}
         </section>
       ) : null}
@@ -51,11 +51,11 @@ export function DoneScreen({
       <div className="stack">
         {nextTo && !practice ? (
           <Button to={nextTo} block>
-            Isa pa?
+            One more?
           </Button>
         ) : null}
         <Button to={backTo} variant="blue" block>
-          Bumalik sa landas
+          Back to the path
         </Button>
       </div>
     </PageEnter>

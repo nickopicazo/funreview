@@ -72,7 +72,7 @@ Home shows **Q1, Q2, Q3, Q4**. Inside a quarter, six Grade 3 areas, in this orde
 5. Makabansa
 6. GMRC
 
-Only **Q3 Makabansa** opens. Every other quarter and subject shows **“Malapit na!”**.
+Only **Q3 Makabansa** opens. Every other quarter and subject shows **“Coming soon!”**.
 
 ### Week schema
 ```ts
@@ -123,13 +123,13 @@ Build the shell against this type with one sample week before authoring all seve
 v1 has one set of activities. **Word search only** — a crossword is a later game. Riddles and the quiz are tap-to-choose, not typed answers.
 
 1. **Lesson recap** — short slides, with Ana and Ben as guides.
-2. **"Sino/Ano Ako?" riddles** — prompt, choices, one correct id, explanation. Example: "Ako ang 'tao ng dagat.' Ang lepa o vinta ang aking bahay." (Badjao)
+2. **"Who Am I?" riddles** — prompt, choices, one correct id, explanation. Example: "Ako ang 'tao ng dagat.' Ang lepa o vinta ang aking bahay." (Badjao)
 3. **Tap-to-flip flashcards** — picture/term on front; name, place, one fact on back.
 4. **Matching** — kasuotan ↔ pangkat, pista ↔ lugar, pangkat ↔ tatak (tap-to-select, no drag-only).
 5. **Word search** — key vocabulary (bayanihan, T'nalak, Singkil, kulintang, binagol).
-6. **Star quiz** — 10 items, 2–4 choices, 1 star each; 8+ = **Gintong Bituin**; gentle feedback with explanations.
+6. **Star quiz** — 10 items, 2–4 choices, 1 star each; 8+ = **Golden Star**; gentle feedback with explanations. The save field stays `gintongBituin`.
 7. **Week badge** — earned on finishing the quiz in order (Makabayan → Mindanao), including a score below 8.
-Bonus: **"Paglalakbay sa Pilipinas" map** for W17–W20 (Luzon, Visayas, Mindanao) with landmarks. This is milestone 6, not part of the week path.
+Bonus: **"A trip around the Philippines" map** for W17–W20 (Luzon, Visayas, Mindanao) with landmarks. This is milestone 6, not part of the week path. Landmark names and facts stay Filipino.
 
 ### Completion and scoring
 A node on the current path is done when she finishes it:
@@ -141,18 +141,18 @@ A node on the current path is done when she finishes it:
 - Word search: the puzzle solved.
 - Quiz: the quiz submitted.
 
-Wrong answers show the explanation and **“Subukan ulit”**. There is no penalty and no lost star. A quiz star is awarded once that item is correct, including after a retry. **Gintong Bituin** when `correct >= 8` of 10.
+Wrong answers show the explanation and **“Try again”**. There is no penalty and no lost star. A quiz star is awarded once that item is correct, including after a retry. **Golden Star** when `correct >= 8` of 10.
 
-The path is sequential. Later nodes are softly locked and can be opened with **“Subukan pa rin”** (practice anyway). That play does not mark the node done and does not award the week badge. The badge is awarded only when the quiz is the current node (earlier nodes already done) and she submits it.
+The path is sequential. Later nodes are softly locked and can be opened with **“Try anyway”** (practice anyway). That play does not mark the node done and does not award the week badge. The badge is awarded only when the quiz is the current node (earlier nodes already done) and she submits it.
 
 ## 7. UI/UX (Duolingo-inspired, kid-first)
-**Language.** All UI chrome is Filipino, including parent settings. Lesson text is Filipino. Placeholder copy is **“Malapit na!”**.
+**Language.** UI chrome is English, including parent settings, navigation, activity labels, and feedback. Filipino is only for the reviewer: week titles, badge names, recap, questions, choices, explanations, flashcards, matching pairs, word-search words, and map landmark facts. Placeholder copy is **“Coming soon!”**.
 
 **Borrow**
-- A guided **path** per week: nodes per activity that the week actually includes; done = gold, current = pulsing, later = softly locked with “Subukan pa rin”.
+- A guided **path** per week: nodes per activity that the week actually includes; done = gold, current = pulsing, later = softly locked with “Try anyway”.
 - **Ana and Ben** as recurring guides who cheer her on (never sad or guilt-tripping).
-- **Bite-sized** sessions (2–5 min) ending with "Tapos na!" and "Isa pa?" / "Bumalik sa landas".
-- **Instant feedback**: "Tama!" + ding + green pulse; wrong = soft tone, show answer, "Subukan ulit".
+- **Bite-sized** sessions (2–5 min) ending with "Done!" and "One more?" / "Back to the path".
+- **Instant feedback**: "Correct!" + ding + green pulse; wrong = soft tone, show answer, "Try again".
 - **Celebrations** at lesson/week end: confetti, progress bar fill, badge.
 - **Chunky buttons**: big tap targets (≥48px), rounded, 3D press shadow.
 - Always-visible mute for the short sound effects.
@@ -169,7 +169,7 @@ The path is sequential. Later nodes are softly locked and can be opened with **�
 - Hearts/lives that stop play after mistakes.
 - Streaks that reset to zero, guilt notifications, sad mascot.
 - Leaderboards, ads, paywalls, hard-to-exit loops.
-- Drag-only interactions, tiny targets, dense text, English-only UI chrome.
+- Drag-only interactions, tiny targets, dense text.
 - Copying Duolingo's owl, exact green, or wordmark.
 
 **Visual style**
@@ -182,7 +182,7 @@ The path is sequential. Later nodes are softly locked and can be opened with **�
 
 ## 9. Milestones
 1. ✅ Init Vite + React + TS app (`/Users/nickopicazo/Apps/funreview`).
-2. ✅ Design system: colors, fonts, buttons, feedback components. Filipino chrome. Ana and Ben as speech bubbles.
+2. ✅ Design system: colors, fonts, buttons, feedback components. English chrome. Ana and Ben as speech bubbles.
 3. ✅ App shell: home → quarter → subject → week path; routing; progress store + backup + parent gate. One sample week against `WeekContent`. No GA4 script.
 4. ✅ Activity components: recap, riddles, flashcards, matching, word search, quiz, badge.
 5. ✅ Content: author Q3 Makabansa W14–W20 into the schema, using `docs/lessons` as the source of facts (do not paste the OCR).
@@ -201,7 +201,7 @@ These do not block milestones 2–5.
 ### Locked for v1
 - Word search only; crossword waits.
 - Riddles and quiz are tap-to-choose.
-- UI chrome is Filipino. Catalog is Q1–Q4 and the six subjects above; only Q3 Makabansa opens.
+- UI chrome is English. Makabansa lesson text stays Filipino. Catalog is Q1–Q4 and the six subjects above; only Q3 Makabansa opens.
 - Ana and Ben are emoji or simple shapes. No narration and no text-to-speech.
 - Parent gate is a regenerated addition problem. No PIN.
 - Analytics stays milestone 7 and defaults off.

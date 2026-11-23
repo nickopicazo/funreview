@@ -20,10 +20,10 @@ export function SubjectPage() {
     return (
       <PageEnter>
         <Link className="back" to={paths.quarter(quarter.id)}>
-          Bumalik
+          Back
         </Link>
         <h1>{subject.title}</h1>
-        <p className="pill">Malapit na!</p>
+        <p className="pill">Coming soon!</p>
       </PageEnter>
     )
   }
@@ -31,7 +31,7 @@ export function SubjectPage() {
   return (
     <PageEnter>
       <Link className="back" to={paths.quarter(quarter.id)}>
-        Bumalik
+        Back
       </Link>
       <h1>{subject.title}</h1>
       <p className="lede">{quarter.title}</p>
@@ -43,10 +43,10 @@ export function SubjectPage() {
           const badge = save.weeks[key]?.badgeEarned === true
           return (
             <Link key={week.id} className="card" to={paths.week(quarter.id, subject.id, week.id)}>
-              <p className="kicker">Linggo {week.id.slice(1)}</p>
+              <p className="kicker">Week {week.id.slice(1)}</p>
               <h2>{week.title}</h2>
               <p>
-                {done} sa {total} ang tapos
+                {done} of {total} done
                 {badge ? ` · Badge: ${week.badgeName}` : ""}
               </p>
             </Link>
@@ -54,8 +54,8 @@ export function SubjectPage() {
         })}
       </div>
       <Link className="card map-card" to={paths.map}>
-        <h2>Paglalakbay sa Pilipinas</h2>
-        <p>Luzon, Visayas, at Mindanao. Linggo 17 hanggang 20.</p>
+        <h2>A trip around the Philippines</h2>
+        <p>Luzon, Visayas, and Mindanao. Weeks 17 to 20.</p>
       </Link>
     </PageEnter>
   )

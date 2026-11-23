@@ -21,7 +21,7 @@ export function ParentGate({ onPass }: { onPass: () => void }) {
     <PageEnter>
       <SpeechBubble
         speaker="ben"
-        text="Para ito sa magulang. Sagutin ang bagong pagdaragdag para magpatuloy."
+        text="This is for a parent. Answer a new addition problem to continue."
       />
       <form
         className="gate"
@@ -37,16 +37,16 @@ export function ParentGate({ onPass }: { onPass: () => void }) {
           className="field"
           inputMode="numeric"
           autoComplete="off"
-          aria-label="Sagot"
+          aria-label="Answer"
           value={answer}
           onChange={(event) => {
             setAnswer(event.target.value)
             setWrong(false)
           }}
         />
-        {wrong ? <p className="form-note">Hindi iyan ang sagot. Subukan ulit.</p> : null}
+        {wrong ? <p className="form-note">That isn't the answer. Try again.</p> : null}
         <Button type="submit" block>
-          Pumasok
+          Continue
         </Button>
       </form>
     </PageEnter>

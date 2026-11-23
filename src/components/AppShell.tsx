@@ -5,8 +5,8 @@ import { MuteButton } from "./MuteButton.tsx"
 export function AppShell() {
   return (
     <>
-      <a className="skip" href="#nilalaman">
-        Tumalon sa nilalaman
+      <a className="skip" href="#content">
+        Skip to content
       </a>
       <header className="topbar">
         <Link className="brand" to={paths.home}>
@@ -14,15 +14,15 @@ export function AppShell() {
         </Link>
         <div className="top-actions">
           <Link className="icon-btn" to={paths.map}>
-            Mapa
+            Map
           </Link>
           <Link className="icon-btn" to={paths.settings}>
-            Setting
+            Settings
           </Link>
           <MuteButton />
         </div>
       </header>
-      <main id="nilalaman">
+      <main id="content">
         <Outlet />
       </main>
     </>

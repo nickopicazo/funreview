@@ -29,7 +29,7 @@ export function Recap({
       <div className="row">
         {index > 0 ? (
           <Button variant="ghost" onClick={() => setIndex((value) => value - 1)}>
-            Balik
+            Back
           </Button>
         ) : null}
         <Button
@@ -39,7 +39,7 @@ export function Recap({
             else setIndex((value) => value + 1)
           }}
         >
-          {last ? "Tapos na!" : "Susunod"}
+          {last ? "Done!" : "Next"}
         </Button>
       </div>
     </div>

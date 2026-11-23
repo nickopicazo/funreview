@@ -34,7 +34,7 @@ export function Riddles({
   return (
     <div className="stack">
       <p className="step">
-        Bugtong {index + 1} / {items.length}
+        Riddle {index + 1} / {items.length}
       </p>
       <h2 className="prompt">{item.prompt}</h2>
       <Choices
@@ -44,9 +44,9 @@ export function Riddles({
         revealed={phase !== "open"}
         onPick={pick}
       />
-      {phase === "right" ? <Feedback tone="ok" title="Tama!" text={item.explanation} /> : null}
+      {phase === "right" ? <Feedback tone="ok" title="Correct!" text={item.explanation} /> : null}
       {phase === "wrong" ? (
-        <Feedback tone="retry" title="Subukan ulit" text={item.explanation} />
+        <Feedback tone="retry" title="Try again" text={item.explanation} />
       ) : null}
       {phase === "wrong" ? (
         <Button
@@ -57,7 +57,7 @@ export function Riddles({
             setPhase("open")
           }}
         >
-          Subukan ulit
+          Try again
         </Button>
       ) : null}
       {phase === "right" ? (
@@ -73,7 +73,7 @@ export function Riddles({
             setPhase("open")
           }}
         >
-          {last ? "Tapos na!" : "Susunod"}
+          {last ? "Done!" : "Next"}
         </Button>
       ) : null}
     </div>

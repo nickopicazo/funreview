@@ -61,7 +61,7 @@ export function WordSearchGame({
 
   return (
     <div className="stack">
-      <p className="hint">I-tap ang unang letra, tapos ang huling letra sa tuwid na linya.</p>
+      <p className="hint">Tap the first letter, then the last letter in a straight line.</p>
       <ul className="word-list">
         {words.map((word) => {
           const clean = normalizeWord(word)
@@ -86,7 +86,7 @@ export function WordSearchGame({
                   key={id}
                   type="button"
                   className={`letter${selected ? " selected" : ""}${foundCells.includes(id) ? " found" : ""}`}
-                  aria-label={`Titik ${letter}`}
+                  aria-label={`Letter ${letter}`}
                   onClick={() => tap({ row, col })}
                 >
                   {letter}
@@ -96,13 +96,13 @@ export function WordSearchGame({
           )}
         </div>
       </div>
-      {miss ? <Feedback tone="retry" title="Subukan ulit" text="Wala iyan sa listahan." /> : null}
+      {miss ? <Feedback tone="retry" title="Try again" text="That word isn't in the list." /> : null}
       <div className="row">
         <Button variant="ghost" onClick={() => setAnchor(null)}>
-          Burahin
+          Clear
         </Button>
         <Button block disabled={!ready} onClick={onFinish}>
-          Tapos na!
+          Done!
         </Button>
       </div>
     </div>

@@ -11,7 +11,7 @@ import { useTitle } from "../lib/useTitle.ts"
 
 export function SettingsPage() {
   const [open, setOpen] = useState(false)
-  useTitle("FunReview — Setting")
+  useTitle("FunReview — Settings")
   if (!open) return <ParentGate onPass={() => setOpen(true)} />
   return <SettingsPanel />
 }
@@ -33,7 +33,7 @@ function SettingsPanel() {
     link.download = "funreview-backup.json"
     link.click()
     URL.revokeObjectURL(url)
-    setNote("Na-download na ang backup.")
+    setNote("Backup downloaded.")
   }
 
   async function copyCode() {
@@ -49,62 +49,62 @@ function SettingsPanel() {
   function importBackup() {
     const next = parseBackup(importText)
     if (!next) {
-      setNote("Hindi tanggap ang backup. Kailangan version 1.")
+      setNote("That backup isn't valid. It needs version 1.")
       return
     }
     replaceSave(next)
     setImportText("")
-    setNote("Naibalik ang progreso.")
+    setNote("Progress restored.")
   }
 
   return (
     <PageEnter>
       <Link className="back" to={paths.home}>
-        Bumalik
+        Back
       </Link>
-      <h1>Mga setting</h1>
-      <p>Para sa magulang. Nasa aparatong ito lang ang progreso.</p>
+      <h1>Settings</h1>
+      <p>For a parent. Progress stays on this device only.</p>
 
       <section className="panel">
-        <h2>Progreso</h2>
+        <h2>Progress</h2>
         {confirmReset ? (
           <div className="stack">
-            <p>Mabubura ang progreso sa aparatong ito. Sigurado ka?</p>
+            <p>This will erase progress on this device. Are you sure?</p>
             <Button
               variant="coral"
               onClick={() => {
                 resetProgress()
                 setConfirmReset(false)
-                setNote("Na-reset na ang progreso.")
+                setNote("Progress reset.")
               }}
             >
-              Oo, i-reset
+              Yes, reset
             </Button>
             <Button variant="ghost" onClick={() => setConfirmReset(false)}>
-              Huwag na
+              Never mind
             </Button>
           </div>
         ) : (
           <Button variant="coral" onClick={() => setConfirmReset(true)}>
-            I-reset ang progreso
+            Reset progress
           </Button>
         )}
       </section>
 
       <section className="panel">
         <h2>Backup</h2>
-        <p>I-download ang JSON, o kopyahin ang code para sa ibang aparato.</p>
+        <p>Download the JSON, or copy the code for another device.</p>
         <div className="stack">
-          <Button onClick={download}>I-download ang JSON</Button>
+          <Button onClick={download}>Download JSON</Button>
           <Button variant="blue" onClick={() => void copyCode()}>
-            {copied ? "Nakopya!" : "Kopyahin ang code"}
+            {copied ? "Copied!" : "Copy the code"}
           </Button>
           <Button variant="ghost" onClick={() => setShowCode((value) => !value)}>
-            {showCode ? "Itago ang code" : "Ipakita ang code"}
+            {showCode ? "Hide the code" : "Show the code"}
           </Button>
           {showCode ? <textarea className="field" readOnly rows={5} value={backup} /> : null}
           <label className="field-label" htmlFor="backup-import">
-            Idikit ang JSON o code
+            Paste the JSON or code
           </label>
           <textarea
             id="backup-import"
@@ -114,19 +114,19 @@ function SettingsPanel() {
             onChange={(event) => setImportText(event.target.value)}
           />
           <Button variant="green" onClick={importBackup}>
-            Ibalik ang backup
+            Restore backup
           </Button>
         </div>
       </section>
 
       <section className="panel">
-        <h2>Pagsukat</h2>
+        <h2>Analytics</h2>
         <p>
-          Naka-off ito hanggang pumayag ang magulang. Walang pangalan o personal na datos.
-          Mga pangyayari lang sa app: nabuksang aralin, natapos na gawain, banda ng iskor, at badge.
+          This stays off until a parent agrees. No name or personal data is sent.
+          Only app events: lesson opened, activity finished, score band, and badge.
         </p>
         {measurementId() ? null : (
-          <p className="form-note">Wala pang nakakabit na pagsukat, kaya walang ipapadalang datos.</p>
+          <p className="form-note">No measurement is connected yet, so nothing will be sent.</p>
         )}
         <button
           type="button"
@@ -134,7 +134,7 @@ function SettingsPanel() {
           aria-pressed={analyticsOptIn}
           onClick={() => setAnalyticsOptIn(!analyticsOptIn)}
         >
-          {analyticsOptIn ? "Naka-on ang pahintulot" : "Naka-off ang pahintulot"}
+          {analyticsOptIn ? "Consent is on" : "Consent is off"}
         </button>
       </section>
       {note ? <p className="form-note">{note}</p> : null}

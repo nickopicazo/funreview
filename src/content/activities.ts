@@ -5,34 +5,34 @@ export const ACTIVITY_META: Record<
   { label: string; emoji: string; hint: string }
 > = {
   recap: {
-    label: "Balik-Aral",
+    label: "Recap",
     emoji: "📖",
-    hint: "Maikling kwento nina Ana at Ben",
+    hint: "A short story with Ana and Ben",
   },
   riddles: {
-    label: "Sino/Ano Ako?",
+    label: "Who Am I?",
     emoji: "❓",
-    hint: "Piliin ang tamang sagot",
+    hint: "Pick the right answer",
   },
   flashcards: {
-    label: "Mga Kard",
+    label: "Cards",
     emoji: "🃏",
-    hint: "I-tap para baligtarin",
+    hint: "Tap to flip",
   },
   matching: {
-    label: "Pagpares",
+    label: "Matching",
     emoji: "🤝",
-    hint: "I-tap ang pares",
+    hint: "Tap the pair",
   },
   wordSearch: {
-    label: "Hanap-Salita",
+    label: "Word Search",
     emoji: "🔤",
-    hint: "I-tap ang una at huling letra",
+    hint: "Tap the first and last letter",
   },
   quiz: {
-    label: "Pagsusulit",
+    label: "Quiz",
     emoji: "⭐",
-    hint: "Sampung tanong",
+    hint: "Ten questions",
   },
 }
 
