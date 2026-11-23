@@ -14,7 +14,7 @@ declare global {
   }
 }
 
-const DEFAULT_MEASUREMENT_ID = "G-LPHZY3WV03"
+const DEFAULT_MEASUREMENT_ID = "G-RLTWHLBZGW"
 
 export function measurementId() {
   return (import.meta.env.VITE_GA_MEASUREMENT_ID ?? DEFAULT_MEASUREMENT_ID).trim()
