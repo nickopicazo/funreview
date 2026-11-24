@@ -1,14 +1,16 @@
 import { useState } from "react"
 import { Button } from "../components/Button.tsx"
 import { SpeechBubble } from "../components/SpeechBubble.tsx"
-import type { WeekContent } from "../content/types.ts"
+import type { LessonLang, WeekContent } from "../content/types.ts"
 
 export function Recap({
   slides,
   onFinish,
+  lang,
 }: {
   slides: NonNullable<WeekContent["recap"]>
   onFinish: () => void
+  lang: LessonLang
 }) {
   const [index, setIndex] = useState(0)
   const slide = slides[index]
@@ -20,7 +22,7 @@ export function Recap({
       <p className="step">
         Page {index + 1} of {slides.length}
       </p>
-      <SpeechBubble speaker={slide.speaker} text={slide.text} lang="fil" />
+      <SpeechBubble speaker={slide.speaker} text={slide.text} lang={lang} />
       <div className="dots" aria-hidden="true">
         {slides.map((item, dot) => (
           <span key={`${item.speaker}-${dot}`} className={dot === index ? "on" : ""} />

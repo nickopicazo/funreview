@@ -1,5 +1,8 @@
-import type { WeekContent } from "./types.ts"
+import type { LessonLang, WeekContent } from "./types.ts"
+import { englishWeeks } from "./q3/english.ts"
+import { filipinoWeeks } from "./q3/filipino.ts"
 import { makabansaWeeks } from "./q3/makabansa.ts"
+import { mathematicsWeeks } from "./q3/mathematics.ts"
 
 export type QuarterInfo = {
   id: string
@@ -11,6 +14,7 @@ export type SubjectInfo = {
   id: string
   title: string
   emoji: string
+  lessonLang: LessonLang
 }
 
 export const quarters: QuarterInfo[] = [
@@ -21,15 +25,18 @@ export const quarters: QuarterInfo[] = [
 ]
 
 export const subjects: SubjectInfo[] = [
-  { id: "filipino", title: "Filipino", emoji: "📘" },
-  { id: "english", title: "English", emoji: "📗" },
-  { id: "mathematics", title: "Mathematics", emoji: "🔢" },
-  { id: "science", title: "Science", emoji: "🔬" },
-  { id: "makabansa", title: "Makabansa", emoji: "🇵🇭" },
-  { id: "gmrc", title: "GMRC", emoji: "💛" },
+  { id: "filipino", title: "Filipino", emoji: "📘", lessonLang: "fil" },
+  { id: "english", title: "English", emoji: "📗", lessonLang: "en" },
+  { id: "mathematics", title: "Mathematics", emoji: "🔢", lessonLang: "en" },
+  { id: "science", title: "Science", emoji: "🔬", lessonLang: "en" },
+  { id: "makabansa", title: "Makabansa", emoji: "🇵🇭", lessonLang: "fil" },
+  { id: "gmrc", title: "GMRC", emoji: "💛", lessonLang: "fil" },
 ]
 
 const lessons: Record<string, WeekContent[]> = {
+  "q3/filipino": filipinoWeeks,
+  "q3/english": englishWeeks,
+  "q3/mathematics": mathematicsWeeks,
   "q3/makabansa": makabansaWeeks,
 }
 

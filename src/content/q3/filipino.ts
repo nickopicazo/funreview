@@ -1,0 +1,548 @@
+import { ask } from "../ask.ts"
+import { checkSubjectWeeks } from "../checks.ts"
+import type { WeekContent } from "../types.ts"
+
+const linker = () => [
+  { id: "na", label: "na" },
+  { id: "ng", label: "-ng" },
+  { id: "g", label: "-g" },
+]
+
+export const filipinoWeeks: WeekContent[] = [
+  {
+    id: "w14",
+    title: "Salitang Dinaglat",
+    badgeName: "Daglat",
+    activityOrder: ["recap", "matching", "flashcards", "riddles", "fixIt", "quiz"],
+    recap: [
+      { speaker: "ana", text: "Ang daglat ay maikling anyo ng salita. May tuldok ito, gaya ng Gng. para kay Ginang." },
+      { speaker: "ben", text: "Pantawag ito ng paggalang: G. para sa Ginoo, Bb. para sa Binibini, at Dr. para sa Doktor." },
+      { speaker: "ana", text: "Atty. ay Attorney o abogado. Engr. ay Engineer o inhinyero. Gob. ay Gobernador." },
+      { speaker: "ben", text: "Kgg. ay Kagalang-galang. Cong. ay Kongresista. Isulat ang tuldok pagkatapos ng daglat." },
+      { speaker: "ana", text: "Halimbawa: Si Dr. John Remigio ang beterinaryo. Si G. Reyes ang punong-guro." },
+    ],
+    matching: [
+      { left: "G.", right: "Ginoo" },
+      { left: "Gng.", right: "Ginang" },
+      { left: "Bb.", right: "Binibini" },
+      { left: "Dr.", right: "Doktor" },
+      { left: "Atty.", right: "Abogado" },
+      { left: "Engr.", right: "Inhinyero" },
+    ],
+    flashcards: [
+      { front: "Gob.", name: "Gobernador", place: "Pantawag", fact: "Si Gob. Cruz ang gobernador ng lalawigan." },
+      { front: "Kgg.", name: "Kagalang-galang", place: "Pantawag", fact: "Kgg. ay pantawag na may paggalang." },
+      { front: "Cong.", name: "Kongresista", place: "Pantawag", fact: "Si Cong. Santos ang kongresista." },
+      { front: "Dr.", name: "Doktor", place: "Pantawag", fact: "Si Dr. John Remigio ang beterinaryo sa klinika." },
+      { front: "Gng.", name: "Ginang", place: "Pantawag", fact: "Si Gng. Cruz ang guro namin." },
+      { front: "Bb.", name: "Binibini", place: "Pantawag", fact: "Si Bb. Reyes ay binibini." },
+    ],
+    riddles: [
+      ask("May puting damit ako. Madalas akong nasa ospital at gumagamot ng maysakit. Sino ako?", ["Guro", "Doktor", "Gobernador"], 1, "Ang doktor ay gumagamot. Dr. ang daglat."),
+      ask("Nasa bulwagan ng katarungan ako. Ipinagtatanggol ko ang nangangailangan. Sino ako?", ["Abogado", "Inhinyero", "Binibini"], 0, "Ang abogado ang tumutulong sa batas. Atty. ang daglat."),
+      ask("Nagdidisenyo ako ng tulay at gusali. Sino ako?", ["Kongresista", "Guro", "Inhinyero"], 2, "Ang inhinyero ay nagdidisenyo ng tulay at gusali. Engr. ang daglat."),
+      ask("Magalang na pantawag ako sa babaeng may-asawa. Ano ako?", ["Binibini", "Ginang", "Ginoo"], 1, "Ginang ang pantawag. Gng. ang daglat."),
+      ask("Magalang na pantawag ako sa isang lalaki. Ano ako?", ["Ginoo", "Ginang", "Doktor"], 0, "Ginoo ang pantawag. G. ang daglat."),
+    ],
+    fixIt: [
+      {
+        words: ["Si", "Gng", "Cruz", "ang", "guro."],
+        wrongIndex: 1,
+        choices: [
+          { id: "gng", label: "Gng." },
+          { id: "g", label: "G." },
+          { id: "bb", label: "Bb." },
+        ],
+        correctId: "gng",
+        explanation: "May tuldok ang daglat. Gng. ang ibig sabihin ay Ginang.",
+      },
+      {
+        words: ["Si", "dr.", "Remigio", "ang", "beterinaryo."],
+        wrongIndex: 1,
+        choices: [
+          { id: "dr", label: "Dr." },
+          { id: "gng", label: "Gng." },
+          { id: "gob", label: "Gob." },
+        ],
+        correctId: "dr",
+        explanation: "Malaking titik ang simula ng daglat. Dr. ang doktor.",
+      },
+      {
+        words: ["Nasa", "awditoryom", "si", "G.", "Reyes."],
+        wrongIndex: 1,
+        choices: [
+          { id: "aw", label: "awditoryum" },
+          { id: "osp", label: "ospital" },
+          { id: "paaralan", label: "paaralan" },
+        ],
+        correctId: "aw",
+        explanation: "Awditoryum ang tamang baybay. Doon maaaring magsalita si G. Reyes.",
+      },
+      {
+        words: ["Tumulong", "si", "Atty", "Santos."],
+        wrongIndex: 2,
+        choices: [
+          { id: "atty", label: "Atty." },
+          { id: "engr", label: "Engr." },
+          { id: "cong", label: "Cong." },
+        ],
+        correctId: "atty",
+        explanation: "Atty. ang daglat ng Attorney o abogado. Huwag kalimutan ang tuldok.",
+      },
+    ],
+    quiz: [
+      ask("Ano ang ibig sabihin ng Gng.?", ["Ginoo", "Ginang", "Gobernador"], 1, "Gng. ay Ginang."),
+      ask("Alin ang daglat ng doktor?", ["Dr.", "Bb.", "Cong."], 0, "Dr. ang daglat ng doktor."),
+      ask("Bakit may tuldok ang G. at Bb.?", ["Dahil ito ay daglat", "Dahil ito ay pangungusap", "Dahil ito ay tanong"], 0, "Ang tuldok ay tanda na daglat ang salita."),
+      ask("Ano ang Atty.?", ["Abogado", "Inhinyero", "Binibini"], 0, "Atty. ay Attorney o abogado."),
+      ask("Alin ang pantawag sa lalaki?", ["Bb.", "G.", "Gng."], 1, "G. ay Ginoo."),
+      ask("Ano ang Engr.?", ["Gobernador", "Kongresista", "Inhinyero"], 2, "Engr. ay Engineer o inhinyero."),
+      ask("Alin ang Kagalang-galang?", ["Kgg.", "Cong.", "Gob."], 0, "Kgg. ay Kagalang-galang."),
+      ask("Sino ang beterinaryo sa aralin?", ["Dr. John Remigio", "Gng. Cruz", "Cong. Santos"], 0, "Isang baybay ang gagamitin: Dr. John Remigio."),
+      ask("Ano ang Cong.?", ["Kongresista", "Binibini", "Doktor"], 0, "Cong. ay Kongresista."),
+      ask("Alin ang wastong daglat?", ["Gng Cruz", "Gng. Cruz", "gng. Cruz"], 1, "Gng. Cruz: may tuldok at malaking titik."),
+    ],
+  },
+  {
+    id: "w15",
+    title: "Uri ng Pang-abay",
+    badgeName: "Pang-abay",
+    activityOrder: ["recap", "sort", "tapWord", "matching", "quiz"],
+    recap: [
+      { speaker: "ana", text: "Ang pang-abay ay nagsasabi ng kailan, saan, o paano." },
+      { speaker: "ben", text: "Pamanahon ang sumasagot sa kailan. Halimbawa: kahapon, tuwing Linggo, mamaya." },
+      { speaker: "ana", text: "Panlunan ang sumasagot sa saan. Kadalasan itong may sa, kay, o kina." },
+      { speaker: "ben", text: "Pamaraan ang sumasagot sa paano. Kadalasan itong may nang. Nagtrabaho siya nang mabuti." },
+      { speaker: "ana", text: "Binibisita niya ang puntod ng kaniyang ina tuwing Linggo. Tuwing Linggo ang pamanahon." },
+    ],
+    sort: {
+      bins: [
+        { id: "time", label: "Pamanahon" },
+        { id: "place", label: "Panlunan" },
+        { id: "manner", label: "Pamaraan" },
+      ],
+      items: [
+        { text: "Binibisita niya ang puntod ng kaniyang ina tuwing Linggo.", binId: "time", explanation: "Tuwing Linggo ang nagsasabi kung kailan. Pamanahon iyan." },
+        { text: "Nag-aaral si Ana sa aklatan.", binId: "place", explanation: "Sa aklatan ang nagsasabi kung saan. Panlunan iyan." },
+        { text: "Nagtrabaho siya nang mabuti.", binId: "manner", explanation: "Nang mabuti ang nagsasabi kung paano. Pamaraan iyan. Nang, hindi ng." },
+        { text: "Pumunta si Ben kay Lola.", binId: "place", explanation: "Kay Lola ang nagsasabi kung kanino o saan. Panlunan iyan." },
+        { text: "Umuwi siya kahapon.", binId: "time", explanation: "Kahapon ang nagsasabi kung kailan. Pamanahon iyan." },
+        { text: "Tumakbo ang bata nang mabilis.", binId: "manner", explanation: "Nang mabilis ang nagsasabi kung paano. Pamaraan iyan." },
+      ],
+    },
+    tapWord: [
+      { words: ["Umuwi", "siya", "kahapon."], correctIndex: 2, explanation: "Kahapon ang pang-abay na pamanahon. Nagsasabi ito kung kailan." },
+      { words: ["Nag-aaral", "si", "Ana", "sa", "aklatan."], correctIndex: 4, explanation: "Ang salitang aklatan, kasama ang sa, ang nagsasabi kung saan." },
+      { words: ["Tumakbo", "siya", "nang", "mabilis."], correctIndex: 3, explanation: "Mabilis ang pamaraan. Nang mabilis ang nagsasabi kung paano." },
+      { words: ["Pumunta", "kami", "kina", "Lola."], correctIndex: 3, explanation: "Kina Lola ang panlunan. Nagsasabi ito kung kanino." },
+    ],
+    matching: [
+      { left: "Kailan?", right: "Pamanahon" },
+      { left: "Saan?", right: "Panlunan" },
+      { left: "Paano?", right: "Pamaraan" },
+    ],
+    quiz: [
+      ask("Alin ang pamanahon?", ["kahapon", "sa aklatan", "nang mabilis"], 0, "Kahapon ang nagsasabi kung kailan."),
+      ask("Alin ang panlunan?", ["mamaya", "kay Lola", "nang tahimik"], 1, "Kay Lola ang nagsasabi kung kanino o saan."),
+      ask("Alin ang pamaraan?", ["nang mabuti", "tuwing Linggo", "sa paaralan"], 0, "Nang mabuti ang nagsasabi kung paano."),
+      ask("Ano ang tanong na sinasagot ng pamanahon?", ["Kailan?", "Saan?", "Sino?"], 0, "Kailan ang tanong para sa pamanahon."),
+      ask("Alin ang wastong pangungusap?", ["Nagtrabaho siya nang mabuti.", "Nagtrabaho siya ng mabuti.", "Nagtrabaho siya na mabuti."], 0, "Pamaraan ang nang, hindi ng."),
+      ask("Sa pangungusap na “Nag-aaral si Ana sa aklatan,” alin ang pang-abay?", ["Ana", "sa aklatan", "Nag-aaral"], 1, "Sa aklatan ang panlunan."),
+      ask("Alin ang pinakatama?", ["Binibisita niya ang puntod tuwing Linggo.", "Bibisitahin niya nang linggo-linggo.", "Binibisita niya ang linggo."], 0, "Tuwing Linggo ang malinaw na pamanahon."),
+      ask("Ano ang gamit ng kay at kina?", ["Panlunan", "Pamanahon", "Pamaraan"], 0, "Kay at kina ang nagsasabi kung kanino. Panlunan iyan."),
+      ask("Alin ang HINDI pang-abay na pamaraan?", ["nang mabilis", "nang tahimik", "kahapon"], 2, "Kahapon ay pamanahon, hindi pamaraan."),
+      ask("Humihingi si Ben ng tulong sa takdang-aralin. Alin ang angkop?", ["para magpaturo", "para magpapayo sa takdang-aralin", "para linggo"], 0, "Para magpaturo o para humingi ng payo. Hindi “magpapayo” kung siya ang humihingi."),
+    ],
+  },
+  {
+    id: "w16",
+    title: "Mga Pang-ugnay",
+    badgeName: "Pang-ugnay",
+    activityOrder: ["recap", "sort", "fillGap", "tapWord", "quiz"],
+    recap: [
+      { speaker: "ana", text: "Ang pang-ugnay ay nagdurugtong ng salita o pangungusap. Tatlo ang uri: pangatnig, pang-ukol, at pang-angkop." },
+      { speaker: "ben", text: "Pangatnig ang at, pati, saka, ngunit, dahil, upang, at kung. Nagdurugtong ito ng ideya." },
+      { speaker: "ana", text: "Pang-ukol ang sa, ng, ni, nina, kay, kina, ayon sa, para sa, at tungkol sa." },
+      { speaker: "ben", text: "Pang-angkop ang na, -ng, at -g. Na pagkatapos ng katinig maliban sa n. -ng pagkatapos ng patinig. -g pagkatapos ng n." },
+      { speaker: "ana", text: "Ang salitang maganda ay nagtatapos sa patinig, kaya magandang bata. Ang salitang masunurin ay nagtatapos sa n, kaya masunuring anak. Ang salitang maliit ay nagtatapos sa katinig, kaya maliit na bata." },
+    ],
+    sort: {
+      bins: [
+        { id: "connect", label: "Pangatnig" },
+        { id: "prep", label: "Pang-ukol" },
+        { id: "link", label: "Pang-angkop" },
+      ],
+      items: [
+        { text: "at", binId: "connect", explanation: "At ang pangatnig. Nagdurugtong ito ng magkakatulad na ideya." },
+        { text: "ngunit", binId: "connect", explanation: "Ngunit ang pangatnig. Nagpapakita ito ng pagkakaiba." },
+        { text: "dahil", binId: "connect", explanation: "Dahil ang pangatnig. Nagbibigay ito ng dahilan." },
+        { text: "upang", binId: "connect", explanation: "Upang ang pangatnig. Nagpapakita ito ng layunin." },
+        { text: "para sa", binId: "prep", explanation: "Para sa ang pang-ukol." },
+        { text: "tungkol sa", binId: "prep", explanation: "Tungkol sa ang pang-ukol." },
+        { text: "ayon sa", binId: "prep", explanation: "Ayon sa ang pang-ukol." },
+        { text: "na", binId: "link", explanation: "Na ang pang-angkop pagkatapos ng katinig, maliban kung n ang huling titik." },
+        { text: "-ng", binId: "link", explanation: "-ng ang pang-angkop pagkatapos ng patinig, gaya ng magandang." },
+        { text: "-g", binId: "link", explanation: "-g ang pang-angkop pagkatapos ng n, gaya ng masunuring." },
+      ],
+    },
+    fillGap: [
+      { before: "maganda", after: " bata", choices: linker(), correctId: "ng", explanation: "Ang salitang maganda ay nagtatapos sa patinig, kaya -ng: magandang bata." },
+      { before: "marumi", after: " damit", choices: linker(), correctId: "ng", explanation: "Ang salitang marumi ay nagtatapos sa patinig, kaya -ng: maruming damit. Hindi -g." },
+      { before: "masunurin", after: " anak", choices: linker(), correctId: "g", explanation: "Ang salitang masunurin ay nagtatapos sa n, kaya -g: masunuring anak." },
+      { before: "maliit", after: " bata", choices: linker(), correctId: "na", explanation: "Ang salitang maliit ay nagtatapos sa katinig na hindi n, kaya na: maliit na bata." },
+      { before: "mabuti", after: " kaibigan", choices: linker(), correctId: "ng", explanation: "Ang salitang mabuti ay nagtatapos sa patinig, kaya -ng: mabuting kaibigan." },
+    ],
+    tapWord: [
+      { words: ["Kumain", "si", "Ana", "at", "si", "Ben."], correctIndex: 3, explanation: "At ang pangatnig. Nagdurugtong ito kina Ana at Ben." },
+      { words: ["Pumunta", "siya", "sa", "palengke."], correctIndex: 2, explanation: "Sa ang pang-ukol. Nag-uugnay ito sa palengke." },
+      { words: ["Masunuring", "anak", "si", "Ben."], correctIndex: 0, explanation: "Ang -g sa masunuring ang pang-angkop. Nagtatapos sa n ang masunurin." },
+      { words: ["Umalis", "siya", "upang", "mag-aral."], correctIndex: 2, explanation: "Upang ang pangatnig. Layunin ang mag-aral." },
+    ],
+    quiz: [
+      ask("Alin ang pangatnig?", ["at", "sa", "na"], 0, "At ang pangatnig."),
+      ask("Alin ang pang-ukol?", ["ngunit", "para sa", "-ng"], 1, "Para sa ang pang-ukol."),
+      ask("Alin ang pang-angkop pagkatapos ng patinig?", ["-ng", "na", "-g"], 0, "Pagkatapos ng patinig, -ng ang gamit, gaya ng magandang."),
+      ask("Bakit masunuring anak?", ["Dahil nagtatapos sa n ang masunurin", "Dahil patinig ang dulo", "Dahil pang-ukol ito"], 0, "Pagkatapos ng n, -g ang pang-angkop."),
+      ask("Alin ang tama?", ["maruming damit", "marumig damit", "marumi g damit"], 0, "Ang salitang marumi ay nagtatapos sa patinig, kaya maruming."),
+      ask("Alin ang wastong pangungusap?", ["Nagtrabaho siya nang mabuti.", "Nagtrabaho siya ng mabuti.", "Nagtrabaho siya na mabuti."], 0, "Nang mabuti ang pamaraan. Ng ay hindi angkop dito."),
+      ask("Ano ang gamit ng dahil?", ["Nagbibigay ng dahilan", "Nagsasabi ng lugar", "Nag-uugnay ng pang-uri sa pangngalan"], 0, "Dahil ang pangatnig na nagbibigay ng dahilan."),
+      ask("Alin ang maliit na bata?", ["maliit na bata", "maliitng bata", "maliitg bata"], 0, "Ang salitang maliit ay nagtatapos sa katinig, kaya na."),
+      ask("Alin ang pang-ugnay sa “Pumunta siya sa paaralan”?", ["sa", "siya", "Pumunta"], 0, "Sa ang pang-ukol."),
+      ask("Kailan ginagamit ang -g?", ["Kapag n ang huling titik", "Kapag patinig ang huling titik", "Kapag tanong ang pangungusap"], 0, "Masunurin ay nagiging masunuring."),
+    ],
+  },
+  {
+    id: "w17",
+    title: "Kuwentong-bayan",
+    badgeName: "Kuwentong-bayan",
+    activityOrder: ["reading", "sequence", "matching", "quiz"],
+    reading: [
+      {
+        title: "Ang Punong Kawayan",
+        pages: [
+          { speaker: "ana", text: "Sa isang bakuran, may mga punong-kahoy na may sariling katangian." },
+          { speaker: "ben", text: "Hitik sa bunga ang Santol. Mayabong ang Mangga. Mabulaklak ang Kabalyero. Tuwid at mabunga ang Niyog." },
+          { speaker: "ana", text: "Sa isang tabi naroon ang payat na Kawayan. Wala siyang bulaklak at bunga." },
+          { speaker: "ben", text: "Ipinagmalaki ng iba ang sarili at pinagtawanan nila si Kawayan." },
+          { speaker: "ana", text: "Nagalit ang Hangin. Nalagas ang bulaklak, nahulog ang bunga, at nangabuwal ang mayayabang na puno." },
+          { speaker: "ben", text: "Tanging ang mababang-loob na Kawayan ang sumunod sa ihip ng hangin. Siya lang ang nakatayo." },
+        ],
+        questions: [
+          ask("Sino ang pinagtawanan?", ["Kawayan", "Hangin", "Santol"], 0, "Pinagtawanan ng ibang puno ang payat na Kawayan."),
+          ask("Ano ang katangian ng Santol?", ["Hitik sa bunga", "Mababang-loob", "Walang dahon"], 0, "Hitik sa bunga ang Santol."),
+          ask("Ano ang naramdaman ni Kawayan habang kinukutya?", ["Nalungkot", "Nagmalaki", "Natulog"], 0, "Kaawa-awa siya habang tinutukso. Nalungkot siya."),
+          ask("Ano ang aral ng kuwento?", ["Magpakababa ng loob", "Pagtawanan ang iba", "Magmalaki kung may bunga"], 0, "Ang kababaang-loob ang nagpatayo kay Kawayan."),
+          ask("Paano nagkakaroon ng kuwentong-bayan?", ["Ipinasa nang pasalita mula sa matatanda", "Isinulat agad ng isang sikat na manunulat", "Galing sa isang pagsusulit"], 0, "Kuwentong ipinasa nang pasalita mula sa matatanda. Hindi ito gawa ng isang kilalang manunulat."),
+        ],
+      },
+    ],
+    sequence: [
+      {
+        prompt: "Ilagay ang Ang Punong Kawayan sa tamang pagkakasunod.",
+        steps: [
+          "Ipinakilala ang mga puno at ang payat na Kawayan.",
+          "Ipinagmalaki ng Santol, Mangga, Kabalyero, at Niyog ang sarili.",
+          "Pinagtawanan nila si Kawayan.",
+          "Ipinagpag ng Hangin ang mga puno at nangabuwal ang mayayabang.",
+          "Nakatayo pa rin ang mababang-loob na Kawayan.",
+        ],
+        explanation: "Una ang pagpapakilala, sunod ang yabang at tukso, tapos ang hangin, at huli ang aral.",
+      },
+    ],
+    matching: [
+      { left: "Santol", right: "Hitik sa bunga" },
+      { left: "Mangga", right: "Mayabong" },
+      { left: "Kabalyero", right: "Mabulaklak" },
+      { left: "Niyog", right: "Tuwid" },
+      { left: "Kawayan", right: "Mababang-loob" },
+    ],
+    quiz: [
+      ask("Ano ang kuwentong-bayan?", ["Balitang sisimulan ngayon", "Kuwentong ipinasa nang pasalita", "Liham para sa guro"], 1, "Ipinasa ito nang pasalita mula sa matatanda."),
+      ask("Alin ang uri ng kuwentong-bayan?", ["Mito, alamat, at pabula", "Parabula lamang", "Balita at anunsyo"], 0, "Mito, alamat, at pabula ang itinuturo. Ang parabula ay mula sa Bibliya, hindi sa kuwentong-bayang Pilipino."),
+      ask("Ano ang mito?", ["Kuwento ng hayop na may aral", "Listahan ng petsa", "Kuwento tungkol sa pinagmulan, madalas may diyos"], 2, "Ang mito ay madalas nagpapaliwanag ng pinagmulan."),
+      ask("Ano ang pabula?", ["Mapa ng bakuran", "Kuwento ng hayop na may aral", "Pantawag na may tuldok"], 1, "May aral ang pabula, at hayop ang madalas na tauhan."),
+      ask("Sino ang nakatayo pagkatapos ng hangin?", ["Kawayan", "Santol", "Niyog"], 0, "Ang mababang-loob na Kawayan ang hindi nasalanta."),
+      ask("Tama ba ang panunukso nila kay Kawayan?", ["Oo, dahil payat siya", "Hindi, dahil masakit ang panunukso", "Oo, dahil walang bunga"], 1, "Hindi dapat pagtawanan ang iba."),
+      ask("Ano ang katangian ng Kabalyero?", ["Hitik sa bunga", "Payat at walang dahon", "Mabulaklak"], 2, "Mabulaklak at pulang-pula ang Kabalyero."),
+      ask("Alin ang tamang baybay?", ["Maari", "Maaari", "Maaarii"], 1, "Maaari, na may dalawang a pagkatapos ng m."),
+      ask("Ano ang alamat?", ["Listahan ng daglat", "Pang-abay na pamanahon", "Kuwento kung paano nagkaroon ng isang bagay o lugar"], 2, "Ang alamat ay nagpapaliwanag ng pinagmulan ng isang bagay o lugar."),
+      ask("Ano ang aral ni Kawayan?", ["Pagmamayabang", "Pagtulog nang buong araw", "Kababaang-loob"], 2, "Ang kababaang-loob ang aral ng kuwento."),
+    ],
+  },
+  {
+    id: "w18",
+    title: "Magagalang na Salita",
+    badgeName: "Magalang",
+    activityOrder: ["recap", "sort", "fixIt", "matching", "quiz"],
+    recap: [
+      { speaker: "ana", text: "Ang magalang na salita ay nagpapakita ng paggalang. Po at opo ang madalas nating idagdag." },
+      { speaker: "ben", text: "Kumusta po. Salamat po. Pasensiya na po. Maaari po ba?" },
+      { speaker: "ana", text: "Paki ang magalang na pakiusap: Pakiabot po ng lapis. Puwede ring humingi ng pahintulot: Maaari po ba akong lumabas?" },
+      { speaker: "ben", text: "Hindi magalang ang sumigaw ng “Teacher!” nang walang po. Idagdag ang po." },
+      { speaker: "ana", text: "Magalang din ang tumawag nang tama: Ma'am, hindi Maam. Ang pambansang ibon ay ang agila. Ang pambansang puno ay ang narra. Ang Spoliarium ay gawa ni Juan Luna." },
+    ],
+    sort: {
+      bins: [
+        { id: "polite", label: "Magalang" },
+        { id: "not", label: "Hindi magalang" },
+      ],
+      items: [
+        { text: "Maaari po ba akong uminom?", binId: "polite", explanation: "May po ang pakiusap, kaya magalang ito." },
+        { text: "Salamat po.", binId: "polite", explanation: "Pasasalamat na may po. Magalang ito." },
+        { text: "Teacher! Maaari ba akong lumabas!", binId: "not", explanation: "Walang po, at sigaw ang tono. Hindi ito magalang." },
+        { text: "Ate, bigyan mo ako nito.", binId: "not", explanation: "Utos ito at walang po o paki. Hindi ito magalang." },
+        { text: "Pasensiya na po.", binId: "polite", explanation: "Paumanhin na may po. Magalang ito." },
+        { text: "Pakiabot po ng aklat.", binId: "polite", explanation: "Paki at po ang magalang na pakiusap." },
+      ],
+    },
+    fixIt: [
+      {
+        words: ["Ate", "Luisa,", "maaari", "ba", "akong", "tumulong?"],
+        wrongIndex: 2,
+        choices: [
+          { id: "po", label: "maaari po" },
+          { id: "sigaw", label: "MAAARI" },
+          { id: "no", label: "ayoko" },
+        ],
+        correctId: "po",
+        explanation: "Idagdag ang po: Maaari po ba akong tumulong?",
+      },
+      {
+        words: ["Teacher!", "maaari", "ba", "akong", "magtanong?"],
+        wrongIndex: 0,
+        choices: [
+          { id: "maam", label: "Ma'am," },
+          { id: "hoy", label: "Hoy!" },
+          { id: "teacher", label: "Teacher!" },
+        ],
+        correctId: "maam",
+        explanation: "Hindi magalang ang sigaw na Teacher! Mas magalang ang Ma'am, at may po ang tanong.",
+      },
+      {
+        words: ["Kamusta", "po."],
+        wrongIndex: 0,
+        choices: [
+          { id: "ku", label: "Kumusta" },
+          { id: "ka", label: "Kamusta" },
+          { id: "opo", label: "Opo" },
+        ],
+        correctId: "ku",
+        explanation: "Kumusta ang tamang baybay, hindi Kamusta.",
+      },
+      {
+        words: ["Spolarium", "ang", "pinta", "ni", "Juan", "Luna."],
+        wrongIndex: 0,
+        choices: [
+          { id: "spo", label: "Spoliarium" },
+          { id: "spol", label: "Spolarium" },
+          { id: "eagle", label: "Agila" },
+        ],
+        correctId: "spo",
+        explanation: "Spoliarium ang pamagat. Gawa ito ni Juan Luna.",
+      },
+    ],
+    matching: [
+      { left: "Pagbati", right: "Kumusta po" },
+      { left: "Pasasalamat", right: "Salamat po" },
+      { left: "Pahintulot", right: "Maaari po ba?" },
+      { left: "Paumanhin", right: "Pasensiya na po" },
+    ],
+    quiz: [
+      ask("Alin ang magalang?", ["Maaari po ba?", "Bigay mo nga!", "Teacher!"], 0, "May po ang magalang na pakiusap."),
+      ask("Alin ang tamang baybay?", ["Kumusta", "Kamusta", "Komusta po ba agad"], 0, "Kumusta ang tamang baybay."),
+      ask("Ano ang idinadagdag upang maging magalang ang sagot na oo?", ["Po o opo", "Ha", "Hoy"], 0, "Opo ang magalang na oo."),
+      ask("Alin ang pambansang ibon?", ["Agila", "Kalapati", "Maya lang"], 0, "Ang Philippine eagle, o Agila, ang pambansang ibon."),
+      ask("Ano ang pambansang puno?", ["Narra", "Kawayan", "Saging"], 0, "Narra ang pambansang puno."),
+      ask("Sino ang gumawa ng Spoliarium?", ["Juan Luna", "Jose Rizal", "Andres Bonifacio"], 0, "Si Juan Luna ang gumawa ng Spoliarium."),
+      ask("Alin ang magalang na pakiusap?", ["Pakiabot po.", "Abot!", "Ibigay mo ngayon!"], 0, "Paki at po ang magalang na anyo."),
+      ask("Alin ang paumanhin?", ["Pasensiya na po.", "Kumusta po.", "Salamat po."], 0, "Pasensiya na po ang paghingi ng paumanhin."),
+      ask("Bakit hindi magalang ang “Teacher! maaari ba”?", ["Walang po at sigaw ang tono", "Mayroon itong po", "Ito ay pasasalamat"], 0, "Idagdag ang po at iwasan ang sigaw."),
+      ask("Alin ang tamang tawag?", ["Ma'am", "Maam", "Mam po hoy"], 0, "Ma'am ang tamang baybay."),
+    ],
+  },
+  {
+    id: "w19",
+    title: "Wastong Pagsulat ng Talata",
+    badgeName: "Talata",
+    activityOrder: ["recap", "fixIt", "sequence", "reading", "quiz"],
+    recap: [
+      { speaker: "ana", text: "Ang talata ay magkakaugnay na pangungusap tungkol sa isang paksa." },
+      { speaker: "ben", text: "Nagsisimula sa malaking titik ang pangungusap. Wasto ang baybay. May bantas sa dulo: tuldok, tandang tanong, o tandang padamdam." },
+      { speaker: "ana", text: "Ang pamagat ay nasa gitna. May pasok ang unang linya. May palugit sa gilid." },
+      { speaker: "ben", text: "Gumamit ng wastong bantas. Ng, hindi nang, ang kasama ng “wastong bantas.”" },
+      { speaker: "ana", text: "Ang Chocolate Hills ay ang pinakatanyag na tanawin sa Bohol. Ang tarsier ay isa sa pinakamaliliit na primate. Hindi ito unggoy." },
+    ],
+    fixIt: [
+      {
+        words: ["ang", "Bohol", "ay", "maganda."],
+        wrongIndex: 0,
+        choices: [
+          { id: "ang", label: "Ang" },
+          { id: "mga", label: "mga" },
+          { id: "sa", label: "sa" },
+        ],
+        correctId: "ang",
+        explanation: "Malaking titik ang simula ng pangungusap: Ang Bohol ay maganda.",
+      },
+      {
+        words: ["Maganda", "ang", "magnda", "tanawin."],
+        wrongIndex: 2,
+        choices: [
+          { id: "ok", label: "maganda" },
+          { id: "bad", label: "magnda" },
+          { id: "hill", label: "hills" },
+        ],
+        correctId: "ok",
+        explanation: "Maganda ang tamang baybay, hindi magnda.",
+      },
+      {
+        words: ["Saan", "kayo", "pupunta"],
+        wrongIndex: 2,
+        choices: [
+          { id: "q", label: "pupunta?" },
+          { id: "dot", label: "pupunta." },
+          { id: "none", label: "pupunta" },
+        ],
+        correctId: "q",
+        explanation: "Tanong ito, kaya tandang tanong ang bantas.",
+      },
+      {
+        words: ["Ang", "ganda."],
+        wrongIndex: 1,
+        choices: [
+          { id: "ex", label: "ganda!" },
+          { id: "q", label: "ganda?" },
+          { id: "same", label: "ganda." },
+        ],
+        correctId: "ex",
+        explanation: "Malakas ang damdamin, kaya tandang padamdam. Tandang padamdam ang tawag, hindi tandang panamdam.",
+      },
+    ],
+    sequence: [
+      {
+        prompt: "Iayos ang talata tungkol sa Bohol.",
+        steps: [
+          "Ang Bohol ay isang magandang pulo.",
+          "Ang Chocolate Hills ang pinakatanyag na tanawin doon.",
+          "May mga tarsier din sa Bohol.",
+          "Maraming tao ang bumibisita upang makita ang mga ito.",
+        ],
+        explanation: "Isang paksa ang talata: una ang pulo, sunod ang tanawin, tapos ang tarsier, at huli ang mga bisita.",
+      },
+    ],
+    reading: [
+      {
+        title: "Bohol",
+        pages: [
+          { speaker: "ana", text: "Ang Chocolate Hills ay ang pinakatanyag na tanawin sa Bohol." },
+          { speaker: "ben", text: "Makikita rin doon ang tarsier. Isa ito sa pinakamaliliit na primate sa mundo. Hindi ito unggoy." },
+          { speaker: "ana", text: "Maraming turista ang bumibisita sa Bohol upang makita ang mga burol at ang tarsier." },
+        ],
+        questions: [
+          ask("Ano ang pinakatanyag na tanawin sa Bohol?", ["Chocolate Hills", "Isang ordinaryong bakuran", "Awditoryum"], 0, "Pinakatanyag ang Chocolate Hills, hindi ordinaryo lang."),
+          ask("Ano ang tarsier?", ["Isang maliit na primate", "Ang pinakamaliit na unggoy sa daigdig", "Isang ibon"], 0, "Primata ito, hindi unggoy, at hindi ito ang pinakamaliit sa buong daigdig."),
+          ask("Ilan ang paksa ng talatang ito?", ["Isa: ang Bohol", "Lima: bawat pangungusap ay ibang paksa", "Wala"], 0, "Isang paksa ang talata. Magkakaugnay ang mga pangungusap."),
+        ],
+      },
+    ],
+    quiz: [
+      ask("Ano ang talata?", ["Magkakaugnay na pangungusap sa isang paksa", "Isang daglat", "Listahan ng pang-abay"], 0, "Iisang paksa at magkakaugnay na pangungusap ang talata."),
+      ask("Alin ang tamang tawag sa ! ?", ["Tandang padamdam", "Tandang panamdam", "Tandang kuwento"], 0, "Tandang padamdam ang tamang tawag."),
+      ask("Alin ang tama?", ["Gumamit ng wastong bantas.", "Gumamit nang wastong bantas.", "Gumamit na wastong bantas."], 0, "Ng ang kasama ng wastong bantas, hindi nang."),
+      ask("Saan inilalagay ang pamagat?", ["Sa gitna", "Sa ilalim nang walang patlang", "Sa loob ng unang pangungusap"], 0, "Nasa gitna ang pamagat."),
+      ask("Ano ang pasok sa unang linya?", ["Inurong pasok ang unang linya ng talata", "Wala nang espasyo", "Isang buong blangkong pahina"], 0, "May pasok ang unang linya."),
+      ask("Alin ang tama tungkol sa Chocolate Hills?", ["Pinakatanyag na tanawin", "Pinakaordinaryong tanawin", "Isang daglat"], 0, "Pinakatanyag, hindi pinakaordinaryo."),
+      ask("Alin ang tama tungkol sa tarsier?", ["Isa sa pinakamaliliit na primate", "Pinakamaliit na unggoy sa daigdig", "Isang puno"], 0, "Hindi unggoy ang tarsier."),
+      ask("Alin ang wastong simula?", ["Ang Bohol ay maganda.", "ang bohol ay maganda", "ANG BOHOL AY MAGANDA!!"], 0, "Isang malaking titik sa simula, at isang tuldok sa dulo."),
+      ask("Alin ang tamang baybay?", ["tula ng mga Pilipino", "tulang mga Pilipino", "tula mga nang Pilipino"], 0, "Tula ng mga Pilipino."),
+      ask("Ano ang bantas ng tanong?", ["?", ".", "po"], 0, "Tandang tanong ang ?."),
+    ],
+  },
+  {
+    id: "w20",
+    title: "Pagbuo ng Talata",
+    badgeName: "Karanasan",
+    activityOrder: ["recap", "paragraph", "sequence", "quiz"],
+    recap: [
+      { speaker: "ana", text: "Ngayon, bubuo tayo ng talata tungkol sa isang karanasan. Piliin ang sagot. Hindi kailangang mag-type." },
+      { speaker: "ben", text: "Anim na gabay: Ano ang nangyari? Saan at kailan? Sino ang kasama?" },
+      { speaker: "ana", text: "Sunod: Ano ang ginawa ninyo? Ano ang naramdaman mo? Ano ang natutuhan mo?" },
+      { speaker: "ben", text: "Ang mga sagot ay magkakaugnay, kaya anumang piliin mo ay maaaring maging talata." },
+      { speaker: "ana", text: "Masaya at buong pagmamalaki, hindi “proud.” Na rin, hindi narin." },
+    ],
+    paragraph: [
+      {
+        guides: [
+          {
+            prompt: "Ano ang karanasan?",
+            choices: [
+              { id: "plant", text: "Pagtatanim sa bakuran", sentence: "Isang hapon, nagtanim kami ng halaman sa bakuran." },
+              { id: "seedling", text: "Pag-aalaga ng punla", sentence: "Isang hapon, inalagaan namin ang mga punla sa bakuran." },
+            ],
+          },
+          {
+            prompt: "Saan at kailan ito nangyari?",
+            choices: [
+              { id: "yard", text: "Sa bakuran, noong hapon", sentence: "Naganap ito sa bakuran ng bahay noong hapon." },
+              { id: "back", text: "Sa likod-bahay, pagkatapos ng klase", sentence: "Nasa likod-bahay kami pagkatapos ng klase." },
+            ],
+          },
+          {
+            prompt: "Sino ang kasama mo?",
+            choices: [
+              { id: "both", text: "Si Nanay at si Ben", sentence: "Kasama ko si Nanay at si Ben." },
+              { id: "nanay", text: "Si Nanay", sentence: "Kasama ko si Nanay." },
+            ],
+          },
+          {
+            prompt: "Ano ang ginawa ninyo?",
+            choices: [
+              { id: "water", text: "Dinilig ang punla", sentence: "Dinilig namin ang mga punla at hinila ang damo." },
+              { id: "soil", text: "Nagtanim at inayos ang lupa", sentence: "Nagtanim kami ng bagong halaman at inayos ang lupa." },
+            ],
+          },
+          {
+            prompt: "Ano ang naramdaman mo?",
+            choices: [
+              { id: "proud", text: "Masaya at ipinagmamalaki", sentence: "Masaya ako at ipinagmamalaki ko ang aming halaman." },
+              { id: "calm", text: "Kinakabahan, tapos masaya", sentence: "Kinakabahan ako sa una, pero masaya na rin ako sa huli." },
+            ],
+          },
+          {
+            prompt: "Ano ang natutuhan mo?",
+            choices: [
+              { id: "team", text: "Mas masaya kung nagtutulungan", sentence: "Natutuhan ko na mas masaya ang gawain kapag nagtutulungan." },
+              { id: "try", text: "Kaya kong sumubok", sentence: "Natutuhan ko na kaya ko ring subukan ang isang bagong gawain." },
+            ],
+          },
+        ],
+      },
+    ],
+    sequence: [
+      {
+        prompt: "Iayos ang talata tungkol sa pagtatanim.",
+        steps: [
+          "Isang hapon, nagtanim kami ng halaman sa bakuran.",
+          "Kasama ko si Nanay at si Ben.",
+          "Dinilig namin ang mga punla at hinila ang damo.",
+          "Masaya ako dahil natutuhan ko kung paano tumulong.",
+        ],
+        explanation: "Sunod sa gabay: ano at kailan, sino, ginawa, tapos ang naramdaman at natutuhan.",
+      },
+    ],
+    quiz: [
+      ask("Ilan ang gabay na tanong sa pagbuo ng talata?", ["Anim", "Dalawa", "Sampu"], 0, "Ano, saan at kailan, sino, ginawa, naramdaman, at natutuhan."),
+      ask("Alin ang gabay na tanong?", ["Ano ang natutuhan mo?", "Ilang tuldok ang daglat?", "Alin ang pang-abay?"], 0, "Ang natutuhan ay isa sa anim na gabay."),
+      ask("Alin ang tamang baybay?", ["na rin", "narin", "na rin po nang"], 0, "Magkahiwalay ang na rin."),
+      ask("Alin ang angkop na salita para sa magandang pakiramdam?", ["ipinagmamalaki", "proud", "ordinaryo"], 0, "Ipinagmamalaki o masaya. Hindi Ingles na proud sa talatang Filipino."),
+      ask("Ano ang dapat iisa sa talata?", ["Ang paksa", "Ang lahat ng pang-abay", "Ang daglat"], 0, "Isang paksa ang talata."),
+      ask("Alin ang magandang unang pangungusap?", ["Isang araw, sumali ako sa palaro.", "po", "at saka ngunit"], 0, "Ang unang pangungusap ay nagsasabi kung ano ang nangyari."),
+      ask("Saan lumalabas kung sino ang kasama?", ["Sa gitna ng talata, bilang sagot sa sino", "Sa pamagat lang", "Hindi na kailangan"], 0, "Sino ang kasama ay isa sa anim na gabay."),
+      ask("Alin ang wastong dulo?", ["Natutuhan ko na mas masaya kung nagtutulungan.", "proud ako narin.", "Answer the Question."], 0, "Filipino ang talata, at malinaw ang natutuhan."),
+      ask("Ano ang unang gabay?", ["Ano ang nangyari?", "Ilang baras sa graph?", "Alin ang Dr.?"], 0, "Ano ang unang gabay na tanong."),
+      ask("Bakit magkakaugnay ang mga pangungusap?", ["Dahil iisa ang karanasang ikinukuwento", "Dahil pare-pareho ang unang titik", "Dahil daglat ang lahat"], 0, "Isang karanasan ang paksa, kaya magkakaugnay ang mga pangungusap."),
+    ],
+  },
+]
+
+checkSubjectWeeks(filipinoWeeks, "q3/filipino")

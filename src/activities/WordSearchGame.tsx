@@ -1,4 +1,5 @@
 import { useMemo, useState, type CSSProperties } from "react"
+import type { LessonLang } from "../content/types.ts"
 import { Button } from "../components/Button.tsx"
 import { Feedback } from "../components/Feedback.tsx"
 import { playCorrect, playWrong } from "../lib/sounds.ts"
@@ -10,10 +11,12 @@ export function WordSearchGame({
   words,
   seedKey,
   onFinish,
+  lang,
 }: {
   words: string[]
   seedKey: string
   onFinish: () => void
+  lang: LessonLang
 }) {
   const puzzle = useMemo(
     () => createWordSearch(words, seedFromText(seedKey)),
@@ -66,7 +69,7 @@ export function WordSearchGame({
         {words.map((word) => {
           const clean = normalizeWord(word)
           return (
-            <li key={word} lang="fil" className={found.includes(clean) ? "found" : ""}>
+            <li key={word} lang={lang} className={found.includes(clean) ? "found" : ""}>
               {word}
             </li>
           )

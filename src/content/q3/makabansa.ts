@@ -1192,7 +1192,7 @@ for (const week of makabansaWeeks) {
   }
   const items = [...(week.riddles ?? []), ...week.quiz]
   for (const item of items) {
-    if (!item.choices.some((choice) => choice.id === item.correctId)) {
+    if (!("choices" in item) || !item.choices.some((choice) => choice.id === item.correctId)) {
       throw new Error(`The correct choice is missing: ${item.prompt}`)
     }
   }
@@ -1202,6 +1202,7 @@ for (const week of makabansaWeeks) {
     ...week.quiz.map((item, index) => ({ item, activity: "quiz" as const, index })),
   ]
   for (const { item, activity, index } of prompted) {
+    if (!("choices" in item)) continue
     const position = correctPosition(
       item.choices,
       item.correctId,
@@ -1216,6 +1217,7 @@ for (const week of makabansaWeeks) {
   if (week.id === "w15") {
     let longest = 0
     for (const item of week.quiz) {
+      if (!("choices" in item)) continue
       const correct = item.choices.find((choice) => choice.id === item.correctId)
       const max = Math.max(...item.choices.map((choice) => choice.label.length))
       if (correct && correct.label.length === max) longest += 1

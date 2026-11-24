@@ -5,7 +5,7 @@ export function SpeechBubble({
 }: {
   speaker: "ana" | "ben"
   text: string
-  lang?: "fil"
+  lang?: "fil" | "en"
 }) {
   const name = speaker === "ana" ? "Ana" : "Ben"
   return (

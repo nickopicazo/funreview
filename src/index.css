@@ -576,6 +576,175 @@ html:has(dialog[open]) { overflow: hidden; }
 
 .switch.is-on { background: #d9f5e8; }
 
+.bins { display: grid; gap: 12px; }
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chip {
+  min-height: 48px;
+  padding: 12px 14px;
+  border: 0;
+  border-radius: 16px;
+  background: white;
+  color: var(--ink);
+  font: inherit;
+  font-family: var(--display);
+  box-shadow: 0 4px 0 var(--line);
+  cursor: pointer;
+}
+
+.chip:disabled { cursor: default; }
+.chip.ok { background: #d9f5e8; box-shadow: 0 4px 0 var(--green); }
+.chip.bad { background: #ffe8e4; box-shadow: 0 4px 0 var(--coral); }
+.chip.picked { outline: 3px solid var(--blue); }
+
+.sort-card, .gap-line, .sentence-line {
+  background: white;
+  border-radius: 22px;
+  padding: 16px;
+  box-shadow: 0 5px 0 var(--line);
+  font-family: var(--display);
+  font-size: 1.25rem;
+}
+
+.gap-line, .sentence-line, .chips { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+
+.gap {
+  min-width: 72px;
+  min-height: 48px;
+  border-bottom: 4px solid var(--blue);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 8px;
+}
+
+.gap.is-filled { background: #d9f5e8; border-radius: 12px; }
+
+.pad { display: flex; flex-direction: column; gap: 12px; }
+
+.pad-display {
+  width: 100%;
+  min-height: 64px;
+  border: 0;
+  border-radius: 18px;
+  background: white;
+  box-shadow: 0 5px 0 var(--line);
+  text-align: right;
+  font-family: var(--display);
+  font-size: 2rem;
+  padding: 8px 16px;
+  color: inherit;
+}
+
+.pad-keys {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.pad-key {
+  min-height: 64px;
+  min-width: 64px;
+  border: 0;
+  border-radius: 16px;
+  background: white;
+  color: var(--ink);
+  font-family: var(--display);
+  font-size: 1.4rem;
+  box-shadow: 0 4px 0 var(--line);
+  cursor: pointer;
+}
+
+.pad-key:disabled { cursor: default; opacity: 0.7; }
+
+.pads, .fingers, .bag, .array-board { display: flex; flex-wrap: wrap; gap: 8px; }
+
+.pad-lily, .finger {
+  min-width: 48px;
+  min-height: 48px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  background: #d7e8ff;
+  font-family: var(--display);
+  font-weight: 700;
+}
+
+.finger {
+  flex: 1 1 18%;
+  border: 0;
+  color: inherit;
+  font: inherit;
+  font-family: var(--display);
+  font-size: 1.1rem;
+  box-shadow: 0 4px 0 var(--blue-deep);
+  cursor: pointer;
+}
+
+.finger.is-folded { background: var(--gold); transform: translateY(6px); box-shadow: 0 1px 0 var(--gold-deep); }
+.pad-lily.next { background: white; box-shadow: 0 4px 0 var(--line); }
+
+.array-row { display: flex; gap: 6px; }
+.array-dot {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--blue);
+}
+
+.bag {
+  background: white;
+  border-radius: 22px;
+  padding: 12px;
+  box-shadow: 0 5px 0 var(--line);
+}
+
+.bag-piece { font-size: 1.8rem; }
+
+.graph-svg { width: 100%; height: auto; background: white; border-radius: 22px; }
+.gridline { stroke: #f0e2cc; stroke-width: 1; }
+.axis { stroke: var(--ink); stroke-width: 2; }
+.axis-label, .bar-value { fill: var(--ink); font-size: 12px; font-family: var(--body); }
+.graph-bar { cursor: pointer; }
+
+.column-sum {
+  display: grid;
+  gap: 4px 6px;
+  background: white;
+  border-radius: 22px;
+  padding: 12px;
+  box-shadow: 0 5px 0 var(--line);
+  text-align: center;
+  font-family: var(--display);
+  font-size: 1.35rem;
+}
+
+.carry {
+  min-height: 28px;
+  color: var(--coral-deep);
+  font-size: 1rem;
+}
+
+.place-label { color: var(--ink-soft); font-size: 0.8rem; }
+.digit { min-height: 36px; }
+.digit.answer { border-top: 3px solid var(--ink); }
+.digit.is-on { outline: 3px solid var(--blue); border-radius: 8px; }
+
+.zero-tile { background: #fff4d2; }
+
+.is-shake { animation: shake 0.35s linear; }
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-6px); }
+  75% { transform: translateX(6px); }
+}
+
 @keyframes node-pulse {
   0%, 100% { box-shadow: 0 0 0 0 rgb(47 125 225 / 45%); }
   70% { box-shadow: 0 0 0 12px rgb(47 125 225 / 0%); }

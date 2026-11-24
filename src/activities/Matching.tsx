@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react"
 import { Button } from "../components/Button.tsx"
 import { Feedback } from "../components/Feedback.tsx"
-import type { WeekContent } from "../content/types.ts"
+import type { LessonLang, WeekContent } from "../content/types.ts"
 import { playCorrect, playWrong } from "../lib/sounds.ts"
 import { seedFromText } from "../lib/wordSearch.ts"
 
@@ -27,10 +27,12 @@ export function Matching({
   pairs,
   seedKey,
   onFinish,
+  lang,
 }: {
   pairs: NonNullable<WeekContent["matching"]>
   seedKey: string
   onFinish: () => void
+  lang: LessonLang
 }) {
   const rightOrder = useMemo(() => orderOf(pairs.length, seedFromText(seedKey)), [pairs.length, seedKey])
   const [leftPick, setLeftPick] = useState<number | null>(null)
@@ -67,7 +69,7 @@ export function Matching({
               key={`left-${pair.left}`}
               type="button"
               className={`choice${done ? " ok" : ""}${leftPick === index ? " picked" : ""}`}
-              lang="fil"
+              lang={lang}
               disabled={done}
               onClick={() => {
                 setLeftPick(index)
@@ -81,7 +83,7 @@ export function Matching({
                 key={`right-${rightPair.right}`}
                 type="button"
                 className={`choice${rightDone ? " ok" : ""}`}
-                lang="fil"
+                lang={lang}
                 disabled={rightDone || leftPick === null}
                 onClick={() => pickRight(index)}
               >

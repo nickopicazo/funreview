@@ -1,8 +1,8 @@
 # FunReview — Project Plan
 
-> Status: **Milestones 2–8 built** (24 Nov 2026). GA4 loads on every visit. No personal data and no save data are sent. Google Signals and ad personalization stay off. No custom domain yet.
+> Status: **Milestones 2–8 built** (24 Nov 2026). Q3 Filipino, English, and Math are in the app. GA4 loads on every visit. No personal data and no save data are sent. Google Signals and ad personalization stay off. No custom domain yet.
 >
-> **Next:** Q3 Filipino, English and Math are planned in [`SUBJECTS-PLAN.md`](./SUBJECTS-PLAN.md) (not built yet). New lesson PDFs follow [`ADDING-LESSONS.md`](./ADDING-LESSONS.md).
+> **Next:** New lesson PDFs follow [`ADDING-LESSONS.md`](./ADDING-LESSONS.md). The Q3 build notes are in [`SUBJECTS-PLAN.md`](./SUBJECTS-PLAN.md). English Week 20 and Math Weeks 18–20 are still waiting on files.
 
 ## 1. What it is
 FunReview is a child-friendly, interactive reviewer web app for a Grade 3 student in the Philippines (DepEd curriculum). It replaces printed reviewers with short, game-like lessons she can open on a tablet, phone, or computer. The look and feel is inspired by Duolingo.
@@ -54,9 +54,12 @@ Progress stays on this device only. There is no export and no import.
 ## 4. Content structure
 ```
 src/content/
-  catalog.ts          # Q1–Q4 × six subjects; only q3/makabansa is available
+  catalog.ts          # Q1–Q4 × six subjects; Q3 Filipino, English, Math, and Makabansa are available
   types.ts            # WeekContent
   q3/
+    filipino.ts       # weeks 14–20
+    english.ts        # weeks 14–19
+    mathematics.ts    # weeks 14, 14b, 15–17
     makabansa.ts      # weeks 14–20
 ```
 
@@ -74,7 +77,7 @@ Home shows **Q1, Q2, Q3, Q4**. Inside a quarter, six Grade 3 areas, in this orde
 5. Makabansa
 6. GMRC
 
-Only **Q3 Makabansa** opens. Every other quarter and subject shows **“Coming soon!”**.
+**Q3 Filipino, English, Mathematics, and Makabansa** open. Every other quarter and subject shows **“Coming soon!”**.
 
 ### Week schema
 ```ts

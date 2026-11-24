@@ -2,7 +2,7 @@ import { Button } from "../components/Button.tsx"
 import { ConfettiBurst } from "../components/ConfettiBurst.tsx"
 import { PageEnter } from "../components/PageEnter.tsx"
 import { SpeechBubble } from "../components/SpeechBubble.tsx"
-import type { QuizScore } from "../content/types.ts"
+import type { LessonLang, QuizScore } from "../content/types.ts"
 
 export function DoneScreen({
   practice,
@@ -14,6 +14,7 @@ export function DoneScreen({
   nextTo,
   nextLabel,
   backTo,
+  badgeLang,
 }: {
   practice: boolean
   review: boolean
@@ -24,6 +25,7 @@ export function DoneScreen({
   nextTo: string | null
   nextLabel: string | null
   backTo: string
+  badgeLang: LessonLang
 }) {
   const cheer = practice
     ? "Nice practice! No check for this one yet."
@@ -50,7 +52,7 @@ export function DoneScreen({
       {awardedBadge ? (
         <section className="medal">
           <p className="badge-emoji" aria-hidden="true">🏅</p>
-          <p className="gold-label">You earned: <span lang="fil">{badgeName}</span></p>
+          <p className="gold-label">You earned: <span lang={badgeLang}>{badgeName}</span></p>
         </section>
       ) : null}
       <div className="stack">

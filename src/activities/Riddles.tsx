@@ -2,7 +2,7 @@ import { useMemo, useState } from "react"
 import { Button } from "../components/Button.tsx"
 import { Choices } from "../components/Choices.tsx"
 import { Feedback } from "../components/Feedback.tsx"
-import type { PromptItem } from "../content/types.ts"
+import type { LessonLang, PromptItem } from "../content/types.ts"
 import { choiceSeed, shuffleChoices } from "../lib/shuffle.ts"
 import { playCorrect, playWrong } from "../lib/sounds.ts"
 
@@ -10,10 +10,12 @@ export function Riddles({
   items,
   seedKey,
   onFinish,
+  lang,
 }: {
   items: PromptItem[]
   seedKey: string
   onFinish: () => void
+  lang: LessonLang
 }) {
   const [index, setIndex] = useState(0)
   const [picked, setPicked] = useState<string | null>(null)
@@ -43,17 +45,18 @@ export function Riddles({
       <p className="step">
         Riddle {index + 1} of {items.length}
       </p>
-      <h2 className="prompt" lang="fil">{item.prompt}</h2>
+      <h2 className="prompt" lang={lang}>{item.prompt}</h2>
       <Choices
         choices={choices}
         pickedId={picked}
         correctId={item.correctId}
         revealed={phase !== "open"}
         onPick={pick}
+        lang={lang}
       />
-      {phase === "right" ? <Feedback tone="ok" title="Correct!" text={item.explanation} textLang="fil" /> : null}
+      {phase === "right" ? <Feedback tone="ok" title="Correct!" text={item.explanation} textLang={lang} /> : null}
       {phase === "wrong" ? (
-        <Feedback tone="retry" title="Try again" text={item.explanation} textLang="fil" />
+        <Feedback tone="retry" title="Try again" text={item.explanation} textLang={lang} />
       ) : null}
       {phase === "wrong" ? (
         <Button

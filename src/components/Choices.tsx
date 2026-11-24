@@ -1,4 +1,4 @@
-import type { Choice } from "../content/types.ts"
+import type { Choice, LessonLang } from "../content/types.ts"
 
 export function Choices({
   choices,
@@ -6,12 +6,14 @@ export function Choices({
   correctId,
   revealed,
   onPick,
+  lang,
 }: {
   choices: Choice[]
   pickedId: string | null
   correctId: string
   revealed: boolean
   onPick: (id: string) => void
+  lang: LessonLang
 }) {
   return (
     <div className="choices">
@@ -25,7 +27,7 @@ export function Choices({
             key={choice.id}
             type="button"
             className={`choice${tone}`}
-            lang="fil"
+            lang={lang}
             onClick={() => onPick(choice.id)}
             disabled={revealed}
           >

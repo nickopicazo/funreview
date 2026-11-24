@@ -1,6 +1,7 @@
 # FunReview — Q3 Filipino, English and Math Plan
 
-> Status: **Planned** (24 Nov 2026). Docs only; nothing is built yet.
+> Status: **Built** (24 Nov 2026). Filipino W14–W20, English W14–W19, and Math W14–W17 are in the app.
+> Data-model choices for path order, Math Week 14, and the new activity ids are locked in section 5.
 > Sources: [`lessons/q3/filipino`](./lessons/q3/filipino), [`lessons/q3/english`](./lessons/q3/english), [`lessons/q3/math`](./lessons/q3/math) (index in [`lessons/README.md`](./lessons/README.md)).
 > How new lessons get here: [`ADDING-LESSONS.md`](./ADDING-LESSONS.md).
 
@@ -10,7 +11,8 @@
 - **Decisions from [`FIXES-PLAN.md`](./FIXES-PLAN.md) apply to every subject:**
   - Analytics is always on. Same events only (page view, lesson opened, activity completed, quiz score band, badge earned). Never send typed answers, names, or save data.
   - Backup is removed. Progress stays in `localStorage` on the device.
-  - A star counts only on the first try. A wrong answer shows the right answer and the explanation, then **Next**. 8+ of 10 = Golden Star. The week badge is earned by finishing the quiz in order.
+  - A star counts only on the first try of a **quiz** item. A wrong quiz answer shows the right answer and the explanation, then **Next**. 8+ of 10 = Golden Star. The week badge is earned by finishing the quiz in order. Other activities do not award stars; the node is done when the last item is finished.
+- New activities use that same wrong-answer rule (show the right answer and the explanation, then **Next**). The existing Who Am I? activity keeps **Try again**, so Makabansa does not change.
 - Same kid-first UX: chunky ≥48px targets, tap (never drag-only), gentle instant feedback, 2–5 minute activities, no hearts, no streak resets, no leaderboards, no timers that punish.
 - Content is written by hand from the PDFs. Fix source errors (lists below); never copy them.
 
@@ -73,14 +75,16 @@ Page numbers are PDF pages. Most Filipino text is OCR, so recheck the PDF page b
 | Week | Activities |
 | --- | --- |
 | 14 | Story (Ana & Ben); **Match up** daglat ↔ buong salita; Flip cards (daglat → salita → halimbawang pangungusap); Who Am I? riddles (from the slide: doktor, abogado, inhinyero, Ginang, Ginoo); **Fix it** (tap the wrong daglat or missing period: "Gng" → "Gng."); Quiz. |
-| 15 | Story; **Sort** sentences into Pamanahon / Panlunan / Pamaraan; **Tap the word** (tap the pang-abay in a sentence); question-word match (kailan ↔ pamanahon, saan ↔ panlunan, paano ↔ pamaraan); Quiz. |
+| 15 | Story; **Sort** sentences into Pamanahon / Panlunan / Pamaraan; **Tap the word** (tap the pang-abay in a sentence); **Match up** question word ↔ kind (kailan ↔ pamanahon, saan ↔ panlunan, paano ↔ pamaraan); Quiz. |
 | 16 | Story; **Sort** words into Pangatnig / Pang-ukol / Pang-angkop; **Fill the gap** (choose na / -ng / -g: "maganda__ bata"); **Tap the word** (find the pang-ugnay); Quiz. |
-| 17 | **Read** "Ang Punong Kawayan" (short pages with Ana & Ben); **Order the story** (5 events); feelings/aral questions; Match up tree ↔ katangian (Santol: hitik sa bunga, Mangga: mayabong, Kabalyero: mabulaklak, Niyog: tuwid, Kawayan: mababang-loob); Quiz. |
-| 18 | Story; **Polite or not?** (Sort: magalang / hindi magalang); **Fix it** (add *po*); situation → right expression (pagbati, pasasalamat, pahintulot, paumanhin); Quiz. |
+| 17 | **Read** "Ang Punong Kawayan" (short pages with Ana & Ben, then the feelings and aral questions on that same node); **Order the story** (5 events); **Match up** tree ↔ katangian (Santol: hitik sa bunga, Mangga: mayabong, Kabalyero: mabulaklak, Niyog: tuwid, Kawayan: mababang-loob); Quiz. |
+| 18 | Story; **Sort** polite or not (magalang / hindi magalang); **Fix it** (add *po*); **Match up** situation → right expression (pagbati, pasasalamat, pahintulot, paumanhin); Quiz. |
 | 19 | Story (rules of a talata); **Fix it** (capital letter, spelling, bantas); **Order the paragraph** (put 4 sentences of a talata in order); Read a short talata (Bohol, corrected) and answer; Quiz. |
 | 20 | Story (6 gabay na tanong); **Build a paragraph**: pick one answer for each guide question and see the talata form; **Order the paragraph**; Quiz. No free typing; this is tap-to-choose. |
 
 Word search fits W14 (daglat words), W15–W16 (term words) and W17 (tree names). Leave it out where the words are function words (na, ng, sa), which are too short.
+
+The path for each week follows that row (`activityOrder`). One node per activity.
 
 ---
 
@@ -131,14 +135,16 @@ No Week 20 was sent.
 ### Activities that fit
 | Week | Activities |
 | --- | --- |
-| 14 | Story; **Pick the question word** (Who/Whom/Whose/Which/What fill-in); **Match up** question word ↔ what it asks about; **Sentence builder** (tap tiles to build "Whose bag is this?"); Quiz. |
-| 15 | Story; **Read and infer** (short situation → feeling, then trait); **Sort** words into Feeling / Trait; Who said it? (Aesop lines from the slides); Quiz. |
+| 14 | Story; **Fill the gap** (Who/Whom/Whose/Which/What); **Match up** question word ↔ what it asks about; **Sentence builder** (tap tiles to build "Whose bag is this?"); Quiz. |
+| 15 | Story; **Read and infer** (several short situations on one node: feeling, then trait); **Sort** words into Feeling / Trait; **Who Am I?** (who said it: Aesop lines from the slides); Quiz. |
 | 16 | Story; **Sort** Cause / Effect halves; **Match up** cause ↔ effect; **Sentence builder** with *because* / *so*; Quiz. |
 | 17 | Story; **Read and predict** (story pages, then "What happens next?" with 3 endings: one believable, one silly, one not matching the clues; explanation says why); Quiz. |
-| 18 | Story; **Order the story** (Beginning / Middle / End cards for Graham and Snow White); **Sort** Myth / Legend / Fable; story-elements match (characters, setting, problem, solution); Quiz. |
+| 18 | Story; **Order the story** (Beginning / Middle / End cards for Graham and Snow White); **Sort** Myth / Legend / Fable; **Match up** story elements (characters, setting, problem, solution); Quiz. |
 | 19 | Story; **Sort** Before a noun / Stands alone; **Fill the gap** ("That dog is ___ (my/mine)."); **Sentence builder** ("This is mine."); Quiz. |
 
 Tap-to-hear phonics is **not** needed for these topics (they are grammar and reading comprehension). Keep it as a later option only.
+
+The path for each week follows that row (`activityOrder`). One node per activity.
 
 ---
 
@@ -151,6 +157,10 @@ Tap-to-hear phonics is **not** needed for these topics (they are grammar and rea
 | 15 | Multiplication Tables 6–9 | Skip counting, arrays, 7 days × weeks, 8 octopus arms, 9s finger trick; facts 6×1 … 9×10. |
 | 16 | Properties of Multiplication | Commutative (4×5 = 5×4), Identity (×1), Zero (×0), Distributive (7×6 = 5×6 + 2×6). |
 | 17 | Multiplying by a 1-digit number | L1 without regrouping (21×4, 312×3), L2 with regrouping (26×3, 246×4), L3 multiples of 10/100/1,000 (70×8, 500×9, 2,000×4). |
+
+W14 is two catalog weeks, not one week with two quizzes. `w14` is the bar graph. `w14b` is probability. Both kickers say **Week 14**; the title tells them apart (`weekLabel: "14"` on `w14b`, because `week.id.slice(1)` would show "14b"). Each has its own story, activities, 10-item quiz, badge, and save key: `q3/mathematics/w14` and `q3/mathematics/w14b`.
+
+W17 stays one week. L1 and L2 are two stages inside the column-multiply node (no regrouping, then regrouping, including 3-digit regrouping such as 246×4). L3 is the zero-pattern node, which is what that PDF teaches. Word problems are the number-pad node.
 
 I checked every worked answer in the Math PDFs; all the products are correct. The problems below are in how things are written, not in the arithmetic.
 
@@ -185,13 +195,13 @@ I checked every worked answer in the Math PDFs; all the products are correct. Th
 ### Activities that fit (graded difficulty inside each week)
 | Week | Activities |
 | --- | --- |
-| 14a | Story; **Bar graph reader** (tap a bar to see its value; questions: which most, how many, how many more, altogether); **Number pad** answers; Quiz. |
-| 14b | Story; **Probability bag** (see the counters, then **Sort** each event into Certain / Likely / Unlikely / Impossible); Quiz. |
+| 14a (`w14`) | Story; **Bar graph reader** (tap a bar to see its value; questions: which most, how many, how many more, altogether). Numeric questions use the number pad inside this node. Quiz. |
+| 14b (`w14b`) | Story; **Probability bag** (see the counters, then **Sort** each event into Certain / Likely / Unlikely / Impossible); Quiz. |
 | 15 | Story; **Skip-count hop** (tap the next number on lily pads); **Array builder** (tap rows × columns to show 6×4); **Number pad** fact practice, Level 1 (×1–×5) → Level 2 (×6–×10) → Level 3 (word problems: weeks, octopus, cookie boxes); **9s finger trick** (tap a finger to fold it, see the tens and ones); Quiz. |
-| 16 | Story; **Array flip** (rotate 4×2 → 2×4: same total); **Sort** facts by property (Commutative / Identity / Zero / Distributive); **Break it down** (split 7 into 5 + 2 and add the parts); Quiz. |
-| 17 | Story; **Column multiply** step by step (ones → tens → hundreds, carry box, H/T/O colours), Level 1 no regrouping → Level 2 regrouping → Level 3 3-digit regrouping; **Zero pattern** (basic fact, then add zeros); **Word problems** with number pad; Quiz. |
+| 16 | Story; **Array flip** (rotate 4×2 → 2×4: same total); **Sort** facts by property (Commutative / Identity / Zero / Distributive); **Break it down** as number-pad items that show the split (7×6 = 5×6 + 2×6); Quiz. |
+| 17 | Story; **Column multiply** step by step (ones → tens → hundreds, carry box, H/T/O colours), Level 1 no regrouping → Level 2 regrouping (2-digit and 3-digit); **Zero pattern** (the L3 PDF: basic fact, then add zeros); **Word problems** with number pad; Quiz. |
 
-Quizzes keep 10 items. Math quiz items can be multiple choice or number-pad answers. The first try decides the star.
+The path for each week follows that row (`activityOrder`). One node per activity. Quizzes keep 10 items. Math quiz items can be multiple choice or number-pad answers. The first try decides the quiz star. Practice nodes do not award stars.
 
 ---
 
@@ -206,16 +216,17 @@ These are shared components. Each is proposed only because a topic above needs i
 | **Fix it** | Fil W14, W18, W19 | Sentence with one mistake (missing *po*, no capital, wrong bantas, wrong daglat). Tap the wrong part, then choose the fix. |
 | **Sentence builder** | Eng W14, W16, W19 | Word tiles in a tray; tap them in order to build the sentence; tap a placed tile to send it back. |
 | **Order the story / paragraph** | Fil W17, W19, W20; Eng W18 | 3–5 event cards; tap them in order (1, 2, 3…). Wrong order → show the right order with the reason. |
-| **Read and answer** | Fil W17, W19; Eng W15, W17 | Short pages (2–4 lines each) with Ana & Ben, then 3–5 tap-to-choose questions. "Look back" button reopens the text. |
-| **Build a paragraph** | Fil W20 | Six guide questions; pick an answer chip for each; the talata assembles in a card. Choices only; no free typing. |
-| **Number pad** | All Math | On-screen keypad 0–9, ⌫, ✓; keys ≥64px; phone keyboard never opens (`inputMode="none"`, read-only display). |
-| **Counters and arrays** | Math W15, W16 | Tap to add rows; rotate button shows commutative; dot groups for skip counting. |
-| **Column multiply** | Math W17 | Vertical layout with H/T/O columns; one highlighted step at a time; carry box above; the child types each step's digit on the number pad. |
-| **Zero pattern** | Math W17 L3 | Shows basic fact tiles (5 × 9 = 45); zero tiles slide in after it (4,500). |
-| **Bar graph reader** | Math W14a | SVG bar graph (title, axes, gridlines); tap a bar to show its value; questions below. |
+| **Read and answer** | Fil W17, W19; Eng W15, W17 | One path node. The field is an array of passages: English W15 holds several short situations, and one story (Fil W17, Eng W17, Fil W19) is one item with several pages. Short pages (2–4 lines each) with Ana & Ben, then 3–5 tap-to-choose questions. "Look back" button reopens the text. |
+| **Build a paragraph** | Fil W20 | Own activity id (`paragraph`). Six guide questions; pick an answer chip for each; the talata assembles in a card. Choices only; no free typing. Finishing the last guide completes the node. No stars. |
+| **Skip-count hop** | Math W15 | Own activity id (`skipCount`). Lily pads show the count so far; tap the next number. Wrong → show the right number and the explanation, then Next. |
+| **Number pad** | Math W15, W16, W17, and inside W14a / quizzes | On-screen keypad 0–9, ⌫, ✓; keys ≥64px; phone keyboard never opens (`inputMode="none"`, read-only display). Also the keypad for numeric bar-graph questions, number quiz items, and W16 "Break it down" prompts. W14a has no separate number-pad node. |
+| **Counters and arrays** | Math W15, W16 | Tap to add rows; rotate button shows commutative (4×2 → 2×4, same total). |
+| **Column multiply** | Math W17 | Two stages in one node: Level 1 no regrouping, then Level 2 regrouping (2-digit and 3-digit). Vertical layout with H/T/O columns; one highlighted step at a time; carry box above; the child types each step's digit on the number pad. The L3 PDF is the zero-pattern node, not a third column stage. |
+| **Zero pattern** | Math W17 L3 | Shows basic fact tiles (5 × 9 = 45); zero tiles slide in after it (4,500). Own path node. |
+| **Bar graph reader** | Math W14a | SVG bar graph (title, axes, gridlines); tap a bar to show its value; questions below. Numeric answers use the number pad inside this node. |
 | **Probability bag** | Math W14b | Emoji counters in a bag (8 🥭, 2 🍎); a "how likely?" meter with the four words. |
-| **9s finger trick** | Math W15 | Ten finger buttons; tap one to fold it; the tens and ones counts show. |
-| **Graded levels** | Math (all) | Each practice activity has Level 1 → 2 → 3 inside the same 2–5 min session; Level 3 is word problems. Levels are not locked; the path still uses one node per activity. |
+| **9s finger trick** | Math W15 | Ten finger buttons; tap one to fold it; the tens and ones counts show, then the next fact. Guided demo. Finishing the last fact completes the node. No stars. |
+| **Graded levels** | Math W15 number pad; Math W17 column multiply | Items inside one node go easy, then harder. W15 number pad: Level 1 (×1–×5), Level 2 (×6–×10), Level 3 (word problems). W17 column multiply: Level 1 no regrouping, then Level 2 regrouping. The node is done when the last item is finished. Stars stay on the quiz. Levels are not a second lock; the path still has one node per activity. |
 
 Not needed for these topics: pantig/word building (no syllable lesson in the set) and tap-to-hear phonics (no phonics lesson). Keep both as later ideas.
 
@@ -230,52 +241,66 @@ Read against `src/content/types.ts` and `src/content/catalog.ts` at commit `feb6
 - Add `lessonLang: "fil" | "en"` to `SubjectInfo`: Filipino `fil`, English `en`, Mathematics `en`, Makabansa `fil` (same as today), Science and GMRC set when their lessons arrive.
 - Register new week arrays in `lessons`: `"q3/filipino"`, `"q3/english"`, `"q3/mathematics"`. The subject id stays `mathematics` (routes and save keys). The docs folder is `math`.
 - A subject with no file stays "Coming soon!" (unchanged).
-- New content files: `src/content/q3/filipino.ts`, `src/content/q3/english.ts`, `src/content/q3/mathematics.ts`. `makabansa.ts` is not touched.
+- New content files: `src/content/q3/filipino.ts`, `src/content/q3/english.ts`, `src/content/q3/mathematics.ts`. Leave `src/content/q3/makabansa.ts` byte-for-byte the same, including the load-time checks at the bottom of that file. Do not extract that loop. New files carry their own checks.
+
+**Lesson language**
+- Wire `lessonLang` onto lesson text. `lang="fil"` is hardcoded today and must follow the subject, or English and Math will be announced as Filipino. Menus, activity labels, and feedback chrome stay English. Set `lang` from the subject in: `SubjectPage` (week title and badge name), `WeekPage` (title and badge name), `ActivityPage` (title), `Recap`, `Quiz`, `Riddles`, `Choices`, `Matching`, `Flashcards`, `WordSearchGame`, and `DoneScreen` (badge name). `MapPage` stays `lang="fil"`; it is Makabansa content.
 
 **Types** (`types.ts`): only additive.
-- Append new ids at the **end** of `ACTIVITY_IDS` so the saved ids stay valid: `"sort"`, `"tapWord"`, `"fillGap"`, `"fixIt"`, `"builder"`, `"sequence"`, `"reading"`, `"numberPad"`, `"arrays"`, `"columnMultiply"`, `"zeroPattern"`, `"barGraph"`, `"probability"`, `"fingerTrick"`.
-- Add optional fields to `WeekContent`, each with its own shape:
+- Milestone 2 appends the language ids at the **end** of `ACTIVITY_IDS`: `"sort"`, `"tapWord"`, `"fillGap"`, `"fixIt"`, `"builder"`, `"sequence"`, `"reading"`, `"paragraph"`.
+- Milestone 6 appends the math ids after those: `"numberPad"`, `"arrays"`, `"columnMultiply"`, `"zeroPattern"`, `"barGraph"`, `"probability"`, `"fingerTrick"`, `"skipCount"`.
+- Saved ids stay valid because nothing is inserted in front of an id that has already shipped. `quiz` stays `PromptItem[]` in milestone 2, so `Quiz.tsx` still typechecks. Milestone 6 defines `NumberItem = { kind: "number"; prompt: string; answer: number; explanation: string }` and widens `quiz` to `(PromptItem | NumberItem)[]`. Makabansa's quiz items are plain `PromptItem`, so they still typecheck.
+- Add optional fields to `WeekContent`. Language fields land in milestone 2; math fields land in milestone 6:
   ```ts
+  weekLabel?: string // kicker number only. w14b sets "14". Default is id without the leading "w".
+  activityOrder?: ActivityId[]
   sort?: { bins: Choice[]; items: { text: string; binId: string; explanation: string }[] }
   tapWord?: { words: string[]; correctIndex: number; explanation: string }[]
   fillGap?: { before: string; after: string; choices: Choice[]; correctId: string; explanation: string }[]
   fixIt?: { words: string[]; wrongIndex: number; choices: Choice[]; correctId: string; explanation: string }[]
-  builder?: { prompt: string; tiles: string[]; extraTiles?: string[]; explanation: string }[] // tiles in correct order
-  sequence?: { prompt: string; steps: string[]; explanation: string }[]                         // steps in correct order
-  reading?: { title: string; pages: { speaker?: "ana" | "ben"; text: string }[]; questions: PromptItem[] }
-  numberPad?: { prompt: string; answer: number; level: 1 | 2 | 3; explanation: string; visual?: Visual }[]
+  builder?: { prompt: string; tiles: { id: string; text: string }[]; extraTiles?: { id: string; text: string }[]; explanation: string }[] // tiles in correct order
+  sequence?: { prompt: string; steps: string[]; explanation: string }[] // steps in correct order
+  reading?: { title?: string; pages: { speaker?: "ana" | "ben"; text: string }[]; questions: PromptItem[] }[]
+  paragraph?: { guides: { prompt: string; choices: { id: string; text: string; sentence: string }[] }[] }[]
+  numberPad?: { prompt: string; answer: number; level: 1 | 2 | 3; explanation: string }[]
   arrays?: { rows: number; cols: number; prompt: string }[]
-  columnMultiply?: { top: number; bottom: number; level: 1 | 2 | 3 }[]                         // steps computed in code
-  zeroPattern?: { factorA: number; factorB: number }[]
+  columnMultiply?: { top: number; bottom: number; level: 1 | 2 }[] // 1 = no carry, 2 = at least one carry. Steps computed in code.
+  zeroPattern?: { factorA: number; factorB: number; zeros: number }[]
   barGraph?: { title: string; valueLabel: string; categoryLabel: string; bars: { label: string; value: number }[]; questions: (PromptItem | NumberItem)[] }
   probability?: { bag: { emoji: string; count: number }[]; events: { text: string; answer: "certain" | "likely" | "unlikely" | "impossible"; explanation: string }[] }
-  fingerTrick?: { facts: number[] } // 9 × n
+  fingerTrick?: { facts: number[] } // 9 × n, in order. Guided demo. No stars.
+  skipCount?: { prompt: string; start: number; step: number; hops: number; explanation: string }[]
   ```
-  `NumberItem = { kind: "number"; prompt: string; answer: number; explanation: string }`. `quiz` becomes `(PromptItem | NumberItem)[]`. Makabansa's quiz items are plain `PromptItem`, so they still typecheck unchanged.
-- The existing shapes are reused as they are: `recap` (Ana & Ben), `riddles`, `matching`, `wordSearch`, `flashcards`. For non-Makabansa cards, `name` = term, `place` = category, `fact` = example. No rename, so Makabansa is untouched.
+  There is no `Visual` type. Arrays, the bar graph, and the probability bag are their own activities. `paragraph` has no single correct answer: `sentence` is the clause added to the talata when that chip is tapped. `skipCount` pads are computed from `start` and `step`.
+- The existing shapes are reused as they are: `recap` (Ana & Ben), `riddles`, `matching`, `wordSearch`, `flashcards`. For non-Makabansa cards, `name` = term, `place` = category, `fact` = example. No rename, so Makabansa is untouched. Riddles keep **Try again**.
 
 **Path and save**
-- `activitiesIn()` keeps today's order for the current ids. New ids slot in after `wordSearch` and before `quiz`, in the order listed. Makabansa weeks have none of the new fields, so their path is identical.
-- Save keys follow the pattern `q3/<subjectId>/w<NN>` (e.g. `q3/mathematics/w17`). There is no migration and the save stays `version: 1`; `sanitizeSave` accepts the appended ids.
-- The badge and Golden Star rules are the same as Makabansa (FIXES-PLAN M2 and S4: best score kept).
-- The map stays Makabansa-only.
+- `activitiesIn()`: if `activityOrder` is absent, the path is today's order for the six current ids only (recap, riddles, flashcards, matching, word search, quiz), skipping any that have no content. Makabansa does not set `activityOrder`, so its path and save keys stay the same. New weeks set `activityOrder` to the sequence in that week's activity table, one id each, quiz last when there is a quiz.
+- Table labels map to ids: Story `recap`, Who Am I? `riddles`, Flip cards `flashcards`, Match up `matching`, Word Search `wordSearch`, Sort `sort`, Tap the word `tapWord`, Fill the gap `fillGap`, Fix it `fixIt`, Sentence builder `builder`, Order `sequence`, Read `reading`, Build a paragraph `paragraph`, Skip-count hop `skipCount`, Array `arrays`, Number pad `numberPad`, 9s finger trick `fingerTrick`, Column multiply `columnMultiply`, Zero pattern `zeroPattern`, Bar graph `barGraph`, Probability bag `probability`, Quiz `quiz`.
+- The week kicker is `Week ${week.weekLabel ?? week.id.slice(1)}` on `SubjectPage` and `WeekPage`. `w14b` sets `weekLabel` to `"14"`.
+- Save keys follow the pattern `q3/<subjectId>/<weekId>` (e.g. `q3/mathematics/w17`, `q3/mathematics/w14`, `q3/mathematics/w14b`). There is no migration and the save stays `version: 1`; `sanitizeSave` accepts the appended ids.
+- The badge and Golden Star rules are the same as Makabansa (FIXES-PLAN M2 and S4: best score kept). Stars are the quiz score only. `w14` and `w14b` each earn their own badge.
+- The map stays Makabansa-only. `SubjectPage` currently renders "A trip around the Philippines" for every subject that has weeks. Gate that card on `subject.id === "makabansa"`. The header Map link and `MapPage` stay as they are.
 
-**Checks (extend the load-time checks Makabansa already has)**
+**Checks (in each new content file; do not edit the Makabansa checks)**
 - Each week has 10 quiz items, and every `correctId` exists.
 - Correct-answer positions stay balanced after the seeded shuffle.
-- Math: every `answer` equals the computed value (e.g. `top * bottom`; `factorA * factorB`), and every `columnMultiply` level matches whether it regroups.
-- `sequence` and `builder` need at least 3 steps or tiles; every `sort` item's `binId` exists.
+- `activityOrder` lists exactly the activities that have content, each once, and ends with `quiz` when the week has one.
+- `sequence` and `builder` need at least 3 steps or tiles; every `sort` item's `binId` exists; every builder tile `id` is unique.
+- `columnMultiply`: `top * bottom` is the product, level 1 has no column carry, level 2 has at least one.
+- `zeroPattern`: the basic fact is `factorA * factorB`, and the shown result is that fact followed by `zeros` zeros (`factorA * factorB * 10^zeros`).
+- Number-pad word problems and bar-graph question answers are reviewed by hand. They are not machine-checked.
 
 **Analytics**: no new event names. `activity_completed` carries the new activity id; nothing typed is sent.
 
 ---
 
 ## 6. Milestones (build later, when Nicko says start)
-1. **Confirm sources.** Filipino W18 quarter; English "The Rabbit and the Grasshopper"; whether Math W18–W20 and English W20 are coming.
-2. **Types and catalog extension.** Add `lessonLang` and the optional fields, append the ids, register empty subjects. Accept: build passes; Makabansa pages, path, saves and map unchanged (manual check of W14–W20).
-3. **Shared language components.** Sort, Tap the word, Fill the gap, Fix it, Sentence builder, Order, Read and answer, Build a paragraph. Accept: each works by tap only at 320px; feedback follows the first-try rule.
-4. **Filipino content W14–W20** in `q3/filipino.ts`, with the corrections above. Accept: content checks pass; a Filipino reviewer reads every item; `lang="fil"` on lesson text.
-5. **English content W14–W19** in `q3/english.ts`. Accept: content checks pass; the p28 possessive error is not present.
-6. **Math components.** Number pad, number quiz items, arrays, column multiply, zero pattern, bar graph, probability bag, finger trick, graded levels. Accept: number pad never opens the phone keyboard; column steps show carries correctly for 26×3, 37×3, 246×4.
-7. **Math content W14–W17** in `q3/mathematics.ts`. Accept: every answer is computed and checked at load; full 6–9 tables.
+1. **Confirm sources.** Filipino W18 quarter; English "The Rabbit and the Grasshopper"; whether Math W18–W20 and English W20 are coming. This does not block types or shared components. It blocks the Filipino W18 quarter label, the English fable title, and any week whose PDF is not in `docs/lessons/README.md`. English W20 and Math W18–W20 stay out until those files arrive.
+2. **Types and catalog extension.** Add `lessonLang`, `weekLabel`, and `activityOrder`. Append the language ids and their fields only (`sort` through `paragraph`). Register empty subject arrays. Wire `lessonLang` through the components listed in section 5. Gate the subject-page map card on Makabansa. Leave `quiz` as `PromptItem[]`. Accept: build passes; Makabansa pages, path, saves, and map unchanged (manual check of W14–W20); Filipino, English, and Math subject pages do not show the Philippines trip card.
+3. **Shared language components.** Sort, Tap the word, Fill the gap, Fix it, Sentence builder, Order, Read and answer (array of passages, one path node), Build a paragraph. Accept: each works by tap only at 320px; a wrong answer shows the right one and the explanation, then Next. Who Am I? still says Try again.
+4. **Filipino content W14–W20** in `q3/filipino.ts`, with the corrections above. Each week sets `activityOrder` from its activity row. Accept: that file's content checks pass; a Filipino reviewer reads every item; lesson text is `lang="fil"`. W18's quarter label waits on milestone 1.
+5. **English content W14–W19** in `q3/english.ts`. Each week sets `activityOrder` from its activity row. Accept: that file's content checks pass; lesson text is `lang="en"`; the p28 possessive error is not present. The fable title waits on milestone 1.
+6. **Math components.** Append the math ids and fields (`numberPad` through `skipCount`). Define `NumberItem` and widen `quiz` and bar-graph questions to `(PromptItem | NumberItem)[]`. Number pad, number quiz items, arrays, skip-count hop, column multiply (two stages), zero pattern, bar graph, probability bag, finger trick (guided demo, no stars), graded levels as specified for W15 and W17. Accept: number pad never opens the phone keyboard; column steps show carries correctly for 26×3, 37×3, and 246×4.
+7. **Math content W14–W17** in `q3/mathematics.ts`: `w14`, `w14b` (kicker Week 14), `w15`, `w16`, `w17`. Each week sets `activityOrder` from its activity row. Accept: `columnMultiply` and `zeroPattern` match the load-time checks; word-problem and bar-graph answers were checked by hand; full 6–9 tables; lesson text is `lang="en"`.
 8. **QA and release.** Phone and tablet pass, analytics events seen in GA4 DebugView, Makabansa regression check, then deploy when Nicko approves.

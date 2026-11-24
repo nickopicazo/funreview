@@ -3,7 +3,7 @@ import { Link, useNavigate, useParams } from "react-router-dom"
 import { Button } from "../components/Button.tsx"
 import { PageEnter } from "../components/PageEnter.tsx"
 import { SpeechBubble } from "../components/SpeechBubble.tsx"
-import { ACTIVITY_META, activitiesIn } from "../content/activities.ts"
+import { ACTIVITY_META, activitiesIn, weekNumber } from "../content/activities.ts"
 import { findWeek, getQuarter, getSubject } from "../content/catalog.ts"
 import type { ActivityId } from "../content/types.ts"
 import { useAppState } from "../lib/useAppState.ts"
@@ -24,14 +24,14 @@ export function WeekPage() {
   const key = weekKey(quarterId, subjectId, weekId)
   const order = week ? activitiesIn(week) : []
   const progress = save.weeks[key]
-  const weekNumber = week ? week.id.slice(1) : ""
+  const number = week ? weekNumber(week) : ""
   useTitle(
-    week ? `FunReview — Week ${weekNumber}` : SITE_TITLE,
+    week ? `FunReview — Week ${number}` : SITE_TITLE,
     week
       ? {
           description: subject
-            ? `${subject.title}, Week ${weekNumber}: ${week.title}.`
-            : `Week ${weekNumber}: ${week.title}.`,
+            ? `${subject.title}, Week ${number}: ${week.title}.`
+            : `Week ${number}: ${week.title}.`,
         }
       : undefined,
   )
@@ -50,8 +50,8 @@ export function WeekPage() {
         ← {subject.title}
       </Link>
       <div className="title-block">
-        <p className="kicker">Week {week.id.slice(1)}</p>
-        <h1 lang="fil">{week.title}</h1>
+        <p className="kicker">Week {number}</p>
+        <h1 lang={subject.lessonLang}>{week.title}</h1>
       </div>
       <SpeechBubble speaker="ben" text="Do these in order. You've got this!" />
       <ol className="path">
@@ -93,7 +93,7 @@ export function WeekPage() {
           <div className={`node node-badge${progress?.badgeEarned ? " done" : " locked"}`}>
             <span className="node-icon" aria-hidden="true">🏅</span>
             <span className="node-copy">
-              <strong lang={progress?.badgeEarned ? "fil" : undefined}>
+              <strong lang={progress?.badgeEarned ? subject.lessonLang : undefined}>
                     {progress?.badgeEarned ? week.badgeName : "Badge"}
                   </strong>
               <small>

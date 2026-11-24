@@ -9,7 +9,7 @@ export function Feedback({
   tone: "ok" | "retry"
   title: string
   text?: string
-  textLang?: "fil"
+  textLang?: "fil" | "en"
 }) {
   const reduce = useReducedMotion()
   return (

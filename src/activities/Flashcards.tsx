@@ -1,13 +1,15 @@
 import { useState } from "react"
 import { Button } from "../components/Button.tsx"
-import type { WeekContent } from "../content/types.ts"
+import type { LessonLang, WeekContent } from "../content/types.ts"
 
 export function Flashcards({
   cards,
   onFinish,
+  lang,
 }: {
   cards: NonNullable<WeekContent["flashcards"]>
   onFinish: () => void
+  lang: LessonLang
 }) {
   const [flipped, setFlipped] = useState<Record<number, boolean>>({})
   const [seen, setSeen] = useState<number[]>([])
@@ -32,7 +34,7 @@ export function Flashcards({
               key={card.name}
               type="button"
               className={`flip${open ? " is-open" : ""}`}
-              lang="fil"
+              lang={lang}
               aria-pressed={open}
               onClick={() => flip(index)}
             >

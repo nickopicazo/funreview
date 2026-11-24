@@ -1,6 +1,6 @@
 import { Link, useParams } from "react-router-dom"
 import { PageEnter } from "../components/PageEnter.tsx"
-import { activitiesIn } from "../content/activities.ts"
+import { activitiesIn, weekNumber } from "../content/activities.ts"
 import { getQuarter, getSubject, getWeeks } from "../content/catalog.ts"
 import { useAppState } from "../lib/useAppState.ts"
 import { SITE_TITLE } from "../lib/seo.ts"
@@ -51,14 +51,14 @@ export function SubjectPage() {
           const badge = save.weeks[key]?.badgeEarned === true
           return (
             <Link key={week.id} className="card" to={paths.week(quarter.id, subject.id, week.id)}>
-              <p className="kicker">Week {week.id.slice(1)}</p>
-              <h2 lang="fil">{week.title}</h2>
+              <p className="kicker">Week {weekNumber(week)}</p>
+              <h2 lang={subject.lessonLang}>{week.title}</h2>
               <p>
                 {done} of {total} finished
                 {badge ? (
                   <>
                     {" "}
-                    · Badge: <span lang="fil">{week.badgeName}</span>
+                    · Badge: <span lang={subject.lessonLang}>{week.badgeName}</span>
                   </>
                 ) : (
                   ""
@@ -68,10 +68,12 @@ export function SubjectPage() {
           )
         })}
       </div>
-      <Link className="card map-card" to={paths.map}>
-        <h2>A trip around the Philippines</h2>
-        <p>Luzon, Visayas, and Mindanao. Weeks 17 to 20.</p>
-      </Link>
+      {subject.id === "makabansa" ? (
+        <Link className="card map-card" to={paths.map}>
+          <h2>A trip around the Philippines</h2>
+          <p>Luzon, Visayas, and Mindanao. Weeks 17 to 20.</p>
+        </Link>
+      ) : null}
     </PageEnter>
   )
 }
