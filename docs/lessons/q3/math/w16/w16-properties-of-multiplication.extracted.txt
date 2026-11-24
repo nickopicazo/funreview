@@ -1,0 +1,133 @@
+# Source: "MATH3 Q3W 16 Properties of Multiplication - Grade 3 Deck.pdf" (Google Drive link in Eunice's "Math Q3" email, received 24 Nov 2026)
+# Text layer where present; OCR (tesseract, fil+eng for Filipino, eng otherwise) for image-only slides. OCR can be wrong: check the PDF.
+
+========== page 01 (text) ==========
+                       GRADE 3 MATH ADVENTURE
+
+
+
+
+Properties of Multiplication
+  Unlock the math superpowers that make multiplying fast, fun, and easy!
+
+
+
+                  Interactive Game        Performance Task
+
+
+========== page 02 (text) ==========
+STEP 1: MOTIVATION & WARM-UP
+
+
+Can You Spot the Secret Match?
+
+
+
+
+                                   =
+                   2 Groups of 3
+                        2×3=6          3 Groups of 2
+                                          3×2=6
+
+
+========== page 03 (text) ==========
+STEP 2: MOTIVATIONAL GAME
+
+
+Game Time: "Array Flip Challenge!"
+
+
+
+
+   Rule 1: Stand & Build                       Rule 2: The Freeze Flip                  Rule 3: Big Reveal
+   Form 4 rows of 2 students holding up math   When music stops, rotate 90 degrees to   Count both teams. The total product never
+   cards.                                      make 2 rows of 4.                        changes!
+
+
+========== page 04 (text) ==========
+PROPERTY 1
+
+
+Commutative Property (Order Doesn't Matter)
+
+
+
+
+                                 4×5=5×4
+                                         Both equal 20!
+                  Swapping the order of factors gives the exact same product every time.
+
+
+========== page 05 (text) ==========
+PROPERTIES 2 & 3
+
+
+Identity Rule vs. Zero Rule
+
+
+
+
+      1                                                        0
+
+    Identity Property                                        Zero Property
+
+    7×1=7                                                    9×0=0
+    Any number multiplied by 1 stays itself (Mirror Rule).   Any number multiplied by 0 becomes zero (Zap Rule).
+
+
+========== page 06 (text) ==========
+PROPERTY 4 (SPECIAL FOCUS)
+
+
+Distributive Property (Break-It-Down!)
+
+
+
+
+   Hard Problem: 7 × 6                           Break 7 into (5 + 2)
+
+
+
+
+                             (5 × 6) + (2 × 6)
+                                30 + 12 = 42
+
+
+========== page 07 (text) ==========
+VALUING & CHARACTER INTEGRATION
+
+
+What Can Math Teach Us About Life?
+
+
+
+
+         Teamwork (Distributive)                                    Fairness (Commutative)                                        Uniqueness (Identity)
+Breaking big tasks into smaller parts makes challenges   Switching roles keeps things equal and fair for everyone in You are unique! Always hold on to your true value no matter
+                    easier together.                                         group activities.                                                what.
+
+
+========== page 08 (text) ==========
+PERFORMANCE TASK (FILE / HANDS-ON)
+
+
+Task: "The Array Bakery Manager"
+
+
+
+
+     Your Bakery Mission:
+   1. Draw an Array: Create a cookie tray of 6 × 4.
+   2. Apply Commutative: Redraw tray as 4 × 6.
+                                                                                 Bakery Master
+   3. Apply Distributive: Split tray into (5 × 4) + (1 × 4).   Complete your activity sheet to earn your Bakery Chef badge!
+   4. Final Check: Confirm all trays equal 24 cookies!
+
+
+========== page 09 (text) ==========
+              Super Math Star!
+You've mastered Commutative, Identity, Zero, and Distributive properties!
+
+
+             Any questions before we start our Bakery Task?
+

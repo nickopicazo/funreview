@@ -1,0 +1,255 @@
+# Source: "Grade 3 Math3 Q3W17 L1 Multiplication Without Regrouping Lesson1.pdf" (Google Drive link in Eunice's "Math Q3" email, received 24 Nov 2026)
+# Text layer where present; OCR (tesseract, fil+eng for Filipino, eng otherwise) for image-only slides. OCR can be wrong: check the PDF.
+
+========== page 01 (text) ==========
+GRADE 3 MATHEMATICS
+
+
+Multiplying 2- to 3-Digit Numbers
+by 1-Digit Numbers
+A complete step-by-step lesson on vertical multiplication without regrouping.
+
+
+
+
+  Basic Operations    • 15-Slide Complete Lesson Deck
+
+
+========== page 02 (text) ==========
+LESSON GOALS
+
+
+What We Will Learn Today
+
+
+
+
+   1. Place Value Alignment                   2. 2-Digit Multiplication                    3. 3-Digit Extension
+   Line up ones, tens, and hundreds columns   Multiply tens and ones by a 1-digit factor   Extend the standard algorithm smoothly to
+   accurately before multiplying.             without carrying.                            hundreds columns.
+
+
+========== page 03 (text) ==========
+KEY TERMS
+
+
+Multiplication Vocabulary
+
+
+
+
+   Factor                                            Product                                            No Regrouping
+   The numbers being multiplied together (e.g., in   The answer to a multiplication problem (e.g., 69   When every single product in a column is 9 or
+   23 × 3, 23 and 3 are factors).                    is the product of 23 × 3).                         smaller.
+
+
+========== page 04 (text) ==========
+GOLDEN RULE
+
+
+Understanding "No Regrouping"
+
+
+
+
+                               Allowed Single Digits                                                 No Two-Digit Column Products
+
+
+           0, 1, 2, 3, 4, 5, 6, 7, 8, 9                                                             10 or Greater
+    If every digit multiplication stays under 10, write it directly in the column!   If a column equals 10 or more, that requires regrouping (carrying).
+
+
+========== page 05 (text) ==========
+2-DIGIT SKILL
+
+
+Multiplying 2-Digit Numbers: 21 × 4
+
+
+
+
+      T                        O
+
+                                      Step 1: Multiply Ones
+                           21         4 × 1 one = 4 ones. Write 4 in the ones column.
+
+
+                           ×4
+                                      Step 2: Multiply Tens
+                                      4 × 2 tens = 8 tens. Write 8 in the tens column.
+                           84
+
+
+========== page 06 (text) ==========
+STEP-BY-STEP FOCUS
+
+
+Focus Step 1: Multiply the Ones Column
+
+
+
+
+                               Problem: 32 × 3
+                                                                              Checklist:
+                                                                              ✓ Bottom factor: 3
+                           2×3=6                                              ✓ Top ones digit: 2
+                                                                              ✓ Calculation: 3 × 2 = 6
+      Always start with the bottom number multiplied by the top Ones digit.   ✓ Is 6 less than 10? Yes! Write 6 in the ones place.
+
+
+========== page 07 (text) ==========
+STEP-BY-STEP FOCUS
+
+
+Focus Step 2: Multiply the Tens Column
+
+
+
+
+                              Problem: 32 × 3                         Checklist:
+                                                                      ✓ Bottom factor: 3
+                          3×3=9                                       ✓ Top tens digit: 3
+                                                                      ✓ Calculation: 3 × 3 = 9 tens
+                                                                      ✓ Combine ones and tens: 96
+            Next, multiply the bottom number by the top Tens digit.
+
+
+========== page 08 (text) ==========
+GUIDED PRACTICE
+
+
+2-Digit Practice Problems
+
+
+
+
+                  EXERCISE 1      EXERCISE 2      EXERCISE 3
+
+
+                  43 × 2          22 × 4          31 × 3
+                  3×2=6 | 4×2=8   2×4=8 | 2×4=8   1×3=3 | 3×3=9
+
+
+                   = 86            = 88            = 93
+
+
+========== page 09 (text) ==========
+LEVELING UP
+
+
+Moving to 3-Digit Numbers
+
+
+
+
+                 1. Ones                                    2. Tens                                   3. Hundreds
+    Multiply bottom digit by top Ones digit.   Multiply bottom digit by top Tens digit.   New Step! Multiply bottom digit by top Hundreds
+                                                                                                              digit.
+
+
+========== page 10 (text) ==========
+3-DIGIT LESSON
+
+
+Multiplying 3-Digit Numbers: 312 × 3
+
+
+
+
+     H           T            O        1. Ones: 3 × 2 = 6
+                                       Write 6 in the ones column.
+
+                          312
+                                       2. Tens: 3 × 1 = 3
+                          ×3           Write 3 in the tens column.
+
+
+
+
+                          936          3. Hundreds: 3 × 3 = 9
+                                       Write 9 in the hundreds column.
+
+
+========== page 11 (text) ==========
+GUIDED PRACTICE
+
+
+3-Digit Practice Problems
+
+
+
+
+                  PROBLEM A             PROBLEM B               PROBLEM C
+
+
+              123 × 3                 412 × 2                 201 × 4
+             3×3=9 | 2×3=6 | 1×3=3   2×2=4 | 1×2=2 | 4×2=8   1×4=4 | 0×4=0 | 2×4=8
+
+
+                  = 369                 = 824                   = 804
+
+
+========== page 12 (text) ==========
+REAL-WORLD MATH
+
+
+Word Problem 1: School Supplies
+
+
+
+
+                                                                             SOLUTION
+   "A school library orders 4 boxes of books. If each box contains 212      2 × 4 = 8 ones
+   books, how many books did the library order in total?"                   1 × 4 = 4 tens
+                                                                          2 × 4 = 8 hundreds
+
+      Equation: 212 × 4
+                                                                         848 Books
+
+
+========== page 13 (text) ==========
+REAL-WORLD MATH
+
+
+Word Problem 2: Toy Bakery
+
+
+
+
+   "A bakery bakes 32 trays of cookies every morning. If each tray holds 3     SOLUTION
+                                                                               2 × 3 = 6 ones
+   cookies, how many cookies are baked each morning?"                          3 × 3 = 9 tens
+
+
+      Equation: 32 × 3
+                                                                             96 Cookies
+
+
+========== page 14 (text) ==========
+MISTAKE PROOFING
+
+
+Top 3 Student Tips
+
+
+
+
+   1. Always Start Right                             2. Keep Columns Straight                           3. Zero Property
+   Never start with hundreds or tens! Always begin   Write numbers neatly aligned under each other to   Remember: Any digit multiplied by 0 is always 0
+   at the Ones column.                               prevent place value errors.                        (e.g., 201 × 4 → 0 × 4 = 0).
+
+
+========== page 15 (text) ==========
+                             LESSON COMPLETE
+
+
+
+Fantastic Job, Mathematicians!
+You can now confidently multiply 2- and 3-digit numbers without regrouping.
+
+
+========== page 16 (text) ==========
+Image Sources
+         https://caffeinequeenteacher.com/wp-content/uploads/2015/05/2-digit-x-2-digit-multiplication-practice-page-768x1024.jpeg
+         Source: caffeinequeenteacher.com
+

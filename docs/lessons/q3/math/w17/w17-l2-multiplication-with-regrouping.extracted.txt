@@ -1,0 +1,261 @@
+# Source: "Grade 3 Math3Q3W17 L2.pdf" (Google Drive link in Eunice's "Math Q3" email, received 24 Nov 2026)
+# Text layer where present; OCR (tesseract, fil+eng for Filipino, eng otherwise) for image-only slides. OCR can be wrong: check the PDF.
+
+========== page 01 (text) ==========
+GRADE 3
+MATHEMATICS
+
+
+
+Multiplying With Regrouping
+
+Mastering carrying tens and hundreds
+when multiplying 2-digit and 3-digit
+numbers.
+
+
+========== page 02 (text) ==========
+CORE CONCEPT
+
+
+What is Regrouping (Carrying)?
+
+
+
+
+   Product Exceeds 9           Carry Above               Multiply then Add
+
+   When column                 Write ones digit below;   Multiply next place
+   multiplication results in   carry tens digit to top   value first, then add
+   10 or more, regrouping      of next column.           carried number.
+   is needed.
+
+
+========== page 03 (text) ==========
+PART A: 2-DIGIT
+Multiplying 26 × 3
+NUMBERS
+
+
+
+
+          1
+                     Step 1: Multiply Ones &
+       26            6 × 3 = 18 ones. Write 8 in ones column, carry 1 to tens
+                     Regroup
+      × 3            column.
+                     Step 2: Multiply Tens & Add Carried
+                     (2 × 3) + 1 = 6 + 1 = 7 tens. Write 7 in tens
+                     Value
+        78           column.
+
+
+========== page 04 (text) ==========
+GUIDED PRACTICE
+
+
+2-Digit Exercises with Regrouping
+
+
+
+
+                  Problem 1             Problem 2          Problem 3
+
+                         2                     2                  4
+
+                   37                     45                 68
+                  ×3                     ×4                 ×5
+                  111                    180                340
+          7×3=21 (carry 2)          5×4=20 (carry 2)   8×5=40 (carry 4)
+           (3×3)+2 = 111             (4×4)+2 = 180      (6×5)+4 = 340
+
+
+========== page 05 (text) ==========
+PART B: 3-DIGIT NUMBERS
+
+
+Multiplying 246 × 4
+
+
+
+                                Ones: 6 × 4 =
+                               1.
+
+                               24
+                              Write 4 in ones place, carry 2 to tens.
+              12
+                           . Tens: (4 × 4) + 2 =
+             246          2
+
+                          18
+            × 4               Write 8 in tens place, carry 1 to hundreds.
+
+             984              3. Hundreds: (2 × 4) + 1 =
+                              9
+                               Write 9 in hundreds place. Total = 984.
+
+
+========== page 06 (text) ==========
+PRO TIPS
+
+
+Regrouping Rules to Remember
+
+
+
+
+   Multiply BEFORE           Carry to Next          Double
+   Multiply
+   Adding column             Columnwrite carried
+                             Always                 3-digit problems may
+                                                    Regrouping
+   numbers first, then add   digit directly above   require carrying
+   carried digit.
+                             left column.           twice in a row.
+
+
+========== page 07 (text) ==========
+                             LESSON COMPLETE
+
+
+
+                Awesome Work!
+You are now ready to tackle 2-digit and 3-digit multiplication problems with
+                               regrouping!
+
+
+========== page 08 (text) ==========
+CORE CONCEPT
+
+
+What is Multiplication Without Regrouping?
+
+
+
+
+                              Direct
+                              Placement
+ Single-Digit                                   Zero
+                                                No extra digits to add to next position.
+
+
+ Products                                       Carrying
+   Every column                 Write product straight into
+   multiplication yields        place value column
+   a value from 0 to 9.                                    .
+
+
+========== page 09 (text) ==========
+PART A: 2-DIGIT NUMBERS
+
+
+
+Multiplying 23 ×
+3Step 1: Multiply Ones
+              3 ones × 3 = 9 ones. Write 9 in the ones column.
+
+
+
+         23
+ Step 2: Multiply
+ Tens
+      2×
+       tens3
+           × 3 = 6 tens. Write 6 in the tens column.
+
+
+          69
+
+
+========== page 10 (text) ==========
+E
+
+2-Digit
+Exercises
+
+    Problem             Problem
+       1
+              42           2
+                          31
+                                  Problem
+                                     3   14
+             ×8 24        ×3
+                             9
+                                         ×2
+                                                 2
+        42 × 2 = 84                14 × 2 = 28
+
+                             3
+                      31 × 3 =                   8
+                         93
+
+
+========== page 11 (text) ==========
+PART B: 3-DIGIT NUMBERS
+
+
+
+Multiplying 312 ×
+3
+
+                          1. Ones Column
+
+               31         2 ones × 3 = 6 ones
+
+
+
+
+                2×        2. Tens Column
+                          1 ten × 3 = 3 tens
+
+
+
+                  3
+                 93       3. Hundreds Column
+                          3 hundreds × 3 = 9 hundreds
+
+
+
+                  6
+
+
+========== page 12 (text) ==========
+  SUMMA
+  RY
+  Rules to
+  Remember
+ Right-to-Left
+ Order
+Always start at ones, then move left.
+
+
+ Column
+ Alignment
+ Align digits neatly under
+ matching values.
+
+
+  Fact
+  Ensure each column product
+  Check
+  stays below 10.
+
+
+========== page 13 (text) ==========
+                             LESSON COMPLETE
+
+
+
+                        Great Job!
+Ready to practice with worksheets or move to multiplication with regrouping?
+
+
+========== page 14 (text) ==========
+Image Sources
+         https://www.mathcoachscorner.com/wp-content/uploads/2023/07/Modeling-Place-Value-Relationships.jpg
+         Source: www.mathcoachscorner.com
+
+
+         https://modelteaching.com/wp-content/uploads/2020/07/Constant-Time-Delay.jpg
+         Source: www.modelteaching.com
+

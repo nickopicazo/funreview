@@ -2,7 +2,7 @@
 
 > Status: **Milestones 2–8 built** (24 Nov 2026). GA4 loads on every visit. No personal data and no save data are sent. Google Signals and ad personalization stay off. No custom domain yet.
 >
-> **Next:** add the next subjects and quarters as lessons arrive.
+> **Next:** Q3 Filipino, English and Math are planned in [`SUBJECTS-PLAN.md`](./SUBJECTS-PLAN.md) (not built yet). New lesson PDFs follow [`ADDING-LESSONS.md`](./ADDING-LESSONS.md).
 
 ## 1. What it is
 FunReview is a child-friendly, interactive reviewer web app for a Grade 3 student in the Philippines (DepEd curriculum). It replaces printed reviewers with short, game-like lessons she can open on a tablet, phone, or computer. The look and feel is inspired by Duolingo.

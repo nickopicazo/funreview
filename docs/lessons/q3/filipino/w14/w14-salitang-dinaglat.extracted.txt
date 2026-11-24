@@ -1,0 +1,496 @@
+# Source: "FIL 3 Q3 W14 SALITANG DINAGLAT.pdf" (Google Drive link in Eunice's "Filipino" email, received 24 Nov 2026)
+# Text layer where present; OCR (tesseract, fil+eng for Filipino, eng otherwise) for image-only slides. OCR can be wrong: check the PDF.
+
+========== page 01 (OCR fil+eng) ==========
+Filipino 3
+
+
+
+
+Salitang
+Dinaglat
+Guro: April Carballo
+
+Filipino 3
+
+Guro: April Carballo
+
+========== page 02 (OCR fil+eng) ==========
+PINOY HENYO
+
+
+
+========== page 03 (OCR fil+eng) ==========
+
+Paano laruin ang Pinoy Henyo?
+
+1.Mag-partner kayo. Isa ang manghuhula at
+isa ang maglalagay ng salita sa noo.
+
+2.Ang salita ay tungkol sa tao — halimbawa:
+pangalan ng tao o bahagi ng katawan ng
+tao.
+
+3.Magtatanong ang manghuhula tulad ng:
+
+"Tao ba ito?" "Bahagi ba ito ng katawan?"
+4.Sasagot lang ang partner ng: "Oo," "Hindi," o
+"Puwede." "Hindi siya pwedeng magbigay ng
+
+clue o kumibo.
+5.Kailangang mahulaan ang salita bago
+matapos ang oras!
+
+========== page 04 (OCR fil+eng) ==========
+
+Basahin nang wasto
+
+ang mga salita
+Doktor
+Attorney
+
+Engineer
+
+Ginang
+Ginoo
+
+========== page 05 (OCR fil+eng) ==========
+
+Magpabigay ng mga pangungusap
+gamit ang mga salitang nabanggit.
+
+========== page 06 (OCR fil+eng) ==========
+
+Magpabigay ng mga pangungusap
+gamit ang mga salitang nabanggit.
+
+Pumunta kami sa
+
+Si Attorney ay tumulong
+
+Ang tatay ko ay engineer.
+Si Ginang Cruz ang guro.
+
+i Ginoong Reyes ang principal.
+
+========== page 07 (OCR fil+eng) ==========
+
+Doktor
+
+=—=qSagutin ang
+ey mga. |
+
+SUMUSUNOd: 'H-
+a.
+
+========== page 08 (OCR fil+eng) ==========
+
+1. Ako ay may suot na puting damit.
+
+Ako ay kadalasang makikita sa ospital.
+Gumagamot ako ng maysakit.
+
+Sino ako?
+
+========== page 09 (OCR fil+eng) ==========
+
+1. Ako ay may suot na puting damit.
+
+Ako ay kadalasang makikita sa ospital.
+Gumagamot ako ng maysakit.
+
+Sino ako?
+
+========== page 10 (OCR fil+eng) ==========
+
+1. Ako ay may suot na puting damit.
+Ako ay kadalasang makikita sa ospital.
+Gumagamot ako ng maysakit.
+
+EN
+'@
+
+Sino ako?
+
+2. Ako ay makikita sa bulwagan ng
+
+Katarungan.
+Aking ipinagtatanggol ang mga naaapi.
+
+Sino ako?
+
+========== page 11 (OCR fil+eng) ==========
+
+1. Ako ay may suot na puting damit.
+Ako ay kadalasang makikita sa ospital.
+Gumagamot ako ng maysakit.
+
+EN
+'@
+
+Sino ako?
+
+2. Ako ay makikita sa bulwagan ng
+
+Katarungan.
+Aking ipinagtatanggol ang mga naaapi.
+
+Sino ako?
+
+========== page 12 (OCR fil+eng) ==========
+
+3. Kilala ako bilang nagdidisenyo ng mga tulay at gusali
+Laging nakamasid sa mga ipinapatayong istruktura.
+
+En F ?
+pi Sino ako?
+
+| C C 4. Isang magalang na pantawag sa aming mga babae
+bilang may-asawa.
+
+Sino ako?
+
+5. Ako ay tumutukoy sa isang lalaking may mataas na
+katayuan sa lipunan.
+Ako rin ay gingamit bilang pagbibigay respeto sa
+aming mga guro, lider o matatanda.
+
+Sino ako?
+
+========== page 13 (OCR fil+eng) ==========
+
+3. Kilala ako bilang nagdidisenyo ng mga tulay at gusali
+Laging nakamasid sa mga ipinapatayong istruktura.
+
+En F ?
+pi Sino ako?
+
+| C C 4. Isang magalang na pantawag sa aming mga babae
+bilang may-asawa.
+
+Sino ako?
+
+5. Ako ay tumutukoy sa isang lalaking may mataas na
+katayuan sa lipunan.
+Ako rin ay gingamit bilang pagbibigay respeto sa
+aming mga guro, lider o matatanda.
+
+Sino ako?
+
+========== page 14 (OCR fil+eng) ==========
+
+3. Kilala ako bilang nagdidisenyo ng mga tulay at gusali
+Laging nakamasid sa mga ipinapatayong istruktura.
+
+En F ?
+pi Sino ako?
+
+| C C 4. Isang magalang na pantawag sa aming mga babae
+bilang may-asawa.
+
+Sino ako?
+
+5. Ako ay tumutukoy sa isang lalaking may mataas na
+katayuan sa lipunan.
+Ako rin ay gingamit bilang pagbibigay respeto sa
+aming mga guro, lider o matatanda.
+
+Sino ako?
+
+========== page 15 (OCR fil+eng) ==========
+
+3. Kilala ako bilang nagdidisenyo ng mga tulay at gusali
+Laging nakamasid sa mga ipinapatayong istruktura.
+
+En F ?
+pi Sino ako?
+
+| C C 4. Isang magalang na pantawag sa aming mga babae
+bilang may-asawa.
+
+Sino ako?
+
+5. Ako ay tumutukoy sa isang lalaking may mataas na
+katayuan sa lipunan.
+Ako rin ay gingamit bilang pagbibigay respeto sa
+aming mga guro, lider o matatanda.
+
+Sino ako?
+
+========== page 16 (OCR fil+eng) ==========
+01
+
+SS
+PP” Halina at
+Ce
+
+@
+s5 Magbasa
+
+( \
+\
+\
+oS
+
+========== page 17 (OCR fil+eng) ==========
+02
+
+Si Kgg. Juan Dela Cruz ang pangulo ng
+Pamantasan ng Lungsod Laoag ang
+
+KAWANI NG GOBYER NO pangunahing tagapagsalita sa Gawad
+
+Awditoryom - Brgy. San Mateo Parangal ng mga Natatanging Kawani
+ng Gobyerno. Ginanap ito sa
+awditoryom ng Brgy. San Mateo. Ang !
+
+mga pinarangalan ay sina Gng. Maria U
+Santos isang guro sa elementarya, Dr.
+John Remegio, isang beterinaryo, Bb.
+Jovy Mendoza, isang tagalinis sa
+parke, Engr. Robert Tomas, isang
+
+Ne tuncsov | Pp inhinyero at si Atty. Elmer Perez, isang
+abogado.
+
+========== page 18 (OCR fil+eng) ==========
+03
+
+GAWAD PARANGAL
+ng mga Natatanging
+
+Kawani ng Gobyerno Lalong naging makulay
+ang gabi ng parangal
+nang dumating sina Gob.
+Ebdane Jr. At Cong.
+
+Nanay Bhing Maniquiz
+upang maghandog ng
+gantimpalang salapi.
+
+========== page 19 (OCR fil+eng) ==========
+04
+
+tagapagsalita sa Gawad
+Parangal ng mga Natatanging
+Kawani ng Gobyerno?
+
+l
+|
+[
+
+========== page 20 (OCR fil+eng) ==========
+05
+
+tagapagsalita sa Gawad
+Parangal ng mga Natatanging
+Kawani ng Gobyerno?
+
+l
+|
+[
+
+========== page 21 (OCR fil+eng) ==========
+06
+
+2. Sino-sino ang
+v a @ binigyan ng
+
+parangal?
+
+========== page 22 (OCR fil+eng) ==========
+07
+
+3. Sino-sino ang
+naghandog ng
+gantimpalang salapi para
+sa mga pinarangalan?
+
+aN
+'@
+
+l
+|
+[
+
+========== page 23 (OCR fil+eng) ==========
+08
+
+3. Sino-sino ang
+naghandog ng
+gantimpalang salapi para
+sa mga pinarangalan?
+
+aN
+'@
+
+l
+|
+[
+
+========== page 24 (OCR fil+eng) ==========
+09
+
+4. Gusto mo rin bang
+mapabilang sa nabigyan ng.
+parangal? Ano ang iyong
+gagawin?
+
+EN
+'@
+
+l
+|
+[
+
+========== page 25 (OCR fil+eng) ==========
+10
+
+4. Gusto mo rin bang
+mapabilang sa nabigyan ng.
+parangal? Ano ang iyong
+gagawin?
+
+EN
+'@
+
+l
+|
+[
+
+========== page 26 (OCR fil+eng) ==========
+11
+
+Basahin ang mga pantawag
+sa tao na ginamit sa teksto.
+
+Gng. Maria Santos
+
+Dr. John Remigio
+Bb. Jovy Mendoza
+
+Engr. Robert Tomas
+Atty Elmer Perez
+
+Gob. Ebdane Jr.
+Cong. Nanay Bhing Maniquiz
+
+========== page 27 (OCR fil+eng) ==========
+12
+
+Paano isulat ang katawagan
+SJ nang hindi dinaglat?
+Gng.
+Dr.
+Bb.
+
+Atty.
+Gob.
+
+========== page 28 (OCR fil+eng) ==========
+
+Salungguhitan ang
+katawagang ngalan
+ng tao sa bawat
+pangungusap at
+ibigay ang salitang
+~— dinaglat nito.
+
+Le’
+
+l
+
+l
+|
+[
+
+7 n
+
+N
+\
+[/
+
+/
+l
+
+========== page 29 (OCR fil+eng) ==========
+
+. Nagpasalamat si Ginang Santos kay Doktor
+Ramirez dahil sa agarang pag-asikaso sa
+kanila.
+
+. Si Ginoong Sampilo ang aming prinsipal.
+
+. Inirekomenda ni Engineer Mara ang
+pagkumpuni sa gusali.
+
+. Nitong Sabado ay nag ulat sa bayan si
+Gobernador Garcia.
+
+. Nakipag-ugnayan si Attorney Gomez sa
+mga apektado ng oil spill.
+
+========== page 30 (OCR fil+eng) ==========
+
+1. Nagpasalamat si |Ginang Santos kay
+Doktor Ramirez dahil sa agarang pag-asikaso
+
+sa kanila. Gng. At Dr.
+2. Si|Ginoong Sampilo |ang aming prinsipal. G.
+" 3. Inirekomenda nijEngineer Mara|ang
+
+pagkumpuni sa gusali. Eng r.
+. Nitong Sabado ay nag ulat sa bayan si
+Gobernador Garcia] GOb.
+
+. Nakipag-ugnayan si|Attorney Gomez|sa
+mga apektado ng oil spill. Ally.
+
+========== page 31 (OCR fil+eng) ==========
+
+7Ts
+l
+
+Ng o.6 o.a @-o]W 4% .« ¢. o
+- NA NI Bong Ke, 4
+a mta
+
+J
+L
+
+Pagpapalalim ng Kaalaman at
+Kasanayan sa Mahahalagang
+Pag-unawa/Susing ldeya
+
+NG =
+
+========== page 32 (OCR fil+eng) ==========
+
+Ang ay ang
+pagpapaikli ng isang salita sa
+pamamagitan ng paggamit
+lamang ng mga piling letra nito,
+kadalasan ang mga unang letra
+
+nito.
+
+Ang paggamit ng mga dinaglat
+na salita tulad ng Gng. Cruz, Dr.
+Santos at iba pa ay
+nagpapakita ng paggalang.
+
+========== page 33 (OCR fil+eng) ==========
+
+G. Larry Beltran.
+
+. Ikinagagalak kitang
+makilala, Dr. Agnes Ver.
+
+. Maaari po ba kaming
+makiraan, Bb. Joan
+Valdez.
+
+========== page 34 (OCR fil+eng) ==========
+
+4 at gamitin sa
+pangungusap.

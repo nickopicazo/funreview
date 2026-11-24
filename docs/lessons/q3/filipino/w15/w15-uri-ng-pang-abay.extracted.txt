@@ -1,0 +1,298 @@
+# Source: "FIL 3 Q3 W15 Uri ng pang abay.pdf" (Google Drive link in Eunice's "Filipino" email, received 24 Nov 2026)
+# Text layer where present; OCR (tesseract, fil+eng for Filipino, eng otherwise) for image-only slides. OCR can be wrong: check the PDF.
+
+========== page 01 (OCR fil+eng) ==========
+  URI NG
+PANG ABAY
+   FILIPINO 3
+
+
+
+========== page 02 (OCR fil+eng) ==========
+ Ano ang ibig
+sabihin ng pang
+     abay?
+
+Ano ang ibig
+
+sabihin ng pangig
+
+========== page 03 (text) ==========
+           PANG-ABAY
+Ang pang-abay ay bahagi ng pananalita na
+naglalarawan o nagbibigay turing sa pandiwa,
+pang-uri, at maging sa kapwa nito pang-abay.
+Ang pang-abay ay makikilala sapagkat kasama
+ito ng isang pandiwa, pang-uri o isa pang
+pang-abay na lumilikha ng parirala.
+
+
+========== page 04 (OCR fil+eng) ==========
+
+Halimbawa: Ba
+“Ang paaralang pinapasukan ni Jojo ay
+labis na(maganda.
+Pang-abay Pang-uri
+| 1
+Fi EH
+
+nagbibigay turing
+
+========== page 05 (OCR fil+eng) ==========
+
+Halimbawa:
+
+Maingat niyang binuksan ang pinto
+“upang hindi maistorbo ang
+nahihimbing na kapatid.
+
+========== page 06 (OCR fil+eng) ==========
+
+Halimbawa:
+
+nagbibigay turing
+
+| |
+
+Pang-abay Pandiwa -
+Maingat niyang [binuksan] ang pinto
+“upang hindi maistorbo ang
+“nahihimbing na kapatid.
+
+. KAN
+
+========== page 07 (OCR fil+eng) ==========
+
+Halimbawa:
+
+Talagang mabagal ang kaniyang
+pag-asenso subalit hindi siya
+
+nawawalan ng pag-asa.
+a Oe eC Le eee Te eee T ee AA
+
+========== page 08 (OCR fil+eng) ==========
+
+Halimbawa:
+
+nagbibigay turing
+
+ad
+
+Pang-abay Pang-abay
+
+Talagang ang kaniyang
+
+pag-asenso subalit hindi siya
+nawawalan ng pag-asa.
+
+========== page 09 (OCR fil+eng) ==========
+URI NG
+PANG-ABAY:
+Pang-abay na Pamanahon
+Pang-abay na Panlunan
+Pang-abay na Pamaraan
+
+URI NG
+Pah bb4yina/Aahtatahyn:
+
+Pang-abay na Panlunan
+Pang-abay na Pamaraan
+
+========== page 10 (OCR fil+eng) ==========
+
+(PANG-ABAY NA PAMANAHON |
+
+Ang Pang-abay na Pamanahon ay nagsasaad
+kung kailan naganap o magaganap ang kilos na
+
+taglay ng pandiwa. Mayroon itong panandang
+salita. Ito ay ang mga sumusunod:
+
+-hanggang - buhat 75 - kung
+- umpisa -tuwing -noon - nang
+- kapag B -sa
+
+========== page 11 (OCR fil+eng) ==========
+
+Halimbawa:
+
+Ipinangako niyang bibisitahin ang
+puntod ng ina nang linggo-linggo.
+
+Tanong:
+Kailan niya bibisitahin ang puntod ng
+kaniyang ina?
+
+========== page 12 (OCR fil+eng) ==========
+
+Halimbawa:
+Ipinangako niyang bibisitahin ang
+
+puntod ng inagnang linggo-linggo.
+
+pananda Pang-abay na Pamanahon
+
+========== page 13 (OCR fil+eng) ==========
+
+Tandaan
+
+Ang Pang-abay na Pamanahon ay mga
+salitang nagsasabi ng panahon. Sumasagot ito
+sa tanong na kailan.
+
+Ang Pang-abay na Pamanahon
+ay maaaring may kasamang
+pananda o walang pananda.
+
+========== page 14 (OCR fil+eng) ==========
+
+|-PANG-ABAY NA PANLUNAN |
+Ang Pang-abay na Panlunan ay tumutukoy
+sa pook na pinangyarihan, pangyayarihan ng
+
+kilos ng pandiwa.
+
+Karaniwang ginagamit ang pariralang sa, kay,
+
+o kina. Ito rin ay karaniwang sumasagot sa
+tanong na saan.
+
+========== page 15 (OCR fil+eng) ==========
+
+Ang sa ay ginagamit kapag ang
+kasunod ay pangngalang
+pambalana o YA panghalip.
+
+acne BATS
+
+========== page 16 (OCR fil+eng) ==========
+
+Halimbawa:
+
+Maraming magagandang karanasan
+ang naaalala ko sa probinsiya.
+
+Tanong:
+Saan ka nagkaroon ng maraming
+magagandang karanasan?
+
+a. po maso pp
+
+========== page 17 (OCR fil+eng) ==========
+
+Halimbawa:
+
+Maraming magagandang karanasan
+ang naaalala ko(saprobinsiya
+
+Pang-abay na Panlunan
+pananda
+
+Ang pariralang “sa probinsiya” ay
+saw tumutukoy sa pook na pinangyarihan ng
+kilos ng pandiwa.
+
+f= ma ps”
+
+========== page 18 (OCR fil+eng) ==========
+
+Ang kay / kina ay ginagamit kapag” ad
+ang kasunod ay pangngalang
+pantangi na ngalan ng tao.
+
+========== page 19 (OCR fil+eng) ==========
+
+Halimbawa:
+
+Nagpunta ako kina Mang Ganing para
+magpapayo sa aking takdang-aralin.
+
+Tanong:
+Saan ka nagpunta para magpapayo sa
+iyong takdang-aralin?
+
+========== page 20 (OCR fil+eng) ==========
+
+Halimbawa:
+
+pananda po
+Pang-abay na Panlunan
+Nagpunta akotkinayMang Ganing para
+
+magpapayo sa aking takdang-aralin.
+
+Ang pariralang “kina” ay sinundan ng
+pangngalang pantangi na ngalan ng tao .
+
+- Ang pariralang “kina Mang Ganing” ay tumutukoy
+sa lugar na pinangyarihan ng kilos ng pandiwa.
+
+========== page 21 (OCR fil+eng) ==========
+
+Tandaan
+
+Ang Pang-abay na
+Panlunan ay mga salitang
+nagsasabi ng lugar.
+
+Sumasagot ito sa tanong
+na saan.
+
+========== page 22 (OCR fil+eng) ==========
+
+ni
+
+Ang Pang-abay na Pamaraan ay nagsasaad
+kung paano naganap, nagaganap, o magaganap
+
+ang kilos na inilalahad ng pandiwa.
+
+Ginagamit ang pananda na “nang” o “na/-ng’.
+Ito ay sumasagot sa tanong na paano.
+
+========== page 23 (OCR fil+eng) ==========
+
+Halimbawa:
+
+Niyakap niya ang anak nang mahigpit
+dahil matagal itong nawalay sa kaniya.
+
+Tanong:
+Paano niya niyakap ang kaniyang anak?
+
+========== page 24 (OCR fil+eng) ==========
+
+Halimbawa:
+
+pananda
+
+Pang-abay na Pamaraan
+Niyakap niya ang anakhangmahigpit
+
+dahil matagal itong nawalay sa kaniya.
+
+========== page 25 (OCR fil+eng) ==========
+
+Tandaan
+
+Ang Pang-abay na Pamaraan
+ay naglalarawan kung paano
+
+Isinagawa O isinasagawa ang
+mga kilos o pandiwa.
+Sumasagot ito sa tanong na
+paano.
+
+========== page 26 (OCR fil+eng) ==========
+
+Tandaan
+
+Ang PANG-ABAY ay bahagi ng pananalita
+na naglalarawan o nagbibigay turing sa
+
+pandiwa, pang-uri, at maging sa kapwa
+nito pang-abay. Ang pang-abay ay
+makikilala sapagkat kasama ito ng isang
+pandiwa, pang-uri, O isa pang pang-
+a.” abay na lumilikha ng parirala.

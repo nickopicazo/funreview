@@ -1,0 +1,234 @@
+# Source: "Math3 W15 Mastering Tables 6, 7, 8, and 9.pdf" (Google Drive link in Eunice's "Math Q3" email, received 24 Nov 2026)
+# Text layer where present; OCR (tesseract, fil+eng for Filipino, eng otherwise) for image-only slides. OCR can be wrong: check the PDF.
+
+========== page 01 (OCR eng) ==========
+MATHEMATICS 3 • QUARTER 3
+
+
+
+Mastering Multiplication Tables 6,
+7, 8, and 9
+
+MATHEMATICS 3 * QUARTER 3
+
+Mastering Multiplication Tables 6,
+7,8,and 9
+
+========== page 02 (text) ==========
+LEARNING GOALS
+
+
+What We Will Discover Today
+
+
+
+
+   Core Competency                             Values Infused
+   Visualize and multiply numbers 1 to 10 by   Patience in problem-solving, teamwork
+   tables of 6, 7, 8, and 9 with speed and     during group tasks, and accuracy in daily
+   accuracy.                                   work.
+
+
+========== page 03 (text) ==========
+ACTIVITY 1
+
+
+Froggy Lily Pad Skip Counting
+
+
+
+
+     Table of 6                 Table of 7               Table of 8                 Table of 9
+   6, 12, 18, 24, 30          7, 14, 21, 28, 35           8, 16, 24, 32, 40         9, 18, 27, 36, 45
+
+
+
+
+   Rule: Hop across lily pads by adding the same number repeatedly. Multiplication is fast repeated
+   addition!
+
+
+========== page 04 (text) ==========
+MULTIPLICATION TABLE
+The Magic of 6
+
+
+
+                                                        6×1=6        6 × 6 = 36
+
+
+    Array Visualization                                 6 × 2 = 12   6 × 7 = 42
+
+    6 rows of eggplants with 4 in each row.
+    6 × 4 = 24 total items                              6 × 3 = 18   6 × 8 = 48
+
+
+
+                                                        6 × 5 = 30   6 × 10 = 60
+
+
+
+
+Value Infused: Patience in checking our calculations.
+
+
+========== page 05 (text) ==========
+MULTIPLICATION TABLE
+
+
+The Power of 7
+
+
+
+                                                   7×1=7        7 × 6 = 42
+
+
+    Days & Weeks Connection                        7 × 3 = 21   7 × 7 = 49
+    1 week has 7 days. How many days in 8 weeks?
+
+                                                   7 × 4 = 28   7 × 8 = 56
+    7 × 8 = 56 days
+
+                                                   7 × 5 = 35   7 × 9 = 63
+
+
+
+
+Value Infused: Time management and organization.
+
+
+========== page 06 (text) ==========
+INTERACTIVE GAME
+
+
+Activity 2: Flip the Cupcake Case!
+
+
+
+
+                   Case #1                                           Case #2                                             Case #3
+                 8×6=?                                               9×7=?                                               8×9=?
+                   Answer: 48                                         Answer: 63                                          Answer: 72
+
+
+
+
+   How to Play: Pick an overturned cupcake case, read the math problem aloud, and state the correct product before flipping it over!
+
+
+========== page 07 (text) ==========
+MULTIPLICATION TABLE
+
+
+The Awesome 8
+
+
+
+                                                               8×1=8        8 × 6 = 48
+
+    Octopus Legs Pattern
+                                                               8 × 3 = 24   8 × 7 = 56
+    1 octopus has 8 arms. How many arms do 6 octopuses have?
+
+                                                               8 × 4 = 32   8 × 8 = 64
+    8 × 6 = 48 arms
+                                                               8 × 5 = 40   8 × 9 = 72
+
+
+
+
+Value Infused: Curiosity about nature and numbers.
+
+
+========== page 08 (text) ==========
+MULTIPLICATION TABLE
+
+
+The Brilliant 9 & Finger Trick
+
+
+
+                                                                               9×1=9        9 × 6 = 54
+    Fun Finger Trick!
+
+    Hold out 10 fingers. To find 9 × 4, fold down the 4th finger. Fingers to   9 × 2 = 18   9 × 7 = 63
+    the left = tens (3), fingers to the right = ones (6). Product is 36!
+
+                                                                               9 × 3 = 27   9 × 8 = 72
+    9 digits sum rule: digits always add up to 9 (e.g.,
+    3+6=9).
+                                                                               9 × 4 = 36   9 × 9 = 81
+
+
+
+
+Value Infused: Resourcefulness in discovering math patterns.
+
+
+========== page 09 (text) ==========
+GROUP CHALLENGE
+
+
+Activity 3: Multiplication Battle
+
+
+
+
+    Card Draw Duel                                                  Teamwork & Sportsmanship
+    Two players draw cards (focusing on numbers 6 to 9). Multiply   Cheer for group mates, celebrate everyone's progress, and maintain
+    them instantly. The higher product wins both cards!             fair play throughout the game.
+
+
+
+
+Value Infused: Sportsmanship and collaborative learning.
+
+
+========== page 10 (text) ==========
+SKILL CHECK
+
+
+Quick Practice Challenge
+
+
+
+
+                 Problem 1                                         Problem 2              Problem 3
+
+               7×6=?                                             8×8=?                   9×9=?
+                [ Answer: 42 ]                                   [ Answer: 64 ]          [ Answer: 81 ]
+
+
+
+
+   Accuracy First: Take your time to double-check each product before writing it down.
+
+
+========== page 11 (text) ==========
+APPLICATION
+
+
+Math in Everyday Life
+
+
+
+
+   The Bakery Problem
+                                                                     Value Integration
+   Ana bakes boxes of cookies. Each box contains 9 cookies. If she
+                                                                     Sharing food with classmates brings joy and gratitude. Math helps
+   prepares 7 boxes for her classmates, how many cookies did she
+                                                                     us prepare exact portions for everyone fairly!
+   bake in all?
+
+   9 × 7 = 63 cookies
+
+
+========== page 12 (text) ==========
+             Great Job, Math Superstars!
+You've mastered the 6, 7, 8, and 9 multiplication tables through fun games and teamwork. Keep practicing
+                                              every day!
+
+
+                         Table 6        Table 7        Table 8         Table 9
+

@@ -1,0 +1,338 @@
+# Source: "Math3_Probability WEEK 14.pdf" (Google Drive link in Eunice's "Math Q3" email, received 24 Nov 2026)
+# Text layer where present; OCR (tesseract, fil+eng for Filipino, eng otherwise) for image-only slides. OCR can be wrong: check the PDF.
+
+========== page 01 (text) ==========
+LET’S PLAY WITH
+PROBABILITY!
+
+MATHEMATICS 3
+
+What might happen? Let’s make a smart prediction!
+
+
+
+
+Think • Predict • Explain
+
+
+========== page 02 (text) ==========
+🎒 MOTIVATION: What’s in the Mystery Bag?
+
+ Imagine a bag contains 5 red counters and 1 blue counter. You will pick one
+ counter without looking.
+
+
+   🔴        🔴        🔴         🔴         🔴          🔵
+
+
+
+
+            Which color are you MORE LIKELY to pick? Why?
+
+
+                       Turn and talk to a partner for 30 seconds!
+
+
+========== page 03 (text) ==========
+🎯 Learning Objectives
+
+ At the end of the lesson, I can…
+
+ • explain probability as the chance that an event will happen;
+
+ • describe events as certain, likely, unlikely, or impossible;
+
+ • make a prediction and explain my answer using clues.
+
+
+
+
+                      Our class motto: “I predict because…”
+
+
+========== page 04 (text) ==========
+🔍 What Is Probability?
+
+
+      Probability is the chance that something will happen.
+
+
+
+         We use probability when we make predictions about events.
+
+
+
+  🌧    Will it rain?      🎲 Whatappear?
+                                 number may          🎁 What prize
+                                                             get?
+                                                                  might I
+
+
+========== page 05 (text) ==========
+🌈 Four Probability Words
+
+
+   ✓   CERTAIN      It will happen.
+
+
+
+  👍    LIKELY       It will probably happen.
+
+
+
+  🤔    UNLIKELY     It probably will not happen.
+
+
+
+   ✖   IMPOSSIBLE   It cannot happen.
+
+
+========== page 06 (text) ==========
+1⃣ CERTAIN: It will happen!
+
+
+                   Example: The sun will rise tomorrow.
+
+
+
+ Think about it:
+
+ If a box contains only pencils, is picking a pencil certain?
+
+
+
+                        Show thumbs up if you think YES!
+
+
+========== page 07 (text) ==========
+2⃣ LIKELY and 3⃣ UNLIKELY
+
+
+             LIKELY 👍                               UNLIKELY 🤔
+
+    A basket has 8 mangoes and 2              In the same basket, picking an
+   apples. Picking a mango is likely.                 apple is unlikely.
+
+
+
+
+              Remember: compare how many of each item there are.
+
+
+========== page 08 (text) ==========
+4⃣ IMPOSSIBLE: It cannot happen!
+
+
+     Example: Picking a green ball from a box that has only red
+                              balls.
+
+
+
+
+                                   Challenge!
+
+    A regular die has numbers 1, 2, 3, 4, 5, and 6. Is rolling a 9 impossible?
+
+
+                        Answer: YES! A regular die has no 9.
+
+
+========== page 09 (text) ==========
+🧠 Let’s Practice Together!
+
+                     Choose: CERTAIN • LIKELY • UNLIKELY • IMPOSSIBLE
+
+  A. A week has 7 days.                                                     CERTAIN
+
+
+
+  B. Picking a yellow crayon from a box with 9 yellow and 1 blue crayon.     LIKELY
+
+
+
+  C. Picking a blue crayon from that same box.                             UNLIKELY
+
+
+
+  D. A fish will ride a bicycle to school tomorrow.                        IMPOSSIBLE
+
+
+========== page 10 (text) ==========
+🎲 Activity 1: Probability Corners
+
+                  Move to the corner of the room that matches your answer.
+
+
+      CERTAIN                        LIKELY           UNLIKELY               IMPOSSIBLE
+
+
+
+
+ Statements:
+ • I will breathe air today.
+ • I will find a dinosaur in our classroom.
+ • A coin may land heads up.
+ • A day has 24 hours.
+
+
+========== page 11 (text) ==========
+🕵 Activity 2: Probability Detectives
+
+ Work with your group. Read each situation and decide the probability word.
+
+
+   1    A jar has 10 green beads and no purple beads. Pick a purple bead.
+
+
+
+   2    There are 9 sunny-day cards and 1 rainy-day card. Pick a sunny card.
+
+
+
+   3    A normal school day has classes scheduled.
+
+
+
+
+                  Be ready to explain: “I chose _____ because _____.”
+
+
+========== page 12 (text) ==========
+🏆 Performance Task: Make a Probability Poster
+ In pairs, create a mini-poster showing 4 events—one for each probability word.
+
+
+   CERTAIN           Draw something that will happen.
+
+
+   LIKELY            Draw something that will probably happen.
+
+
+   UNLIKELY          Draw something that probably will not happen.
+
+
+   IMPOSSIBLE        Draw something that cannot happen.
+
+
+
+                Include a picture and one sentence explaining each prediction.
+
+                            Materials: bond paper, crayons or colored pencils
+
+
+========== page 13 (text) ==========
+📋 Mini-Poster Rubric (20 points)
+
+
+   Correct probability words                            8 points
+
+
+
+   Clear examples and explanations                      6 points
+
+
+
+   Creativity and neatness                              4 points
+
+
+
+   Teamwork                                             2 points
+
+
+
+
+                                     Total: 20 points
+
+
+========== page 14 (text) ==========
+⚡ Quick Check: Show What You Know!
+
+ 1. The sun will rise tomorrow.                                         A. Certain B. Unlikely
+
+
+
+
+ 2. Picking a red ball from a bag with 10 red balls and 1 blue ball.   A. Likely B. Impossible
+
+
+
+
+ 3. Rolling a 7 on a regular six-sided die.                            A. Certain B. Impossible
+
+
+
+
+ 4. Picking a blue sock from a drawer with 8 white socks and 1 blue     A. Likely B. Unlikely
+ sock.
+
+
+                         Answer independently. Then compare with a partner.
+
+
+========== page 15 (text) ==========
+✅ Quick Check: Answer Key
+
+
+
+   1      A. Certain               2           A. Likely
+
+
+
+
+   3     B. Impossible             4          B. Unlikely
+
+
+
+
+                Great job, Probability Stars! ⭐
+
+
+========== page 16 (text) ==========
+🎟 Exit Ticket
+
+ Before you leave, answer these on a small piece of paper:
+
+
+   1. What does probability mean?
+
+
+
+   2. Give one example of an impossible event.
+
+
+
+   3. A bag has 7 orange candies and 2 grape candies. Which flavor are you more likely to pick?
+   Explain.
+
+
+
+                       Sentence starter: “I think _____ because _____.”
+
+
+========== page 17 (text) ==========
+🏠 Assignment: Probability at Home
+
+
+             Write or draw one example for each word:
+
+           CERTAIN • LIKELY • UNLIKELY • IMPOSSIBLE
+
+
+
+
+          Be ready to share one example with the class tomorrow.
+
+
+
+
+               Remember: Good predictions use clues!
+
+
+========== page 18 (text) ==========
+   🏠
+     Frequency tells us how many
+     times an event happens, while
+     total trials tell us how many times
+Frequency tells us how many times an event happens, while total trials tell us how many times the experiment is performed.
+     the experiment is performed.
+

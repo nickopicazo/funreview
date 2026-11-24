@@ -1,0 +1,256 @@
+# Source: "MATH3 W14 Interpreting Bar Graph.pdf" (Google Drive link in Eunice's "Math Q3" email, received 24 Nov 2026)
+# Text layer where present; OCR (tesseract, fil+eng for Filipino, eng otherwise) for image-only slides. OCR can be wrong: check the PDF.
+
+========== page 01 (OCR eng) ==========
+              Interpreting a Single
+                   Bar Gaph
+
+
+
+INSPIRED BY
+
+Interpreting a Single
+
+INSPIRED BY
+
+========== page 02 (text) ==========
+Alex tracked the                       Number of Likes for Each Uploaded Video
+number of likes
+his videos has and
+presented it using
+
+
+
+
+                     Number of Likes
+a bar graph.
+
+
+Can you tell which
+video has the most
+number of likes?                                   Video Content
+
+
+========== page 03 (text) ==========
+What is a                                 Number of Likes for Each Uploaded Video
+
+
+Bar Graph?
+A bar graph is a way
+
+
+
+
+                        Number of Likes
+to visually show data
+using rectangular
+bars.
+
+
+                                                      Video Content
+
+
+========== page 04 (text) ==========
+Parts of a                                     Number of Likes for               Title
+
+bar g r a p h:                                 Each Uploaded Video         The title gives the
+                                                                         general idea of what
+                                                                          the graph is about.
+
+
+
+
+                             Number of Likes
+     Vertical Axis                                                       Horizontal Axis
+   This is the line at the                                           This is the line at the bottom
+   left that goes upward.                                            that goes from left to right. It
+   It contains the values                                            contains the categories of the
+        of the data.                                                              data.
+
+  In this case, the values                                            In this case, the categories
+  are the Number of likes.                        Video Content           are Video content.
+
+
+========== page 05 (text) ==========
+                    Interpreting a bar graph
+When interpreting a bar graph, take                      Number of Likes for Each Uploaded Video
+
+note of the following:
+      Each bar represents one                                                   highest
+                                                                                 value
+ 1             category
+
+
+
+
+                                       Number of Likes
+     and its height tells its value.
+     The higher the bar, the higher
+                    its
+ 2
+      value. In the same way, the                                  lowest
+                 shorter                                            value
+
+      the bar, the lower its value.
+         Highest value = 600 likes
+         Lowest value = 200 likes                                     Video Content
+
+
+========== page 06 (text) ==========
+                  Number of Likes for Each Uploaded Video
+                                                                   Let’s
+                                                                  answer!
+                                                            Can you tell which video
+Number of Likes
+
+
+
+
+                                                            has the most number of
+                                                                     likes?
+
+
+
+
+                              Video Content
+
+
+========== page 07 (text) ==========
+                  Number of Likes for Each Uploaded Video
+                                                                   Let’s
+                                                                  answer!
+                                                            Can you tell which video
+Number of Likes
+
+
+
+
+                                                            has the most number of
+                                                                     likes?
+
+                                                               Arts and Crafts,
+                                                            since it has 600 likes!
+                              Video Content
+
+
+========== page 08 (text) ==========
+  Interpreting a Single Bar Graph
+Read the Horizontal Bar Graph
+Favorite Pets of Grade 3 Pupils
+Each █ represents 1 pupil.
+Dog     ████████         8
+Cat    ██████         6
+Fish ████           4
+Bird █████           5
+Answer the questions.
+                               What pet is liked by the greatest number of
+pupils? _____
+                                How many pupils like fish? __________
+                                How many more pu like dogs than fish?
+__________
+                                How many pupils like cats and birds
+altogether? _______
+
+
+========== page 09 (text) ==========
+                        Vertical Bar Graph
+Read the Vertical Bar Graph
+Books Read by Four Pupils
+Each █ represents 1 book.
+ 8|
+ 7|
+ 6|       █
+ 5|       █       █
+ 4|█ █            █
+ 3|█ █            █
+ 2|█ █            █      █
+ 1|█ █            █      █
+  +---------------------
+  Ana Ben Cara Dan
+Answer the questions.
+Who read the greatest number of books? __________
+How many books did Dan read? __________
+How many books did Ana and Dan read altogether? __________
+How many more books did Ben read than Dan? __________
+How many books did the four pupils read in all? __________
+
+
+========== page 10 (text) ==========
+           Try this!
+ Work with a partner in creating
+ a bar graph for the given data.
+
+    Cute Animal            Number of
+     Accounts            Videos Posted
+
+   Parker the Dog             50
+
+     Polly’s Cat              25
+
+Robin the Talking Bird        70
+
+
+========== page 11 (text) ==========
+           Try this!                                        A n s wer
+
+                                                                        Number of Videos Posted by
+                                                                          Cute Animal Accounts
+ Work with a partner in creating
+ a bar graph for the given data.
+
+    Cute Animal            Number of
+
+
+
+
+                                         Number of Videos
+     Accounts            Videos Posted
+
+   Parker the Dog             50
+
+     Polly’s Cat              25
+
+Robin the Talking Bird        70
+
+                                                                              Account Names
+
+
+========== page 12 (text) ==========
+                                    SUMMARY
+                Parts of a                  Interpreting a bar graph
+                Bar Graph
+                                       1     Each bar represents one
+                    Title                    category and its height
+                                             tells its value.
+Vertical Axis
+
+
+
+
+                                       2   The higher the bar, the higher its
+                                           value. In the same way, the shorter
+                                           the bar, the lower its value.
+                  Horizontal Axis
+
+
+========== page 13 (text) ==========
+                                             Number of Videos Posted by
+ EXPLORE                                       Cute Animal Accounts
+
+
+ FURTHER!
+By interpreting the bar
+graph, how many more
+
+
+
+
+                          Number of Videos
+videos does Robin the
+Talking Bird have than
+     Polly’s Cat?
+
+
+
+                                                   Account Names
+

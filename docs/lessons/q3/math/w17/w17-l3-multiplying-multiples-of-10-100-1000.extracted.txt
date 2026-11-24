@@ -1,0 +1,115 @@
+# Source: "Grade 3 Math3W17 L3 MULTIPLYING MULTIPLES OF 10,100,1000.pdf" (Google Drive link in Eunice's "Math Q3" email, received 24 Nov 2026)
+# Text layer where present; OCR (tesseract, fil+eng for Filipino, eng otherwise) for image-only slides. OCR can be wrong: check the PDF.
+
+========== page 01 (text) ==========
+GRADE 3 MATHEMATICS
+
+
+Multiplying Numbers with
+Leading Non-Zero Digits
+Mental math strategies for multiplying multiples of 10, 100, and 1,000 (Products up to
+10,000).
+
+
+  Zero Pattern Strategy   • Quick Mental Calculations
+
+
+========== page 02 (text) ==========
+CORE CONCEPT
+
+
+Numbers with Leading Non-Zero Digits
+
+
+
+
+     40                                               300                                               2000
+
+   Multiples of 10                                   Multiples of 100                                   Multiples of 1,000
+   Leading digit is 4, followed by one zero (e.g.,   Leading digit is 3, followed by two zeros (e.g.,   Leading digit is 2, followed by three zeros
+   20, 50, 80).                                      200, 600, 900).                                    (e.g., 1000, 3000, 4000).
+
+
+========== page 03 (text) ==========
+MENTAL MATH STRATEGY
+
+
+The 2-Step Zero Rule
+
+
+
+
+                       Example Question
+                                          Step 1: Multiply Basic Fact
+                                          Multiply non-zero leading digits: 4 × 6 = 24.
+                       400 × 6
+                                          Step 2: Attach All Trailing Zeros
+                       = 2,400            Count zeros in factors (2 zeros in 400). Attach them to 24 → 2,400.
+
+
+========== page 04 (text) ==========
+GUIDED EXAMPLES
+
+
+Zero Pattern Progression
+
+
+
+
+               TENS (1 ZERO)         HUNDREDS (2 ZEROS)        THOUSANDS (3 ZEROS)
+
+
+                  70 × 8                 500 × 9                  2,000 × 4
+             7 × 8 = 56 (+ 1 zero)    5 × 9 = 45 (+ 2 zeros)     2 × 4 = 8 (+ 3 zeros)
+
+
+                  = 560                 = 4,500                    = 8,000
+
+
+========== page 05 (text) ==========
+WATCH OUT!
+
+
+Special Case: When Basic Fact Ends in 0
+
+
+
+
+                                 500 × 4                                           600 × 5
+      1. Basic fact: 5 × 4 = 20 (already has a zero!)   1. Basic fact: 6 × 5 = 30 (already has a zero!)
+      2. Attach factor's 2 zeros: 20 + 00               2. Attach factor's 2 zeros: 30 + 00
+
+
+
+                                = 2,000                                           = 3,000
+
+
+========== page 06 (text) ==========
+SUMMARY
+
+
+Mental Math Checklist
+
+
+
+
+  1. Ignore Zeros First                        2. Count Total Zeros                            3. Annex All Zeros
+  Focus only on multiplying non-zero digits.   Count how many trailing zeros are in original   Attach exact count of zeros right behind basic
+                                               factors.                                        product.
+
+
+========== page 07 (text) ==========
+                             LESSON COMPLETE
+
+
+
+Fast & Accurate Mental Math!
+You can now quickly multiply large numbers with trailing zeros up to 10,000.
+
+
+========== page 08 (text) ==========
+Image Sources
+         https://ecdn.teacherspayteachers.com/cdn-cgi/image/format=avif,quality=70,onerror=redirect/thumbitem/-0-x-Zero-Multiplication-Times-Tables-Worksheets-Booklet-2610999-1523970012/750f-26109
+         99-1.jpg
+         Source: www.teacherspayteachers.com
+
