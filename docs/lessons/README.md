@@ -12,7 +12,7 @@ How to add more: see [`../ADDING-LESSONS.md`](../ADDING-LESSONS.md). What to bui
 | Q3 | Math | 14–17 | 7 | 24 Nov 2026, from Eunice ("Math Q3") |
 | Q3 | Computer | 14–20 | 6 | 26 Nov 2026, from Eunice ("Computer") |
 
-Folder names: `filipino`, `english`, `math`, `makabansa`, `computer`. In the app catalog the Math subject id is `mathematics`. Computer is not in the catalog yet (planned in [`../SUBJECTS-PLAN.md`](../SUBJECTS-PLAN.md) §7).
+Folder names: `filipino`, `english`, `math`, `makabansa`, `computer`. In the app catalog the Math subject id is `mathematics`. Computer is the last subject in the catalog (`computer`), and Q3 weeks 14–20 are in the app ([`../SUBJECTS-PLAN.md`](../SUBJECTS-PLAN.md) §7).
 
 ## Q3 / Makabansa
 | Week | Folder | Topic |

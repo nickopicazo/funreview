@@ -21,6 +21,10 @@ export const ACTIVITY_IDS = [
   "probability",
   "fingerTrick",
   "skipCount",
+  "labelDiagram",
+  "keyboard",
+  "fileDesk",
+  "searchPractice",
 ] as const
 
 export type ActivityId = (typeof ACTIVITY_IDS)[number]
@@ -97,6 +101,38 @@ export type WeekContent = {
   }
   fingerTrick?: { facts: number[] }
   skipCount?: { prompt: string; start: number; step: number; hops: number; explanation: string }[]
+  labelDiagram?: {
+    title: string
+    items: {
+      prompt: string
+      kind: "keyboard" | "fingers"
+      correctIds: string[]
+      explanation: string
+    }[]
+  }
+  keyboard?: { prompt: string; target: string; explanation: string }[]
+  fileDesk?: {
+    prompt: string
+    files: { id: string; name: string; kind: "file" | "folder"; parentId: string }[]
+    nameChoices?: string[]
+    goal: {
+      action: "move" | "copy" | "rename" | "delete" | "createFolder" | "emptyBin"
+      fileId?: string
+      destId?: string
+      newName?: string
+    }
+    explanation: string
+  }[]
+  searchPractice?: {
+    query: string
+    queries: Choice[]
+    correctQueryId: string
+    results: { id: string; title: string; blurb: string; useful: boolean }[]
+    correctId: string
+    facts?: { text: string; binId: string }[]
+    bins?: Choice[]
+    explanation: string
+  }[]
 }
 
 export type QuizScore = {

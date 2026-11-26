@@ -1,4 +1,5 @@
 import type { LessonLang, WeekContent } from "./types.ts"
+import { computerWeeks } from "./q3/computer.ts"
 import { englishWeeks } from "./q3/english.ts"
 import { filipinoWeeks } from "./q3/filipino.ts"
 import { makabansaWeeks } from "./q3/makabansa.ts"
@@ -31,6 +32,7 @@ export const subjects: SubjectInfo[] = [
   { id: "science", title: "Science", emoji: "🔬", lessonLang: "en" },
   { id: "makabansa", title: "Makabansa", emoji: "🇵🇭", lessonLang: "fil" },
   { id: "gmrc", title: "GMRC", emoji: "💛", lessonLang: "fil" },
+  { id: "computer", title: "Computer", emoji: "💻", lessonLang: "en" },
 ]
 
 const lessons: Record<string, WeekContent[]> = {
@@ -38,6 +40,7 @@ const lessons: Record<string, WeekContent[]> = {
   "q3/english": englishWeeks,
   "q3/mathematics": mathematicsWeeks,
   "q3/makabansa": makabansaWeeks,
+  "q3/computer": computerWeeks,
 }
 
 export function subjectKey(quarterId: string, subjectId: string) {

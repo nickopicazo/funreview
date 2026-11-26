@@ -1,6 +1,6 @@
 # FunReview — Q3 Filipino, English, Math and Computer Plan
 
-> Status: **Built** (24 Nov 2026) for Filipino W14–W20, English W14–W19, and Math W14–W17. **Computer is planned** (26 Nov 2026, section 7) and is not in the app yet.
+> Status: **Built** (26 Nov 2026) for Filipino W14–W20, English W14–W19, Math W14–W17, and Computer W14–W20.
 > Data-model choices for path order, Math Week 14, and the new activity ids are locked in section 5.
 > Sources: [`lessons/q3/filipino`](./lessons/q3/filipino), [`lessons/q3/english`](./lessons/q3/english), [`lessons/q3/math`](./lessons/q3/math), [`lessons/q3/computer`](./lessons/q3/computer) (index in [`lessons/README.md`](./lessons/README.md)).
 > How new lessons get here: [`ADDING-LESSONS.md`](./ADDING-LESSONS.md).
@@ -307,10 +307,10 @@ Read against `src/content/types.ts` and `src/content/catalog.ts` at commit `feb6
 
 ## 7. Computer (Q3, Weeks 14–20, in English)
 
-> Status: **Planned** (26 Nov 2026). Docs only; nothing is built yet.
+> Status: **Built** (26 Nov 2026).
 > Sources: [`lessons/q3/computer`](./lessons/q3/computer). Other subjects in this file stay as they are.
 
-**Catalog status (commit `84ce174`, do not change code until Nicko says start):** `computer` is **not** in `src/content/catalog.ts`. The subject list is Filipino, English, Mathematics, Science, Makabansa, GMRC. Science and GMRC are listed but have no lessons yet. Computer would be a new, additive subject.
+**Catalog status:** `computer` is appended after GMRC in `src/content/catalog.ts`, with `q3/computer` registered. Science and GMRC are still listed and still have no lessons. Filipino, English, Math, and Makabansa were left as they were.
 
 | Week | Topic | Core idea for the app |
 | --- | --- | --- |
@@ -389,10 +389,10 @@ Reuse existing patterns first. New patterns are listed only where these topics n
 | 16 | Story; **Sort** File / Folder (and later Recycle Bin); Flip cards (File Explorer, icon, Recycle Bin, rename); **File desk** (a small fictional desktop: create a folder, rename a file by picking a chip, delete to the Recycle Bin, empty it); **Order** the rename / delete steps; Quiz. |
 | 17 | Story (move vs copy); **Sort** Move / Copy; **Match up** shortcut ↔ action (Ctrl+X cut, Ctrl+C copy, Ctrl+V paste); **File desk** (cut a file into another folder; copy a file so both folders have it); **Order** the Cut-Paste and Copy-Paste steps; Quiz. On a tablet there is no real mouse: every step is tap the file, tap the action, tap the destination. No drag-only gesture. |
 | 18 | Story (Internet ≠ Web ≠ browser ≠ web page); **Sort** those four terms; Flip cards (browser logos: Chrome, Safari, Edge, Firefox, Opera); **Match up** email parts (To, Subject, message) and uses of the Internet (communication, learning, and so on — not shopping-only or Facebook); **Read and answer** (a paper letter vs an email: how are they alike and different?); Quiz. |
-| 19 | Story; **Sort** Kind / Not kind (and True / Needs a check) for short online situations; Flip cards for the five rules; **Fix it** (rewrite a rude message to a kind one by tapping the unkind words, then picking a better chip); Quiz, including the added personal-information items. |
+| 19 | Story; **Sort** Kind / Not kind only; Flip cards for the five rules; **Fix it** (one unkind word, then a kinder chip); Quiz, including the added personal-information items. True / Needs a check is in the story and the quiz. |
 | 20 | Story (search engine vs browser); **Match up** logo ↔ name (Google, Bing; Yahoo only if the slide is used as history, not as a "use this" recommendation); **Search practice** (type a ready-made query by tapping chips, pick the most useful baked-in result, then **Sort** facts into a small table or list); Flip cards (be specific, narrow the search, follow a link); Quiz. |
 
-Word search fits W14–W15 (HOME, ENTER, SHIFT, PINKY), W16 (FILE, FOLDER, RENAME), W18 (EMAIL, INTERNET, BROWSER), and W19 (PRIVACY, RESPECT). Skip very short words (CUT, WEB).
+Word search fits W14–W15 (HOME, ENTER, SHIFT, PINKY), W16 (FILE, FOLDER, RENAME), W18 (EMAIL, INTERNET, BROWSER), and W19 (PRIVACY, RESPECT). Skip very short words (CUT, WEB). It stays off the path, the same way Filipino and English left it off. The rows above are the path.
 
 ### New UI/UX patterns (Computer only, tap only)
 These three are additive. Existing subjects do not use them, so their paths stay the same.
@@ -426,18 +426,25 @@ Read against `src/content/types.ts` and `src/content/catalog.ts` at commit `84ce
   ```ts
   labelDiagram?: {
     title: string
-    kind: "keyboard" | "fingers" | "other"
-    items: { prompt: string; correctIds: string[]; explanation: string }[]
+    items: {
+      prompt: string
+      kind: "keyboard" | "fingers"
+      correctIds: string[]
+      explanation: string
+    }[]
   }
-  keyboard?: { prompt: string; target: string; explanation: string }[]  // target is a letter or a short word
+  keyboard?: { prompt: string; target: string; explanation: string }[]  // one letter or a word of at most 8 letters
   fileDesk?: {
     prompt: string
     files: { id: string; name: string; kind: "file" | "folder"; parentId: string }[]
+    nameChoices?: string[]
     goal: { action: "move" | "copy" | "rename" | "delete" | "createFolder" | "emptyBin"; fileId?: string; destId?: string; newName?: string }
     explanation: string
   }[]
   searchPractice?: {
     query: string
+    queries: Choice[]
+    correctQueryId: string
     results: { id: string; title: string; blurb: string; useful: boolean }[]
     correctId: string
     facts?: { text: string; binId: string }[]
@@ -458,7 +465,16 @@ Read against `src/content/types.ts` and `src/content/catalog.ts` at commit `84ce
 - `keyboard` targets use only keys that exist on the on-screen layout, and words stay short (≤ 8 letters).
 - Every `fileDesk` goal is reachable from the starting files list (the destination folder exists; a rename target is in the chip list).
 - Every `searchPractice` `correctId` is one of the results, and that result is marked `useful`. Fact `binId`s exist.
-- `labelDiagram` `correctIds` refer to regions that exist for that `kind`.
+- `labelDiagram` `correctIds` refer to regions that exist for that item's `kind`.
+
+### Locked for this build
+These are the rules the code follows. The three source questions in milestone 1 are already decided here.
+
+1. **Two weeks from the keyboarding deck.** W14 is typing styles. W15 is home keys and fingers. School computers are taught as Windows, with one sentence on Finder, Trash, and the Command key. W19 includes the extra personal-information items, marked as an addition.
+2. **W19 has one Sort:** Kind / Not kind. True / Needs a check is in the story and the quiz. Sort stays one object.
+3. **Fix it is one mistake.** Each item has one `wrongIndex`, then a kinder chip.
+4. **Diagram regions are fixed.** Keyboard ids are every letter on the on-screen QWERTY plus `semicolon`. Home keys are `a s d f j k l semicolon`, with bumps on F and J. The p14 picture is not used. Finger ids are `left-pinky` through `left-thumb`, then `right-thumb` through `right-pinky`. Each label-diagram item sets its own `kind`, so one activity can ask about keys and about fingers. A wrong tap lights the right regions, then Next. If several ids are correct, she taps each of them; the first wrong tap ends the item.
+5. **Keyboard, file desk, and search.** One keyboard prompt is one item. The first wrong key shows the target and Next. Keys are at least 48px and the board scrolls sideways on a narrow screen. There is no text field. Each file-desk prompt starts from its own `files` list. Rename and new-folder names come from `nameChoices`. Emptying the Recycle Bin asks "Are you sure?" once; No does not count as a miss. Search chips choose the query. A wrong query or a wrong result shows the right one and Next, and skips the fact sort. A right result may sort baked-in facts; a wrong bin shows the right bin and Next. No live URL.
 
 ### Milestones (build later, when Nicko says start)
 1. **Confirm sources.** Whether W14 and W15 should be two app weeks or one combined week; whether school computers are Windows, Mac, or both; whether the added personal-information safety items for W19 are okay.

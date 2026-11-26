@@ -1,7 +1,15 @@
 import { hasActivity } from "./activities.ts"
+import { BIN_ID, DESK_ID, FINGER_IDS, KEY_IDS, targetKeyIds } from "./computerLayout.ts"
 import { columnSteps, hasColumnCarry } from "./multiply.ts"
-import type { ActivityId, Choice, PromptItem, QuizItem, WeekContent } from "./types.ts"
-import { isNumberItem } from "./types.ts"
+import {
+  ACTIVITY_IDS,
+  isNumberItem,
+  type ActivityId,
+  type Choice,
+  type PromptItem,
+  type QuizItem,
+  type WeekContent,
+} from "./types.ts"
 import { choiceSeed, correctPosition } from "../lib/shuffle.ts"
 
 const PROBABILITY = ["certain", "likely", "unlikely", "impossible"] as const
@@ -17,6 +25,84 @@ function assertChoices(choices: Choice[], correctId: string, label: string) {
 
 function assertPrompt(item: PromptItem) {
   assertChoices(item.choices, item.correctId, item.prompt)
+}
+
+type DeskItem = NonNullable<WeekContent["fileDesk"]>[number]
+
+function byDeskId(files: DeskItem["files"], id: string) {
+  return files.find((file) => file.id === id)
+}
+
+function isDeskFolder(files: DeskItem["files"], id: string) {
+  if (id === DESK_ID) return true
+  return byDeskId(files, id)?.kind === "folder"
+}
+
+function insideFolder(files: DeskItem["files"], nodeId: string, ancestorId: string) {
+  const seen = new Set<string>()
+  let current = byDeskId(files, nodeId)
+  while (current) {
+    if (seen.has(current.id)) return false
+    seen.add(current.id)
+    if (current.parentId === ancestorId) return true
+    if (current.parentId === DESK_ID) return false
+    current = byDeskId(files, current.parentId)
+  }
+  return false
+}
+
+function assertFileDesk(item: DeskItem, label: string) {
+  const ids = new Set<string>()
+  for (const file of item.files) {
+    if (ids.has(file.id) || file.id === DESK_ID) {
+      throw new Error(`${label} file id is repeated: ${file.id}`)
+    }
+    ids.add(file.id)
+    if (file.parentId === file.id || !isDeskFolder(item.files, file.parentId)) {
+      throw new Error(`${label} folder is missing for ${file.name}`)
+    }
+  }
+  for (const file of item.files) {
+    if (file.parentId !== DESK_ID && insideFolder(item.files, file.parentId, file.id)) {
+      throw new Error(`${label} folders loop: ${file.name}`)
+    }
+  }
+  const { goal } = item
+  if (goal.action === "move" || goal.action === "copy") {
+    const file = goal.fileId ? byDeskId(item.files, goal.fileId) : undefined
+    if (!file || !goal.destId || !isDeskFolder(item.files, goal.destId)) {
+      throw new Error(`${label} ${goal.action} goal is not reachable`)
+    }
+    if (goal.destId === file.id || goal.destId === file.parentId || insideFolder(item.files, goal.destId, file.id)) {
+      throw new Error(`${label} ${goal.action} destination does not work`)
+    }
+    return
+  }
+  if (goal.action === "rename" || goal.action === "createFolder") {
+    if (!goal.newName || !item.nameChoices?.includes(goal.newName)) {
+      throw new Error(`${label} name chip is missing`)
+    }
+    if (goal.action === "rename") {
+      const file = goal.fileId ? byDeskId(item.files, goal.fileId) : undefined
+      if (!file || file.name === goal.newName) throw new Error(`${label} rename goal is not reachable`)
+      return
+    }
+    if (!goal.destId || !isDeskFolder(item.files, goal.destId)) {
+      throw new Error(`${label} new-folder goal is not reachable`)
+    }
+    return
+  }
+  if (goal.action === "delete") {
+    const file = goal.fileId ? byDeskId(item.files, goal.fileId) : undefined
+    if (!file || file.kind !== "file" || !isDeskFolder(item.files, BIN_ID)) {
+      throw new Error(`${label} delete goal is not reachable`)
+    }
+    return
+  }
+  const bin = byDeskId(item.files, BIN_ID)
+  if (!bin || bin.kind !== "folder" || !item.files.some((file) => file.parentId === BIN_ID)) {
+    throw new Error(`${label} empty-bin goal is not reachable`)
+  }
 }
 
 function assertQuizItem(item: QuizItem) {
@@ -70,31 +156,7 @@ export function checkSubjectWeeks(weeks: WeekContent[], keyPrefix: string) {
     }
 
     const found: ActivityId[] = []
-    const ids = [
-      "recap",
-      "riddles",
-      "flashcards",
-      "matching",
-      "wordSearch",
-      "quiz",
-      "sort",
-      "tapWord",
-      "fillGap",
-      "fixIt",
-      "builder",
-      "sequence",
-      "reading",
-      "paragraph",
-      "numberPad",
-      "arrays",
-      "columnMultiply",
-      "zeroPattern",
-      "barGraph",
-      "probability",
-      "fingerTrick",
-      "skipCount",
-    ] as const
-    for (const id of ids) {
+    for (const id of ACTIVITY_IDS) {
       if (hasActivity(week, id)) found.push(id)
     }
     const order = week.activityOrder
@@ -220,6 +282,53 @@ export function checkSubjectWeeks(weeks: WeekContent[], keyPrefix: string) {
     for (const fact of week.fingerTrick?.facts ?? []) {
       if (!Number.isInteger(fact) || fact < 1 || fact > 10) {
         throw new Error(`${keyPrefix}/${week.id} finger trick fact must be 1 to 10.`)
+      }
+    }
+    for (const item of week.labelDiagram?.items ?? []) {
+      const regions = item.kind === "keyboard" ? KEY_IDS : FINGER_IDS
+      if (item.correctIds.length < 1) {
+        throw new Error(`${keyPrefix}/${week.id} diagram needs a region: ${item.prompt}`)
+      }
+      if (new Set(item.correctIds).size !== item.correctIds.length) {
+        throw new Error(`${keyPrefix}/${week.id} diagram repeats a region: ${item.prompt}`)
+      }
+      for (const id of item.correctIds) {
+        if (!regions.includes(id)) {
+          throw new Error(`${keyPrefix}/${week.id} diagram region is missing: ${id}`)
+        }
+      }
+    }
+    for (const item of week.keyboard ?? []) {
+      if (!targetKeyIds(item.target)) {
+        throw new Error(`${keyPrefix}/${week.id} keyboard target is not on the layout: ${item.target}`)
+      }
+    }
+    for (const item of week.fileDesk ?? []) {
+      assertFileDesk(item, `${keyPrefix}/${week.id}`)
+    }
+    for (const item of week.searchPractice ?? []) {
+      assertChoices(item.queries, item.correctQueryId, item.query)
+      const query = item.queries.find((choice) => choice.id === item.correctQueryId)
+      if (query?.label !== item.query) {
+        throw new Error(`${keyPrefix}/${week.id} search query does not match its chip: ${item.query}`)
+      }
+      if (item.results.length < 2) {
+        throw new Error(`${keyPrefix}/${week.id} search needs two results: ${item.query}`)
+      }
+      const result = item.results.find((entry) => entry.id === item.correctId)
+      if (!result?.useful) {
+        throw new Error(`${keyPrefix}/${week.id} search answer is not a useful result: ${item.query}`)
+      }
+      if (item.facts?.length) {
+        if (!item.bins || item.bins.length < 2 || item.bins.length > 4) {
+          throw new Error(`${keyPrefix}/${week.id} search facts need 2 to 4 bins.`)
+        }
+        const binIds = new Set(item.bins.map((bin) => bin.id))
+        for (const fact of item.facts) {
+          if (!binIds.has(fact.binId)) {
+            throw new Error(`${keyPrefix}/${week.id} search fact bin is missing: ${fact.text}`)
+          }
+        }
       }
     }
   }

@@ -750,6 +750,45 @@ html:has(dialog[open]) { overflow: hidden; }
   70% { box-shadow: 0 0 0 12px rgb(47 125 225 / 0%); }
 }
 
+.key-scroll { overflow-x: auto; max-width: 100%; padding-bottom: 8px; }
+.key-board { display: flex; flex-direction: column; gap: 8px; width: max-content; min-width: 100%; }
+.key-row, .hand { display: flex; flex-wrap: wrap; gap: 8px; }
+.key {
+  min-width: 48px;
+  min-height: 48px;
+  padding: 8px;
+  border: 0;
+  border-radius: 12px;
+  background: white;
+  color: var(--ink);
+  font: inherit;
+  font-family: var(--display);
+  font-weight: 800;
+  box-shadow: 0 4px 0 var(--line);
+  cursor: pointer;
+}
+.key.home { background: #e7f1ff; }
+.key.bump { box-shadow: inset 0 -6px 0 #9ec0f0, 0 4px 0 var(--line); }
+.key.ok { background: #d9f5e8; box-shadow: 0 4px 0 var(--green); }
+.key.bad { background: #ffe8e4; box-shadow: 0 4px 0 var(--coral); }
+.key:disabled { cursor: default; }
+.key-word {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-family: var(--display);
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+.key-word span {
+  min-width: 32px;
+  text-align: center;
+}
+.hands { display: grid; gap: 12px; }
+.finger { flex: 1 1 72px; }
+.desk { display: grid; gap: 8px; }
+.result-blurb { display: block; font-weight: 700; color: var(--ink-soft); }
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;

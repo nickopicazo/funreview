@@ -114,6 +114,26 @@ export const ACTIVITY_META: Record<
     emoji: "🐸",
     hint: "Tap the next number",
   },
+  labelDiagram: {
+    label: "Label the diagram",
+    emoji: "🖐️",
+    hint: "Tap the right part",
+  },
+  keyboard: {
+    label: "Keyboard",
+    emoji: "⌨️",
+    hint: "Tap the letters",
+  },
+  fileDesk: {
+    label: "File desk",
+    emoji: "🗂️",
+    hint: "Tap a file, then an action",
+  },
+  searchPractice: {
+    label: "Search practice",
+    emoji: "🔎",
+    hint: "Pick a search, then a result",
+  },
 }
 
 const LEGACY_IDS = ["recap", "riddles", "flashcards", "matching", "wordSearch", "quiz"] as const
@@ -168,6 +188,14 @@ export function hasActivity(week: WeekContent, id: ActivityId) {
       return Boolean(week.fingerTrick && week.fingerTrick.facts.length > 0)
     case "skipCount":
       return Boolean(week.skipCount?.length)
+    case "labelDiagram":
+      return Boolean(week.labelDiagram && week.labelDiagram.items.length > 0)
+    case "keyboard":
+      return Boolean(week.keyboard?.length)
+    case "fileDesk":
+      return Boolean(week.fileDesk?.length)
+    case "searchPractice":
+      return Boolean(week.searchPractice?.length)
     default:
       return false
   }

@@ -1,8 +1,8 @@
 # FunReview — Project Plan
 
-> Status: **Milestones 2–8 built** (24 Nov 2026). Q3 Filipino, English, and Math are in the app. GA4 loads on every visit. No personal data and no save data are sent. Google Signals and ad personalization stay off. No custom domain yet.
+> Status: **Milestones 2–8 built** (24 Nov 2026). Q3 Filipino, English, Math, and Computer are in the app. GA4 loads on every visit. No personal data and no save data are sent. Google Signals and ad personalization stay off. No custom domain yet.
 >
-> **Next:** Q3 Computer is planned in [`SUBJECTS-PLAN.md`](./SUBJECTS-PLAN.md) §7 (not built yet). New lesson PDFs follow [`ADDING-LESSONS.md`](./ADDING-LESSONS.md). English Week 20 and Math Weeks 18–20 are still waiting on files.
+> **Next:** New lesson PDFs follow [`ADDING-LESSONS.md`](./ADDING-LESSONS.md). English Week 20 and Math Weeks 18–20 are still waiting on files. Computer weeks 14–20 are in [`SUBJECTS-PLAN.md`](./SUBJECTS-PLAN.md) §7.
 
 ## 1. What it is
 FunReview is a child-friendly, interactive reviewer web app for a Grade 3 student in the Philippines (DepEd curriculum). It replaces printed reviewers with short, game-like lessons she can open on a tablet, phone, or computer. The look and feel is inspired by Duolingo.
@@ -54,13 +54,14 @@ Progress stays on this device only. There is no export and no import.
 ## 4. Content structure
 ```
 src/content/
-  catalog.ts          # Q1–Q4 × six subjects; Q3 Filipino, English, Math, and Makabansa are available
+  catalog.ts          # Q1–Q4 × seven subjects; Q3 Filipino, English, Math, Makabansa, and Computer are available
   types.ts            # WeekContent
   q3/
     filipino.ts       # weeks 14–20
     english.ts        # weeks 14–19
     mathematics.ts    # weeks 14, 14b, 15–17
     makabansa.ts      # weeks 14–20
+    computer.ts       # weeks 14–20
 ```
 
 Do not add empty subject files for later lessons. A subject or quarter with no file stays a placeholder in `catalog.ts`.
@@ -68,7 +69,7 @@ Do not add empty subject files for later lessons. A subject or quarter with no f
 Source lessons live in [`docs/lessons/`](./lessons/README.md). Those extracts are OCR slide text, not activities. Author each week by hand into `WeekContent`. Check the PDF when the extract is unclear. A week may omit an activity; the path only shows the ones present.
 
 ### Catalog
-Home shows **Q1, Q2, Q3, Q4**. Inside a quarter, six Grade 3 areas, in this order:
+Home shows **Q1, Q2, Q3, Q4**. Inside a quarter, seven Grade 3 areas, in this order:
 
 1. Filipino
 2. English
@@ -76,8 +77,9 @@ Home shows **Q1, Q2, Q3, Q4**. Inside a quarter, six Grade 3 areas, in this orde
 4. Science
 5. Makabansa
 6. GMRC
+7. Computer
 
-**Q3 Filipino, English, Mathematics, and Makabansa** open. Every other quarter and subject shows **“Coming soon!”**.
+**Q3 Filipino, English, Mathematics, Makabansa, and Computer** open. Every other quarter and subject shows **“Coming soon!”**.
 
 ### Week schema
 ```ts

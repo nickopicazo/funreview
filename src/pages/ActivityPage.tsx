@@ -4,12 +4,15 @@ import { Arrays } from "../activities/Arrays.tsx"
 import { BarGraph } from "../activities/BarGraph.tsx"
 import { ColumnMultiply } from "../activities/ColumnMultiply.tsx"
 import { DoneScreen } from "../activities/DoneScreen.tsx"
+import { FileDesk } from "../activities/FileDesk.tsx"
 import { FillGap } from "../activities/FillGap.tsx"
 import { FingerTrick } from "../activities/FingerTrick.tsx"
 import { FixIt } from "../activities/FixIt.tsx"
 import { Flashcards } from "../activities/Flashcards.tsx"
+import { LabelDiagram } from "../activities/LabelDiagram.tsx"
 import { Matching } from "../activities/Matching.tsx"
 import { NumberPractice } from "../activities/NumberPractice.tsx"
+import { OnScreenKeyboard } from "../activities/OnScreenKeyboard.tsx"
 import { Paragraph } from "../activities/Paragraph.tsx"
 import { ProbabilityBag } from "../activities/ProbabilityBag.tsx"
 import { Quiz } from "../activities/Quiz.tsx"
@@ -17,6 +20,7 @@ import { Reading } from "../activities/Reading.tsx"
 import { Recap } from "../activities/Recap.tsx"
 import { Riddles } from "../activities/Riddles.tsx"
 import { SentenceBuilder } from "../activities/SentenceBuilder.tsx"
+import { SearchPractice } from "../activities/SearchPractice.tsx"
 import { Sequence } from "../activities/Sequence.tsx"
 import { SkipCount } from "../activities/SkipCount.tsx"
 import { SortBins } from "../activities/SortBins.tsx"
@@ -188,6 +192,18 @@ function ActivitySession({
       ) : null}
       {activity === "probability" && week.probability ? (
         <ProbabilityBag data={week.probability} onFinish={() => finish()} lang={lang} />
+      ) : null}
+      {activity === "labelDiagram" && week.labelDiagram ? (
+        <LabelDiagram data={week.labelDiagram} onFinish={() => finish()} lang={lang} />
+      ) : null}
+      {activity === "keyboard" && week.keyboard ? (
+        <OnScreenKeyboard items={week.keyboard} onFinish={() => finish()} lang={lang} />
+      ) : null}
+      {activity === "fileDesk" && week.fileDesk ? (
+        <FileDesk items={week.fileDesk} onFinish={() => finish()} lang={lang} />
+      ) : null}
+      {activity === "searchPractice" && week.searchPractice ? (
+        <SearchPractice items={week.searchPractice} seedKey={key} onFinish={() => finish()} lang={lang} />
       ) : null}
     </PageEnter>
   )
