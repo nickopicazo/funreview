@@ -1,13 +1,13 @@
-# FunReview — Q3 Filipino, English and Math Plan
+# FunReview — Q3 Filipino, English, Math and Computer Plan
 
-> Status: **Built** (24 Nov 2026). Filipino W14–W20, English W14–W19, and Math W14–W17 are in the app.
+> Status: **Built** (24 Nov 2026) for Filipino W14–W20, English W14–W19, and Math W14–W17. **Computer is planned** (26 Nov 2026, section 7) and is not in the app yet.
 > Data-model choices for path order, Math Week 14, and the new activity ids are locked in section 5.
-> Sources: [`lessons/q3/filipino`](./lessons/q3/filipino), [`lessons/q3/english`](./lessons/q3/english), [`lessons/q3/math`](./lessons/q3/math) (index in [`lessons/README.md`](./lessons/README.md)).
+> Sources: [`lessons/q3/filipino`](./lessons/q3/filipino), [`lessons/q3/english`](./lessons/q3/english), [`lessons/q3/math`](./lessons/q3/math), [`lessons/q3/computer`](./lessons/q3/computer) (index in [`lessons/README.md`](./lessons/README.md)).
 > How new lessons get here: [`ADDING-LESSONS.md`](./ADDING-LESSONS.md).
 
 ## 0. Ground rules
 - **Makabansa stays exactly as it is.** Same content file, same activities, same path order, same save keys, same map. Every change below is additive and optional.
-- **Language:** the app menus stay English. Lesson text follows the subject: Filipino and Makabansa in Filipino, English and Math in English (the Math PDFs are in English).
+- **Language:** the app menus stay English. Lesson text follows the subject: Filipino and Makabansa in Filipino; English, Math, and Computer in English (their PDFs are in English).
 - **Decisions from [`FIXES-PLAN.md`](./FIXES-PLAN.md) apply to every subject:**
   - Analytics is always on. Same events only (page view, lesson opened, activity completed, quiz score band, badge earned). Never send typed answers, names, or save data.
   - Backup is removed. Progress stays in `localStorage` on the device.
@@ -304,3 +304,165 @@ Read against `src/content/types.ts` and `src/content/catalog.ts` at commit `feb6
 6. **Math components.** Append the math ids and fields (`numberPad` through `skipCount`). Define `NumberItem` and widen `quiz` and bar-graph questions to `(PromptItem | NumberItem)[]`. Number pad, number quiz items, arrays, skip-count hop, column multiply (two stages), zero pattern, bar graph, probability bag, finger trick (guided demo, no stars), graded levels as specified for W15 and W17. Accept: number pad never opens the phone keyboard; column steps show carries correctly for 26×3, 37×3, and 246×4.
 7. **Math content W14–W17** in `q3/mathematics.ts`: `w14`, `w14b` (kicker Week 14), `w15`, `w16`, `w17`. Each week sets `activityOrder` from its activity row. Accept: `columnMultiply` and `zeroPattern` match the load-time checks; word-problem and bar-graph answers were checked by hand; full 6–9 tables; lesson text is `lang="en"`.
 8. **QA and release.** Phone and tablet pass, analytics events seen in GA4 DebugView, Makabansa regression check, then deploy when Nicko approves.
+
+## 7. Computer (Q3, Weeks 14–20, in English)
+
+> Status: **Planned** (26 Nov 2026). Docs only; nothing is built yet.
+> Sources: [`lessons/q3/computer`](./lessons/q3/computer). Other subjects in this file stay as they are.
+
+**Catalog status (commit `84ce174`, do not change code until Nicko says start):** `computer` is **not** in `src/content/catalog.ts`. The subject list is Filipino, English, Mathematics, Science, Makabansa, GMRC. Science and GMRC are listed but have no lessons yet. Computer would be a new, additive subject.
+
+| Week | Topic | Core idea for the app |
+| --- | --- | --- |
+| 14–15* | Keyboarding | Keyboarding = typing on a computer. Styles: hunt-and-peck, buffering, thumbing, hybrid, touch typing. Home keys (A S D F  J K L ;), finger names, which finger presses which key. |
+| 16 | Files and Folders | A file holds information (a picture, a song, a document) and has an icon. A folder holds files. File Explorer (Windows) finds, opens, creates, renames, and deletes them. Deleted files go to the Recycle Bin until it is emptied. |
+| 17 | Moving and Copying Files | Move = the file leaves the old folder (Cut then Paste, or drag, or Ctrl+X then Ctrl+V). Copy = a second file stays in both places (Copy then Paste, Ctrl+drag, or Ctrl+C then Ctrl+V). |
+| 18 | Introduction to the Internet and Email | The Internet is a worldwide network of computers. The World Wide Web is information we can open with a browser (Chrome, Safari, Edge, Firefox, Opera). Email is a fast message sent over the Internet (To, Subject, message). |
+| 19 | Netiquette | Netiquette = etiquette on the Internet. Five rules: remember the human; respect privacy; don't abuse power; follow the Golden Rule; not everything online is true. |
+| 20 | Organizing Information on the Internet | A search engine finds pages; a browser opens them. Be specific, then narrow the search; follow links. Practice with baked-in, child-safe results — never a live search. |
+
+\*One 16-page deck covers both weeks (title slide: "Quarter 3 – Week 14 & 15"; page 1 says only "WEEK 14"). Filed once under `w14/w14-15-keyboarding`. In the app, split into two weeks unless Eunice prefers one combined week: **W14** styles and the definition, **W15** home keys and finger placement.
+
+Language: English (the PDFs are in English). Menus stay English.
+
+### Corrections (do not copy from source)
+Page numbers are PDF pages. Image-heavy slides were OCR'd; check the PDF before writing content.
+
+- **W14–15 keyboarding**
+  - p5 "type using computer" → "type on a computer".
+  - p8 "Buffering Style": "memorizes … and then looks … and type" → "memorize one or more sentences, then look at the keyboard and type them." The name "buffering" is uncommon; keep it because the slide uses it, and describe what it means.
+  - p11 "looking to find keys" / "the character in the keyboard" → "without looking down to find the keys; the typist knows where they are **on** the keyboard."
+  - **p14 is wrong.** The "Home Keys" picture highlights A S D F G H J K and leaves out L and `;`. Home keys are **A S D F** (left) and **J K L ;** (right), usually with bumps on F and J. Use the p15 colour chart (KS Computer Lab, CC BY-SA), which is the standard map, and draw a correct home-row picture for the app.
+  - p1–2 are a Proverbs 10:9 verse and a prayer. Leave them out of the app (they are not the lesson).
+- **W16 files and folders**
+  - p3 "digital **verion**" → "version". A simpler definition: "A file is information saved on a computer, like a picture, a song, or a document. Each file has an icon."
+  - p5 is ungrammatical: "It is also called Windows Explorer, is used to search, view and organize files **to** your computer." → "File Explorer (once called Windows Explorer) is used to search, view, and organize files **on** your computer."
+  - p20–22 "**imformation**" → "information" (repeated).
+  - p27 "Recycled Bin" → "**Recycle** Bin" (the menu in the screenshot already says Recycle Bin).
+  - The learning targets mention **saving** a file in the right place, but the slides never teach Save or Save As. Don't quiz on it unless a short, correct explanation is added.
+  - The File Explorer screenshots show a teacher's OneDrive and folders for school year 2023–2024. Don't copy those into the app (dated, and they are someone else's files). Draw a clean, fictional desktop.
+  - The whole lesson is Windows-only (File Explorer, Recycle Bin, Ctrl, taskbar). School PCs are probably Windows; add a short note that a Mac uses Finder, Trash, and the Command key, without building a second path.
+- **W17 moving and copying**
+  - "saved it to **other** folder" → "**another** folder."
+  - "SELECT THE **FIE**" (p15, p31) → "**FILE**."
+  - p19 "to bring along when we go out" is vague. Say copies are useful as a backup, or to put a file on a USB drive or in another folder, while the original stays put.
+  - Several step slides are almost only a screenshot (the text was easy to miss in OCR). The missing lines, checked on the PDF, are: p13 "RELEASE THE MOUSE BUTTON."; p24 "THE FILE IS NOW COPIED TO ITS NEW LOCATION."
+  - The closing slide is leftover Spanish template text (`¿Tienes alguna pregunta?`, a Freepik phone number). Leave it out.
+- **W18 Internet and email**
+  - The **file name** includes "netiquette", but the title slide is "Introduction to the Internet and Email" (Q3 W18). Netiquette is the next week. Filed as internet-and-email.
+  - p4 objective 02 is cut off: "how it is used for". Complete it in the app: "I can describe what email is and how it is used."
+  - p6 "invented by Tim Berners-Lee in 1991" is a common shortcut: he proposed the Web in 1989, and the first site was up in 1990–91. Say "Sir Tim Berners-Lee, around 1990–1991."
+  - "Information Superhighway" is 1990s nickname. Mention it, but define the Internet as a worldwide network of connected computers.
+  - **p14 "Services" copies the Business text** word for word ("Companies advertise… You can also sell and buy items") even though the picture is a flight-booking site. Write a new sentence: online services let you do a task (book a ticket, fill in a form) — always with a parent.
+  - p20 "differebt tools for and convenience" → "different tools for convenience and productivity (calendar, address book, instant messaging, and more)."
+  - p23 trailing comma: "at once," → "at once."
+  - **p21 uses Facebook** as the example of signing up with an email address. Facebook requires users to be 13+. Don't use it. Say "a learning app your parent helps you join."
+  - p1–2 are John 13:35 and a prayer. Leave them out of the app.
+- **W19 netiquette**
+  - "Five Essential Netiquettes" is awkward (netiquette is already the set of rules). Use "Five essential netiquette rules."
+  - p7 "real **human**" → "a real **human**" or "real **people**."
+  - p10 "treat other people **like how** you want to be respected" → "Treat other people the way you want to be treated."
+  - Rule 3 ("Always be humble") is thin for Grade 3. Add a concrete example: if you are a group admin or you know a password, don't use that to hurt or embarrass someone.
+  - The five rules never mention **personal information**. As a clearly marked addition (not on the slides), the app also teaches: don't share your full name, address, school, or photos with strangers; tell a parent if something feels wrong; don't click a strange link. This is for an eight-year-old's safety.
+  - p1–2 are Ecclesiastes 3:1 and a prayer. Leave them out of the app.
+- **W20 organizing information**
+  - The **file name** says `comp3-q4-w20`, but the cover is **Quarter 3 – Week 20**. Filed as Q3 W20.
+  - p5 "pages containing **we** need" → "pages that contain **what we** need."
+  - p6 "information retrieval **system**" → "systems"; "**eneter**" → "enter."
+  - p16 "Milk fish" → "**milkfish**" (bangus), one word.
+  - p18 "Hyperlinks are words that are underlined and shaded blue." Many sites now style links differently. Say "A hyperlink is a word or picture you can tap to open another page. It is often blue and underlined, but not always."
+  - **p14 "Mosaic… the very first graphical browser" is overstated.** Mosaic (1993) was the first widely popular graphical browser; earlier ones existed (WorldWideWeb/Nexus, Erwise, ViolaWWW). Say "an early and famous graphical browser from 1993," and keep modern browsers as the ones Eunice will actually use.
+  - p13 "Most commonly used" shows the **old** blue Microsoft Edge / Internet Explorer "e", plus Chrome, Firefox, Opera, and Safari. Internet Explorer is discontinued. Show today's Chrome, Safari, Edge (current logo), Firefox, and Opera.
+  - **Safe-search list is outdated or inaccurate (checked 26 Nov 2026):**
+    - `https://kidrex.org` did not respond. A copy now lives at alarms.org/kidrex. Wikipedia notes that since August 2021 KidRex results have been sent on to Google and blocked terms are no longer blocked, so it is **not** a reliable child-safe search.
+    - `https://kidtopia.info` returned an error (and has been reported without HTTPS / with an expired domain). Don't recommend it.
+    - DuckDuckGo is a real privacy-focused search engine for everyone, **not** a children's safe search. Don't group it with the other two.
+  - The app **must not** open live websites, search engines, or email. All practice uses baked-in, child-safe results (for example a short set of "milkfish" cards). A Grade 3 reviewer should not leave the app to search the real web.
+
+### Activities that fit
+Reuse existing patterns first. New patterns are listed only where these topics need them.
+
+| Week | Activities |
+| --- | --- |
+| 14 | Story (Ana & Ben); Flip cards (the five typing styles); **Match up** style ↔ short description; Who Am I? ("I type with two fingers…"); Quiz. |
+| 15 | Story (home keys and finger names); **Label the diagram** (tap the home keys; "Which finger types R?"); **On-screen keyboard** (home row lights up; tap the prompted letter or a short word: *sad*, *flask*, *hall*); Quiz. No speed timer and no words-per-minute score. |
+| 16 | Story; **Sort** File / Folder (and later Recycle Bin); Flip cards (File Explorer, icon, Recycle Bin, rename); **File desk** (a small fictional desktop: create a folder, rename a file by picking a chip, delete to the Recycle Bin, empty it); **Order** the rename / delete steps; Quiz. |
+| 17 | Story (move vs copy); **Sort** Move / Copy; **Match up** shortcut ↔ action (Ctrl+X cut, Ctrl+C copy, Ctrl+V paste); **File desk** (cut a file into another folder; copy a file so both folders have it); **Order** the Cut-Paste and Copy-Paste steps; Quiz. On a tablet there is no real mouse: every step is tap the file, tap the action, tap the destination. No drag-only gesture. |
+| 18 | Story (Internet ≠ Web ≠ browser ≠ web page); **Sort** those four terms; Flip cards (browser logos: Chrome, Safari, Edge, Firefox, Opera); **Match up** email parts (To, Subject, message) and uses of the Internet (communication, learning, and so on — not shopping-only or Facebook); **Read and answer** (a paper letter vs an email: how are they alike and different?); Quiz. |
+| 19 | Story; **Sort** Kind / Not kind (and True / Needs a check) for short online situations; Flip cards for the five rules; **Fix it** (rewrite a rude message to a kind one by tapping the unkind words, then picking a better chip); Quiz, including the added personal-information items. |
+| 20 | Story (search engine vs browser); **Match up** logo ↔ name (Google, Bing; Yahoo only if the slide is used as history, not as a "use this" recommendation); **Search practice** (type a ready-made query by tapping chips, pick the most useful baked-in result, then **Sort** facts into a small table or list); Flip cards (be specific, narrow the search, follow a link); Quiz. |
+
+Word search fits W14–W15 (HOME, ENTER, SHIFT, PINKY), W16 (FILE, FOLDER, RENAME), W18 (EMAIL, INTERNET, BROWSER), and W19 (PRIVACY, RESPECT). Skip very short words (CUT, WEB).
+
+### New UI/UX patterns (Computer only, tap only)
+These three are additive. Existing subjects do not use them, so their paths stay the same.
+
+| Pattern | Used by | How it works (kid-first) |
+| --- | --- | --- |
+| **Label the diagram** | Comp W15 (home keys and finger map). Ready later for "parts of a computer" if that lesson arrives. | A big labelled picture (SVG keyboard or hands). A prompt ("Tap the home keys" / "Which finger types T?"). The child taps a region. Wrong → the right region lights up, with a short explanation, then Next. No dragging. |
+| **On-screen keyboard** | Comp W15 | A simplified QWERTY with home keys highlighted and F/J bumps. Prompted letter or a short word. Keys ≥48px (wrap or two-step on a 320px screen if needed). `inputMode="none"`; the phone keyboard never opens. No timer, no WPM, no typo penalties beyond the usual first-try rule. |
+| **File desk** | Comp W16, W17 | A small fictional desktop (2–3 folders, a few files, a Recycle Bin). The child taps a file, then an action chip (Open, Cut, Copy, Paste, Rename, Delete), then a destination. Rename uses a short list of name chips, not free typing. Emptying the Recycle Bin asks "Are you sure?" once. This is how move vs copy is taught on a tablet without a real mouse and without a drag-only gesture. |
+| **Search practice** | Comp W20 | A fake search box. The query is chosen from chips (no free typing, no network). A short list of baked-in results appears; the child picks the most useful one, then sorts facts into a table or list (reuses **Sort**). The app never navigates to a real URL. |
+
+**Label the computer parts** and a real mouse trainer are **not** in this quarter's slides, so they are not built now. If a hardware or mouse lesson arrives, Label the diagram and a tap-to-click / tap-hold-for-right-click practice can reuse the same components.
+
+Safety and privacy for all Computer activities:
+- No live Internet, no email send, no outbound links in the lesson.
+- No real names, photos, or school file paths from the source screenshots.
+- Lesson text `lang="en"`.
+- Same first-try / Golden Star / badge / analytics rules as the other subjects.
+
+### How it fits the current code (additions only)
+Read against `src/content/types.ts` and `src/content/catalog.ts` at commit `84ce174`. Filipino, English, Math, and Makabansa stay untouched.
+
+**Catalog**
+- Append `{ id: "computer", title: "Computer", emoji: "💻", lessonLang: "en" }` to `subjects` (at the end, so today's home-screen order does not change).
+- Register `"q3/computer"` in `lessons`. New file: `src/content/q3/computer.ts`.
+- Weeks: `w14`, `w15` (same source deck, split as above), `w16`, `w17`, `w18`, `w19`, `w20`. If Eunice wants one combined W14–15 node, use one week with `weekLabel: "14 & 15"` instead.
+
+**Types:** only additive.
+- Append new ids at the **end** of `ACTIVITY_IDS` so saved ids stay valid: `"labelDiagram"`, `"keyboard"`, `"fileDesk"`, `"searchPractice"`.
+- Optional fields on `WeekContent`:
+  ```ts
+  labelDiagram?: {
+    title: string
+    kind: "keyboard" | "fingers" | "other"
+    items: { prompt: string; correctIds: string[]; explanation: string }[]
+  }
+  keyboard?: { prompt: string; target: string; explanation: string }[]  // target is a letter or a short word
+  fileDesk?: {
+    prompt: string
+    files: { id: string; name: string; kind: "file" | "folder"; parentId: string }[]
+    goal: { action: "move" | "copy" | "rename" | "delete" | "createFolder" | "emptyBin"; fileId?: string; destId?: string; newName?: string }
+    explanation: string
+  }[]
+  searchPractice?: {
+    query: string
+    results: { id: string; title: string; blurb: string; useful: boolean }[]
+    correctId: string
+    facts?: { text: string; binId: string }[]
+    bins?: Choice[]
+    explanation: string
+  }[]
+  ```
+- Existing shapes (`recap`, `riddles`, `flashcards`, `matching`, `wordSearch`, `sort`, `sequence`, `reading`, `fixIt`, `quiz`) are reused as they are. `activityOrder` is set per week, same as the other new subjects.
+
+**Path and save**
+- New ids slot in before `quiz` when a week has them (or follow that week's `activityOrder`). Other subjects have none of the new fields, so their paths stay identical.
+- Save keys: `q3/computer/w14` … `w20`. Save stays `version: 1`. `sanitizeSave` accepts the appended ids.
+- The map stays Makabansa-only.
+- Analytics: no new event names. `activity_completed` carries the new activity id; nothing typed is sent (and these activities don't take free typing anyway).
+
+**Checks (extend the load-time checks)**
+- Each week has 10 quiz items; every `correctId` exists; answer positions stay balanced after the seeded shuffle.
+- `keyboard` targets use only keys that exist on the on-screen layout, and words stay short (≤ 8 letters).
+- Every `fileDesk` goal is reachable from the starting files list (the destination folder exists; a rename target is in the chip list).
+- Every `searchPractice` `correctId` is one of the results, and that result is marked `useful`. Fact `binId`s exist.
+- `labelDiagram` `correctIds` refer to regions that exist for that `kind`.
+
+### Milestones (build later, when Nicko says start)
+1. **Confirm sources.** Whether W14 and W15 should be two app weeks or one combined week; whether school computers are Windows, Mac, or both; whether the added personal-information safety items for W19 are okay.
+2. **Catalog and types.** Append the `computer` subject and the four optional activity fields. Accept: build passes; Filipino, English, Math, and Makabansa pages, paths, saves, and the map are unchanged.
+3. **New components.** Label the diagram, on-screen keyboard, File desk, Search practice. Accept: tap only, 320px, first-try rule, no phone keyboard, no live network requests in the Computer activities.
+4. **Computer content W14–W20** in `q3/computer.ts`, with the corrections above. Accept: content checks pass; the p14 home-row error and the Facebook / KidRex / Kidtopia recommendations are not present; lesson text is `lang="en"`.
+5. **QA and release.** Phone and tablet pass, analytics events seen in GA4 DebugView, regression check on the four built subjects, then deploy when Nicko approves.

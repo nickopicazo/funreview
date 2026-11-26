@@ -10,8 +10,9 @@ How to add more: see [`../ADDING-LESSONS.md`](../ADDING-LESSONS.md). What to bui
 | Q3 | Filipino | 14–20 | 7 | 24 Nov 2026, from Eunice ("Filipino") |
 | Q3 | English | 14–19 | 6 | 24 Nov 2026, from Eunice ("English") |
 | Q3 | Math | 14–17 | 7 | 24 Nov 2026, from Eunice ("Math Q3") |
+| Q3 | Computer | 14–20 | 6 | 26 Nov 2026, from Eunice ("Computer") |
 
-Folder names: `filipino`, `english`, `math`, `makabansa`. In the app catalog the Math subject id is `mathematics`.
+Folder names: `filipino`, `english`, `math`, `makabansa`, `computer`. In the app catalog the Math subject id is `mathematics`. Computer is not in the catalog yet (planned in [`../SUBJECTS-PLAN.md`](../SUBJECTS-PLAN.md) §7).
 
 ## Q3 / Makabansa
 | Week | Folder | Topic |
@@ -72,6 +73,23 @@ Notes:
 Notes: Math PDFs have a real text layer (no OCR needed except the W14 bar-graph cover and the W15 cover). Only Weeks 14–17 were sent. W14 and W17 have more than one lesson.
 
 Content errors found in the sources are listed in [`../SUBJECTS-PLAN.md`](../SUBJECTS-PLAN.md). Do not copy them into the app.
+
+## Q3 / Computer
+| Week | Folder | Topic | Original file name |
+| --- | --- | --- | --- |
+| 14–15 | [`q3/computer/w14`](./q3/computer/w14) | Keyboarding (styles, home keys, finger placement) | comp3-q3-w14-15-keyboarding.pdf |
+| 16 | [`q3/computer/w16`](./q3/computer/w16) | Working with Files and Folders | comp3-q3-w16-files-and-folders.pdf |
+| 17 | [`q3/computer/w17`](./q3/computer/w17) | Moving and Copying Files | comp3-q3-w17-moving-copying-files.pdf |
+| 18 | [`q3/computer/w18`](./q3/computer/w18) | Introduction to the Internet and Email | comp3-q3-w18-introduction-to-internet_netiquette.pdf |
+| 19 | [`q3/computer/w19`](./q3/computer/w19) | Netiquette | comp3-q3-w19-netiquette.pdf |
+| 20 | [`q3/computer/w20`](./q3/computer/w20) | Organizing Information in the Internet | comp3-q4-w20-organizing-information-in-the-internet.pdf |
+
+Notes:
+- Weeks come from the title slide, not the file name. The keyboarding deck covers **Weeks 14 and 15** (the title slide says "Week 14 & 15"; page 1 says only "WEEK 14"). It is filed once under `w14` as `w14-15-keyboarding`. There is no separate W15 file.
+- W18's file name includes "netiquette", but the title slide is "Introduction to the Internet and Email". Netiquette is W19.
+- **W20 is an assumption about the quarter in the file name only.** The file is named `comp3-q4-w20-…`, but the cover says **Quarter 3 – Week 20**, so it is filed as Q3 W20.
+- Mixed: some slides have a text layer; image-only slides are OCR (`eng`). Check the PDF before writing content.
+- Content errors (including the wrong home-keys picture, outdated search-engine advice, and a Facebook example) are listed in [`../SUBJECTS-PLAN.md`](../SUBJECTS-PLAN.md) §7. Do not copy them into the app.
 
 ## Adding new lessons
 Follow [`../ADDING-LESSONS.md`](../ADDING-LESSONS.md). In short: put PDFs in `lessons/<quarter>/<subject>/w<NN>/w<NN>-<topic-in-kebab-case>.pdf` with a matching `.extracted.txt`, and add a row above.

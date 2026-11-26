@@ -1,0 +1,449 @@
+Source: comp3-q3-w17-moving-copying-files.pdf
+Email: Computer — 26 Nov 2026 22:28 Asia/Manila — picazoeunicemae@gmail.com
+OCR text; check the PDF before writing content.
+
+--- page 1 ---
+SLE eet Prt DA]
+
+MOVING AND COPYING FILES
+
+
+--- page 2 ---
+     Learning TARGETS:
+
+01                                      02
+     I can move a file from one                     I can copy a file and place
+     folder to another.                             it in a new location.
+
+
+                03
+                         I can use cut, copy, and
+                         paste correctly.
+
+--- page 3 ---
+Move Command
+  You can transfer any file to the
+  desired folder if you have
+  accidentally saved it to other
+  folder.
+
+--- page 4 ---
+
+--- page 5 ---
+HELE EEE EE EEE See
+
+eco STEPS
+
+0 | SELECT THE FILE THAT YOU WANT TO MOVE. |
+
+= rr
+Pal rsh ioe wD
+
+be a? >
+
+
+--- page 6 ---
+HELE EEE EE EEE See
+
+eoo STEPS
+
+02 | RIGHT-CLICK ON THE FILE AND CHOOSE CUT. |
+
+Be. Be ab Rew? 9
+
+Ba, 7" * BR Ce B® =
+
+8c. So Be 25
+EOD ao MW Ban.
+a
+Bet PSAP e Pee
+
+Pimeenwn QD com 2
+
+
+--- page 7 ---
+rs
+5
+
+PELE ELLE EEE SSE
+eoo STEPS
+a G0 T0 THE FOLDER WHERE YOU WANT THE FILE T0 BE
+Se
+
+
+--- page 8 ---
+rs
+5
+
+PELE ELLE EEE SSE
+eoo STEPS
+om RIGHT-CLICK ON THE BLANK SPACE OF THE FOLDER
+AND CHOOSE PASTE. |
+
+
+--- page 9 ---
+rs
+5
+
+PELE ELLE EEE SSE
+eoo STEPS
+ca THE FILE IS NOW TRANSFERRED T0 ITS NEW
+
+LOCATION. |
+
+
+--- page 10 ---
+IN
+
+l
+ALTERNATE
+METHOD USING
+THE MOUSE
+
+SST] ) era
+
+
+--- page 11 ---
+PELE ELLE EEE SSE
+eoo STEPS
+ca | POSITION THE MOUSE POINTER OVER THE FILE YOU
+
+WANT TO MOVE.
+
+. ch
+Po) fm oe Oe oe
+
+
+--- page 12 ---
+HELE EEE EE EEE See
+
+@oo
+
+STEPS
+
+| |
+
+aos AND HOLD THE LEFT MOUSE BUTTON.
+
+eeu Ge f 1
+Peo) lf Bc em e Oe oe 2
+
+
+--- page 13 ---
+eoo STEPS
+
+03
+
+My Falder
+
+ome stare view | cure Bole
+
+Fe ie Ue movetor Delete *
+
+Peiocuck copy se [Bayto- Fromme
+
+| Captor
+Bae
+
+> MyFolder
+
+I ek cess
+© oveDtve-etsona
+
+Stee
+B30 Objects
+
+Bi decktop
+[2 Documents
+# Downloads
+2 Music
+
+= Petures
+
+‘hem 1 Rem salected 118 KB
+
+organize
+
+2-Copy
+
+fecer
+
+ist
+
+Propenies san
+Pes limenstleton patty
+Open Set aap
+
+© Search My Folder
+
+
+--- page 14 ---
+
+--- page 15 ---
+HELE EEE EE EEE See
+
+eco STEPS
+
+| 01 | SELECT THE FIE YOU WANT TO MOVE BY CLICKING IT. |
+
+=
+Pel 7™.s RH ee B®?
+
+e. S
+be? Fo :
+Satemeous Cy
+
+
+--- page 16 ---
+HELE EEE EE EEE See
+
+eco STEPS
+
+| 2 | | PRESS CTRL + X AT THE SAME TIME |
+
+BOS Br ab kee 28
+
+= Oo Pe Bee
+
+
+--- page 17 ---
+PELE ELLE EEE SSE
+eoo STEPS
+a | OPEN THE FOLDER WHERE YOU WANT THE FILE TO BE
+
+TRANSFERRED.
+
+ea, Bre abkeer 28
+
+be fe =| r : =
+
+
+--- page 18 ---
+eoo STEPS
+
+04
+
+ome stare view | cure Bole
+
+2 >) Be Hane |
+[BD A Baeews ote for Ms es &
+Pinto cuck Copy Paste Beopyto~ wf Renme NO Proper sant 1
+vec 1 Boore- | xi eer Se iBlimesteion  pacip
+| Cipboard Organize New Open Select axhip |
+Que |
+4 TE > My Folder YB Search MyFolder P|
+He Cub scess
+one) Persona —
+Stee |
+B20 Obpcts tony
+Mi deitop
+3 Documents
+$ Downoads
+D masic
+Braue
+
+‘hem 1 Rem salected 118 KB
+
+
+--- page 19 ---
+Copy Command
+
+  You can produce another copy of
+  files to serve as back-ups or to
+  bring along when we go out.
+
+--- page 20 ---
+
+--- page 21 ---
+HELE EEE EE EEE See
+
+@oo
+
+STEPS
+
+io ||
+
+CLICK AND HOLD DOWN THE LEFT MOUSE BUTTON. |
+
+=
+Pel 7™.s RH ee B®?
+
+ot fe >.
+oe FF 4
+su ees 0a * um
+
+
+--- page 22 ---
+     Steps
+02     Drag the file to the folder where you want it
+       to be copied while pressing down the Ctrl key.
+
+--- page 23 ---
+HELE EEE EE EEE See
+
+@oo
+
+STEPS
+
+a]
+
+YOU WILL NOTICE THE “+” BELOW THE MOUSE |
+POINTER.
+
+2 a
+= 2m = 2
+
+
+--- page 24 ---
+HELE EEE EE EEE See
+
+eoo STEPS
+
+| Genter
+
+
+--- page 25 ---
+IN
+
+l
+
+RIGHT-CLICK
+
+Sey}
+
+<\
+p |e|o] @
+ol; e p |:
+
+
+--- page 26 ---
+PELE ELLE EEE SSE
+eoo STEPS
+ca | SELECT THE FILE THAT YOU WANT TO COPY. |
+
+Ba; erabRen22
+
+(a F
+
+
+--- page 27 ---
+HELE EEE EE EEE See
+
+@oo
+
+STEPS
+
+|
+
+| RIGHT-CLICK THE FILE AND CHOOSE COPY. |
+
+
+--- page 28 ---
+HELE EEE EE EEE See
+
+eoo STEPS
+
+03 | OPEN THE FOLDER WHERE YOUWANT TO COPY
+THE FILE.
+
+Bao Bea ebkheer?® 8
+
+
+--- page 29 ---
+rs
+5
+
+HELE EEE EE EEE See
+
+@oo
+
+STEPS
+
+4
+
+RIGHT-CLICK ON THE BLANK SPACE OF THE
+FOLDER AND CHOOSE THE PASTE COMMAND.
+
+
+--- page 30 ---
+
+--- page 31 ---
+HELE EEE EE EEE See
+
+eco STEPS
+
+io || SELECT THE FIE YOU WANT TO COPY. |
+
+3 .
+
+
+--- page 32 ---
+HELE EEE EE EEE See
+
+eco STEPS
+
+| 2 | | PRESS CTRL + C AT THE SAME TIME |
+
+BOS Br ab kee 28
+
+= Oo Pe Bee
+
+
+--- page 33 ---
+PELE ELLE EEE SSE
+eoo STEPS
+a | OPEN THE FOLDER WHERE YOU WANT THE FILE TO BE
+
+COPIED.
+
+ea, Bre abkeer 28
+
+be fe =| r : =
+
+
+--- page 34 ---
+eoo STEPS
+
+04
+
+ome stare view | cure Bole
+
+2 >) Be Hane |
+[BD A Baeews ote for Ms es &
+Pinto cuck Copy Paste Beopyto~ wf Renme NO Proper sant 1
+vec 1 Boore- | xi eer Se iBlimesteion  pacip
+| Cipboard Organize New Open Select axhip |
+Que |
+4 TE > My Folder YB Search MyFolder P|
+He Cub scess
+one) Persona —
+Stee |
+B20 Obpcts tony
+Mi deitop
+3 Documents
+$ Downoads
+D masic
+Braue
+
+‘hem 1 Rem salected 118 KB
+
+
+--- page 35 ---
+Thank you!
+¿Tienes alguna pregunta?
+tuemail@freepik.com
++91 620 421 838                                                      Por favor, conserva esta
+tupaginaweb.com                                                    diapositiva para atribuirnos
+
+
+
+
+                           CRÉDITOS: Esta plantilla de presentación fue creada por Slidesgo, que
+                                                                                   Slidesgo
+
+
+
+
+                              incluye iconos de Flaticon e infografías e imágenes de Freepik
+                                                Flaticon                                      Freepik
+

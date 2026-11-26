@@ -1,0 +1,494 @@
+Source: comp3-q3-w16-files-and-folders.pdf
+Email: Computer — 26 Nov 2026 22:28 Asia/Manila — picazoeunicemae@gmail.com
+OCR text; check the PDF before writing content.
+
+--- page 1 ---
+Working with Files
+and Folders
+
+Quarter 3 — Week 16
+
+
+--- page 2 ---
+             Learning Targets:
+
+
+01   I can identify        I can create a new     02
+     different files and       file and folder.
+     folders on a
+     device.
+03 I can choose clear          I can save and 04
+     and appropriate file rename a file in the
+     names.                  correct location.
+
+--- page 3 ---
+Files
+These are the digital verion
+of a real-world object you
+can interact with on your
+computer.
+
+A file is represented by an
+icon.
+
+--- page 4 ---
+Folders
+
+These help you to organize
+files in your computer.
+
+You can put files inside a
+folder.
+
+micas
+CS
+fo Ft cua
+
+~ Frequent folds 0)
+
+ae
+i
+
+Ne
+
+aes
+
+
+--- page 5 ---
+             File Explorer
+
+
+It is also called Windows Explorer, is
+used to search, view and organize files
+to your computer.
+
+--- page 6 ---
+   To open File Explorer:
+
+
+Click the folder    Double-click any
+icon on the         folder on your
+taskbar             desktop. A new File
+                    Explorer window
+                    will appear.
+
+--- page 7 ---
+Tk > vik access
+
+Hick cess
+© oredr - Personal
+sais Pc
+B30 objects
+Boao
+ Dowaloads
+D Mase
+=Praues
+videos
+& Windows-S80 (C}
+
+Network
+
+28 tems
+
+dor xX | ew nem = joeen* select
+(Bvasestoran | Mev Corr | Dea Rame | Now eer vino Eww stecion
+~ Frequent folders (8)
+Desktop Downloads Documents Ficwres
+mis PC This PC ThsPC mere
+’ * ? =;
+3RO QUARTER compe TR comps fe sian 2524
+
+is POD \S¥-2003-2028
+
+a
+
+Race fs (20)
+
+&
+
+BB) comp3-q3-w2-fles-and-folders
+lla computrs-2028-2024
+
+slsbuscomputers-2023-2004
+elegant ranqul blue business base template
+
+BB) comps-q3-v2-ppt-views
+
+slabs computerd 2023-2024
+
+compl qB-n2-stting-msword
+
+compat
+
+Bly
+
+compl-qB-u1-parsofms-word
+
+Ths POD_\3RD QUARTER
+
+Ths POD_S-2023-2028
+
+)
+
+TasPop.RO QUARTER
+
+This PC}Dacuments\SY-2023-2026\3RD QUARTER\comp3
+This PCADocuments\S¥-2023-2028\SVLLABUS 23-24
+
+This PO(Dacuments\S¥-2023-2024\S¥LLABUS 23-24
+
+This Downloads
+
+This PO(Dacuments\S¥-2023-2026\3RD QUARTER\compS
+This PCADocuments\S¥-2023-2028\SVLLABUS 23-24
+
+This PO\Dacuments\S¥-2023-2026\3RD QUARTER\ comp
+This PCADocuments\S¥-2023-2028\SVLLABUS 23-24
+
+This PO\Dacuments\S¥-2023-2026\3RD QUARTER\ comp
+
+2
+
+
+--- page 8 ---
+eecccee
+oe - 6
+oe e
+oe
+tak yet a
+ori
+TP > Cui access YD) Search Quik acess
+ZOE \ Frequent folders (®
+
+3
+
+* * * atta
+
+Bs objects 380 QUARTER
+gE Tis POD. S¥-2023-2024
+
+Recent files (20)
+
+& Windows-$50 (¢)
+
+aa Double-click a folder to open it. You can
+see all of the files stored in that folder.
+
+20 tems
+
+a
+
+
+--- page 9 ---
+He Ouse acces
+© one 01e- esonsl He
+inst a
+
+"B30 objets s¥ 20062005
+bean
+locas =
+d mesic . on Y
+= Pictures ~
+sv202-2001 Meqaw-anne —GALATIANS—«PERODICAL «== WMD. UTADGB treo Wondahare
+Bi vieos tronow at 2a AMS
+
+2 Wilows50 (C]
+
+Aor tems
+
+[eal
+
+stom Ofer Meee Vauks 2 Terjourol ae ‘eve test, Books st compé-a2-W5-p
+Templates
+
+You can also see the location of a folder in the
+address bar near the top of the window.
+
+
+--- page 10 ---
+@
+
+01
+
+Two main ways in opening a file:
+
+Find the file
+on your
+computer and
+double-click
+it
+
+OS wee xe LE
+
+vase Beams =famane few 1 popes
+Oramie lw Oven
+Te © v 4% B> tise > Documents YB Search Doe 2
+
+2 Quick access
+J @Onedrive - Personal
+| Shere
+
+B30 Objects
+
+Wi Desktop
+
+
+--- page 11 ---
+     Two main ways in opening a file:
+
+      Open the
+02    application,
+      then click the
+      File tab and
+      select Open.
+
+--- page 12 ---
+A Moving and
+Deleting files
+
+eccccee
+seeccee
+seccees
+eovccee
+
+
+--- page 13 ---
+     Moving and Deleting files
+
+
+Windows allows you to move files to different
+folders and delete files you no longer use.
+
+--- page 14 ---
+01
+
+To move a file:
+
+BB Documents - oOo x
+
+Click and drag "3 gis, wee ES Gare
+
+the file to the
+desired
+location.
+
+40T tems 1 item selected 430 KB
+
+copy (em — =ssearone GP
+Dintoaice Cepy fae sot Penne New Pers Son
+eae A ratestoriaa [Eiorywor hi seh PS etry fl ivertstecton party
+phos covgaze New open seen
+Bae
+© > + 1B? msec > dowmens YB Seach Documents P
+Hui acess
+© oreDave - Personal
+thie Pc
+B20 Objects si-zmuan Zoom us
+Desktop
+Documents
+¥ Downicads
+2 muse
+Speirs fH4.qtow5-petat League of
+videos tea
+2. Windows-SSD (Ca 2 = = =. —
+
+
+--- page 15 ---
+To move a file:
+
+Release the + Si mee EE Gare
+
+reeds GSE Geeeeres oa @ eae Beem Ge
+aoe se shonan folder 7 JeHsiory EA Invert setection rp
+02 mouse. The cm wee |e |e |
+
+Boe
+
+© > © PB > ThisPC > Documents > S¥-2003-2008 YD Seaten$¥-2003-2028
+
+file will appear OE suomi aageee onsen
+
+Quick access 2quiza
+
+inthenew = | So
+location. woes ees eS Goo |
+
+BE Doane doc ie
+
+4 Downloads
+} Music
+Pictures
+Bvideos
+
+_ Windows-SSD C3 o
+aBitems Tito selectad 430 KB
+
+
+--- page 16 ---
+B Creating a
+New Folder
+
+eccccee
+seeccee
+seccees
+eovccee
+
+
+--- page 17 ---
+To create a new folder:
+
+Within the
+01
+locate and
+select the
+New Folder
+button.
+
+File explorer,
+
+2x a0Frn o&
+mn te Ge © wr  Hinary
+
+os
+4a
+© > + > Bl? Thisec > Documents
+at Quick access:
+bathe ec “4
+30 Objects S¥ 2024-2025 Roth
+WB Desktop
+BElpocimens! = A
+5
+$ Downloads @p 4
+© Pictures .
+
+S¥-2022-2023 PERIODICAL
+
+
+--- page 18 ---
+orwarize
+
+Type the
+02 desired name oe
+
+for the folder sw...
+and press mt \2 a)
+Enter. _
+
+a tm NSS
+
+
+--- page 19 ---
+C Renaming a
+File or Folder
+
+eccccee
+seeccee
+seccees
+eovccee
+
+
+--- page 20 ---
+ A unique name will make it easier to remember
+  what type of imformation is saved in the file or
+                     folder.
+     Click the file or
+01   folder, wait
+     about one
+     second, and click
+     again. An
+     editable text
+     field will appear.
+
+--- page 21 ---
+ A unique name will make it easier to remember
+  what type of imformation is saved in the file or
+                     folder.
+     Type the desired
+02   name on your
+     keyboard and
+     press Enter. The
+     name will be
+     changed.
+
+--- page 22 ---
+  A unique name will make it easier to remember
+   what type of imformation is saved in the file or
+                      folder.
+       You can also
+Note   right-click the
+       folder and select
+       Rename from
+       the menu that
+       appears.
+
+--- page 23 ---
+D Deleting a File
+or Folder
+
+eccccee
+seeccee
+seccees
+eovccee
+
+
+--- page 24 ---
+     When you delete a file, it is moved to the
+                 Recycle Bin.
+
+
+     Click and drag
+01   the file to the
+     Recycle Bin icon
+     on the desktop.
+
+--- page 25 ---
+     When you delete a file, it is moved to the
+                 Recycle Bin.
+
+
+
+       You can also click the file and
+02     press the Delete key on your
+       keyboard.
+
+--- page 26 ---
+     When you delete a file, it is moved to the
+                 Recycle Bin.
+
+
+     Right-click on
+03   the file or folder
+     then select
+     Delete from the
+     options.
+
+--- page 27 ---
+     To permanently delete all the files in the
+                Recycled Bin:
+
+      Right-click the
+04    Recycled Bin
+      and select
+      Empty Recycle
+      Bin.
+
+--- page 28 ---
+   Thank you for
+     listening
+                                                     Slidesgo                      Flaticon
+
+
+
+
+CREDITS: This presentation template was created by Slidesgo, and includes icons by Flaticon,
+                                                                Freepik
+
+
+
+
+                           and infographics & images by Freepik
+
+
+
+                            Please keep this slide for attribution
+
