@@ -25,6 +25,22 @@ function assertChoices(choices: Choice[], correctId: string, label: string) {
 
 function assertPrompt(item: PromptItem) {
   assertChoices(item.choices, item.correctId, item.prompt)
+  const explanation = item.explanation.trim().toLowerCase()
+  const named = item.choices.filter((choice) => {
+    const label = choice.label.trim().toLowerCase()
+    if (label.length < 3) return false
+    return (
+      explanation === label ||
+      explanation.startsWith(`${label} `) ||
+      explanation.startsWith(`${label}.`) ||
+      explanation.startsWith(`${label},`)
+    )
+  })
+  if (named.length === 1 && named[0] && named[0].id !== item.correctId) {
+    throw new Error(
+      `The explanation names "${named[0].label}", but a different choice is marked correct: ${item.prompt}`,
+    )
+  }
 }
 
 type DeskItem = NonNullable<WeekContent["fileDesk"]>[number]
